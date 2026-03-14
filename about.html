@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Neelkanth | Pro Options Selling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+            --gold: #f0b429;
+            --blue-tg: #38bdf8;
+            --green: #22c55e;
+        }
+
+        /* ─── BG Grid ─── */
+        .about-page-bg {
+            background-color: #080e1a;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            min-height: 100vh;
+        }
+
+        /* ─── Hero Banner ─── */
+        .about-hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(240, 180, 41, .12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .about-hero .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(240, 180, 41, .12);
+            border: 1px solid rgba(240, 180, 41, .35);
+            color: var(--gold);
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 7px 18px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+        }
+
+        .about-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .about-hero h1 span {
+            color: var(--gold);
+        }
+
+        .about-hero p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ─── Grid Wrapper ─── */
+        .about-grid-section {
+            padding: 80px 0 100px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+            gap: 18px;
+        }
+
+        /* ─── Glass Card Base ─── */
+        .bento-card {
+            background: rgba(255, 255, 255, .04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .3s, transform .3s;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(240, 180, 41, .3);
+            transform: translateY(-4px);
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .15), transparent);
+        }
+
+        /* ─── Card Placement ─── */
+        .card-photo {
+            grid-column: 1 / 6;
+            grid-row: 1;
+        }
+
+        .card-intro {
+            grid-column: 6 / 13;
+            grid-row: 1;
+        }
+
+        .card-stat1 {
+            grid-column: 1 / 4;
+            grid-row: 2;
+        }
+
+        .card-stat2 {
+            grid-column: 4 / 7;
+            grid-row: 2;
+        }
+
+        .card-stat3 {
+            grid-column: 7 / 10;
+            grid-row: 2;
+        }
+
+        .card-stat4 {
+            grid-column: 10 / 13;
+            grid-row: 2;
+        }
+
+        .card-highlights {
+            grid-column: 1 / 7;
+            grid-row: 3;
+        }
+
+        .card-telegram {
+            grid-column: 7 / 13;
+            grid-row: 3;
+        }
+
+        .card-mission {
+            grid-column: 1 / 13;
+            grid-row: 4;
+        }
+
+        /* ─── Photo Card ─── */
+        .card-photo {
+            padding: 0;
+            display: flex;
+            align-items: stretch;
+            background: linear-gradient(135deg, rgba(240, 180, 41, .08) 0%, rgba(15, 23, 42, .9) 100%);
+        }
+
+        .card-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 20px;
+            min-height: 380px;
+            display: block;
+        }
+
+        .card-photo .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(to top, rgba(8, 14, 26, .95) 0%, transparent 100%);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .card-photo .photo-overlay h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .card-photo .photo-overlay p {
+            color: #94a3b8;
+            font-size: .9rem;
+            margin: 0;
+        }
+
+        /* ─── Intro Card ─── */
+        .card-intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-intro .card-tag {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .card-intro h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .card-intro p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+
+        .strategy-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(240, 180, 41, .1);
+            border: 1px solid rgba(240, 180, 41, .25);
+            color: var(--gold);
+            font-size: .8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        /* ─── Stat Cards ─── */
+        .stat-card {
+            text-align: center;
+            background: rgba(255, 255, 255, .035);
+        }
+
+        .stat-card .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
+        }
+
+        .stat-card .stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            color: #64748b;
+            font-size: .85rem;
+        }
+
+        .gold-icon {
+            background: rgba(240, 180, 41, .15);
+            color: var(--gold);
+        }
+
+        .green-icon {
+            background: rgba(34, 197, 94, .15);
+            color: var(--green);
+        }
+
+        .blue-icon {
+            background: rgba(56, 189, 248, .15);
+            color: var(--blue-tg);
+        }
+
+        .red-icon {
+            background: rgba(239, 68, 68, .15);
+            color: #ef4444;
+        }
+
+        .gold-num {
+            color: var(--gold);
+        }
+
+        .green-num {
+            color: var(--green);
+        }
+
+        .blue-num {
+            color: var(--blue-tg);
+        }
+
+        .red-num {
+            color: #ef4444;
+        }
+
+        /* ─── Highlights Card ─── */
+        .card-highlights h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .highlight-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, .04);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            transition: background .2s;
+        }
+
+        .highlight-list li:hover {
+            background: rgba(255, 255, 255, .07);
+        }
+
+        .hl-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .hl-text h4 {
+            color: #fff;
+            font-size: .95rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .hl-text p {
+            color: #64748b;
+            font-size: .82rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ─── Telegram Card ─── */
+        .card-telegram {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(0, 50, 80, .8) 100%);
+            border-color: rgba(56, 189, 248, .2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-telegram::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(56, 189, 248, .07);
+            pointer-events: none;
+        }
+
+        .tg-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tg-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(56, 189, 248, .35);
+        }
+
+        .tg-header-text h3 {
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .tg-header-text p {
+            color: #38bdf8;
+            font-size: .85rem;
+        }
+
+        .tg-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tg-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cbd5e1;
+            font-size: .9rem;
+        }
+
+        .tg-features li i {
+            color: var(--green);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .tg-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            color: #0f172a;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: transform .25s, box-shadow .25s;
+            box-shadow: 0 8px 24px rgba(56, 189, 248, .25);
+        }
+
+        .tg-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(56, 189, 248, .4);
+        }
+
+        .tg-btn i {
+            font-size: 1.3rem;
+        }
+
+        .tg-member-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 189, 248, .1);
+            border: 1px solid rgba(56, 189, 248, .25);
+            color: #38bdf8;
+            font-size: .75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .tg-member-badge span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: inline-block;
+            animation: pulseDot 1.5s infinite;
+        }
+
+        /* ─── Mission Card ─── */
+        .card-mission {
+            background: linear-gradient(90deg, rgba(240, 180, 41, .07) 0%, rgba(8, 14, 26, .9) 100%);
+            border-color: rgba(240, 180, 41, .15);
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .mission-quote {
+            flex: 1;
+        }
+
+        .mission-quote blockquote {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.5;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mission-quote blockquote span {
+            color: var(--gold);
+        }
+
+        .mission-cta {
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .mission-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: #0f172a;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            font-size: .95rem;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform .25s, box-shadow .25s;
+            box-shadow: 0 8px 24px rgba(240, 180, 41, .25);
+        }
+
+        .mission-cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(240, 180, 41, .4);
+        }
+
+        /* ─── Animations ─── */
+        @keyframes pulseDot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .3;
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bento-card {
+            animation: fadeSlideUp .5s ease both;
+        }
+
+        .card-photo {
+            animation-delay: .05s;
+        }
+
+        .card-intro {
+            animation-delay: .1s;
+        }
+
+        .card-stat1 {
+            animation-delay: .15s;
+        }
+
+        .card-stat2 {
+            animation-delay: .2s;
+        }
+
+        .card-stat3 {
+            animation-delay: .25s;
+        }
+
+        .card-stat4 {
+            animation-delay: .3s;
+        }
+
+        .card-highlights {
+            animation-delay: .35s;
+        }
+
+        .card-telegram {
+            animation-delay: .4s;
+        }
+
+        .card-mission {
+            animation-delay: .45s;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card-photo {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+
+            .card-intro {
+                grid-column: 1 / 3;
+                grid-row: 2;
+            }
+
+            .card-stat1 {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            .card-stat2 {
+                grid-column: 2;
+                grid-row: 3;
+            }
+
+            .card-stat3 {
+                grid-column: 1;
+                grid-row: 4;
+            }
+
+            .card-stat4 {
+                grid-column: 2;
+                grid-row: 4;
+            }
+
+            .card-highlights {
+                grid-column: 1 / 3;
+                grid-row: 5;
+            }
+
+            .card-telegram {
+                grid-column: 1 / 3;
+                grid-row: 6;
+            }
+
+            .card-mission {
+                grid-column: 1 / 3;
+                grid-row: 7;
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-photo {
+                grid-column: 1;
+            }
+
+            .card-intro {
+                grid-column: 1;
+            }
+
+            .card-stat1,
+            .card-stat2,
+            .card-stat3,
+            .card-stat4 {
+                grid-column: 1;
+            }
+
+            .card-highlights,
+            .card-telegram,
+            .card-mission {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="about-page-bg">
+
+    <!-- Sticky Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <i class='bx bx-line-chart'></i> Pro<span>Options</span>
+            </a>
+            <nav class="desktop-nav">
+                <a href="index.html#challenge">Challenge</a>
+                <a href="index.html#about">Philosophy</a>
+                <a href="index.html#plans">Mentorship</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="about.html" style="color:#f0b429; font-weight:700;">About</a>
+            </nav>
+            <div class="header-cta">
+                <a href="join.html" class="btn btn-primary btn-small">Join Now</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class='bx bx-menu'></i>
+            </button>
+        </div>
+        <div class="mobile-nav">
+            <a href="index.html#challenge" class="mobile-link">Challenge</a>
+            <a href="index.html#about" class="mobile-link">Philosophy</a>
+            <a href="index.html#plans" class="mobile-link">Mentorship</a>
+            <a href="index.html#faq" class="mobile-link">FAQ</a>
+            <a href="about.html" class="mobile-link" style="color:#f0b429;">About</a>
+            <a href="join.html" class="btn btn-primary" style="margin: 1rem;">Join Now</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ── Hero ── -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="pill">
+                    <i class='bx bx-user-circle'></i> The Mentor Behind Pro Options
+                </div>
+                <h1>Meet <span>Neelkanth</span></h1>
+                <p>Professional Option Seller · Market Strategist · Mentor to Serious Traders</p>
+            </div>
+        </section>
+
+        <!-- ── Bento Grid ── -->
+        <section class="about-grid-section">
+            <div class="container">
+                <div class="bento-grid">
+
+                    <!-- Photo -->
+                    <div class="bento-card card-photo">
+                        <img src="neelkanth.jpg" alt="Neelkanth – Professional Option Seller">
+                        <div class="photo-overlay">
+                            <h3>Neelkanth</h3>
+                            <p>Pro Option Seller &amp; Trading Mentor</p>
+                        </div>
+                    </div>
+
+                    <!-- Intro -->
+                    <div class="bento-card card-intro">
+                        <div class="card-tag"><i class='bx bx-book-open'></i> &nbsp;Story &amp; Expertise</div>
+                        <h2>Turning Retail Traders Into <span style="color:var(--gold)">Disciplined Professionals</span>
+                        </h2>
+                        <p>With years of dedicated screen time and real-money experience, Neelkanth has built a
+                            systematic, institutional-style approach to option selling that empowers retail traders to
+                            stop gambling and start building a real trading business.</p>
+                        <p>Every day through his Telegram channel <strong
+                                style="color:#38bdf8">@TradewithNeel24241</strong>, he shares verified trade setups,
+                            real strategy breakdowns, and his clients' daily profit reports — completely transparently.
+                        </p>
+                        <div class="strategy-chips">
+                            <span class="chip"><i class='bx bx-target-lock'></i> SENSEX Options</span>
+                            <span class="chip"><i class='bx bx-shield-quarter'></i> Risk Management</span>
+                            <span class="chip"><i class='bx bx-trending-up'></i> Theta Decay Strategy</span>
+                            <span class="chip"><i class='bx bx-time-five'></i> 1 Trade / Day</span>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="bento-card stat-card card-stat1">
+                        <div class="stat-icon gold-icon"><i class='bx bxs-star'></i></div>
+                        <div class="stat-num gold-num">78<span style="font-size:1.4rem">%</span></div>
+                        <div class="stat-label">Win Rate</div>
+                    </div>
+                    <div class="bento-card stat-card card-stat2">
+                        <div class="stat-icon green-icon"><i class='bx bx-rupee'></i></div>
+                        <div class="stat-num green-num">10K<span style="font-size:1.2rem; color:#64748b">/day</span>
+                        </div>
+                        <div class="stat-label">Client Avg. Profit</div>
+                    </div>
+                    <div class="bento-card stat-card card-stat3">
+                        <div class="stat-icon blue-icon"><i class='bx bx-group'></i></div>
+                        <div class="stat-num blue-num">500<span style="font-size:1.2rem">+</span></div>
+                        <div class="stat-label">Active Learners</div>
+                    </div>
+                    <div class="bento-card stat-card card-stat4">
+                        <div class="stat-icon red-icon"><i class='bx bx-calendar-check'></i></div>
+                        <div class="stat-num red-num">15</div>
+                        <div class="stat-label">Days Challenge</div>
+                    </div>
+
+                    <!-- Highlights -->
+                    <div class="bento-card card-highlights">
+                        <h3><i class='bx bxs-badge-check' style="color:var(--gold); margin-right:8px;"></i>What
+                            Neelkanth Offers</h3>
+                        <ul class="highlight-list">
+                            <li>
+                                <div class="hl-icon gold-icon"><i class='bx bx-line-chart-down'></i></div>
+                                <div class="hl-text">
+                                    <h4>Professional Option Selling Strategy</h4>
+                                    <p>Institutional-grade, theta-based setups posted daily with full logic — no
+                                        black-box tips.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="hl-icon green-icon"><i class='bx bx-shield-quarter'></i></div>
+                                <div class="hl-text">
+                                    <h4>Systematic Risk &amp; Money Management</h4>
+                                    <p>Strict SL discipline, proper lot-sizing framework, and capital preservation
+                                        rules.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="hl-icon blue-icon"><i class='bx bxl-telegram'></i></div>
+                                <div class="hl-text">
+                                    <h4>Daily Client Profit Reports</h4>
+                                    <p>Real P&amp;L screenshots from real clients, shared transparently every trading
+                                        day on Telegram.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Telegram CTA -->
+                    <div class="bento-card card-telegram">
+                        <div>
+                            <div class="tg-member-badge">
+                                <span></span> Live Channel
+                            </div>
+                            <div class="tg-header">
+                                <div class="tg-logo"><i class='bx bxl-telegram'></i></div>
+                                <div class="tg-header-text">
+                                    <h3>@TradewithNeel24241</h3>
+                                    <p>Neelkanth's Official Telegram</p>
+                                </div>
+                            </div>
+                            <ul class="tg-features">
+                                <li><i class='bx bx-check-circle'></i> Daily trade setups &amp; strategy explained</li>
+                                <li><i class='bx bx-check-circle'></i> Verified client profit reports posted daily</li>
+                                <li><i class='bx bx-check-circle'></i> Live market analysis &amp; commentary</li>
+                                <li><i class='bx bx-check-circle'></i> Community of 500+ serious traders</li>
+                                <li><i class='bx bx-check-circle'></i> 100% Free to join</li>
+                            </ul>
+                        </div>
+                        <a href="https://t.me/TradewithNeel24241" target="_blank" class="tg-btn">
+                            <i class='bx bxl-telegram'></i> Join the Channel Now
+                        </a>
+                    </div>
+
+                    <!-- Mission / Quote -->
+                    <div class="bento-card card-mission">
+                        <div class="mission-quote">
+                            <p
+                                style="color:#64748b; font-size:.8rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:14px;">
+                                — Neelkanth's Motto</p>
+                            <blockquote>
+                                "One income runs your family.<br>
+                                <span>A second income built on discipline builds your wealth.</span>"
+                            </blockquote>
+                        </div>
+                        <div class="mission-cta">
+                            <p style="color:#64748b; font-size:.9rem; margin-bottom:16px; max-width: 200px;">Ready to
+                                trade like a professional?</p>
+                            <a href="join.html">
+                                <i class='bx bx-right-arrow-alt'></i> Join the Challenge
+                            </a>
+                        </div>
+                    </div>
+
+                </div><!-- /.bento-grid -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo mb-3 d-inline-block">
+                        <i class='bx bx-line-chart'></i> Pro<span>Options</span>
+                    </a>
+                    <p class="text-sm text-gray-400">Professional option selling mentorship for serious traders looking
+                        for consistent income.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#challenge">The Challenge</a>
+                    <a href="index.html#about">Philosophy</a>
+                    <a href="index.html#plans">Pricing</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class='bx bx-phone'></i> +91 9172 568 611</p>
+                    <p><i class='bx bx-phone'></i> +91 7219 152 027</p>
+                    <p style="margin-top:10px;"><a href="https://t.me/TradewithNeel24241"
+                            style="color:#38bdf8; text-decoration:none;"><i class='bx bxl-telegram'></i>
+                            @TradewithNeel24241</a></p>
+                </div>
+            </div>
+            <div class="disclaimer mt-5">
+                <h4><i class='bx bx-error-circle'></i> Legal Disclaimer</h4>
+                <p>Stock market investments and trading are subject to market risks. Past performance does not guarantee
+                    future results. The information, strategies, and techniques discussed in this mentorship program are
+                    for educational and mentorship purposes only and should not be construed as investment advisery
+                    given by a SEBI registered investment adviser. You are fully responsible for any trading decisions
+                    you make.</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Pro Options Selling. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
