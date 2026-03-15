@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# If the request is not for a real file
+RewriteCond %{REQUEST_FILENAME} !-f
+# And it's not for a real directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# And a matching .html file exists
+RewriteCond %{REQUEST_FILENAME}.html -f
+# Rewrite the clean URL to the .html file under the hood
+RewriteRule ^(.*)$ $1.html [L]
