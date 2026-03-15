@@ -282,7 +282,7 @@
                         };
 
                         try {
-                            const response = await fetch('/api/apply-mentorship', {
+                            const response = await fetch('api.php?action=apply_mentorship', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify(formData)

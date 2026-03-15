@@ -825,7 +825,7 @@
             btn.disabled = true;
 
             try {
-                const response = await fetch('/api/send-roadmap', {
+                const response = await fetch('api.php?action=send_roadmap', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -1,4 +1,4 @@
-name: Deploy Node.js App to MilesWeb
+name: Deploy to MilesWeb
 
 on:
   push:
@@ -19,10 +19,11 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /production/ # Change this to your exact cPanel folder path!
+        server-dir: /public_html/
         exclude: |
           **/.git*
           **/.git*/**
           **/node_modules/**
           .env
           deploy.zip
+          config.php
