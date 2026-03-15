@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Challenge | Professional Option Selling</title>
-    <meta name="description" content="Apply for the 15-Day Option Selling Challenge.">
+    <meta name="description" content="Apply for the 12-Day Option Selling Business Program.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,11 +135,11 @@
     <!-- Simple Header -->
     <header class="header scrolled">
         <div class="container header-content">
-            <a href="index.html" class="logo">
+            <a href="/homepage" class="logo">
                 <i class='bx bx-line-chart'></i> Pro<span>Options</span>
             </a>
             <div class="header-cta">
-                <a href="index.html" class="btn btn-outline btn-small">Back Home</a>
+                <a href="/homepage" class="btn btn-outline btn-small">Back Home</a>
             </div>
         </div>
     </header>
@@ -155,7 +155,7 @@
                         <span class="section-tag bg-blue-dim text-blue mb-3">Limited Spots Available</span>
                         <h1 class="section-title mb-4" style="font-size: 3rem; line-height: 1.2;">Your Journey to
                             <br><span class="gradient-text-gold">Consistent Income</span> Starts Here</h1>
-                        <p class="section-desc mb-5 text-gray-300">Join the exclusive 15-Day Mentorship Challenge. We
+                        <p class="section-desc mb-5 text-gray-300">Join the exclusive 12-Day Option Selling Business Program. We
                             strictly evaluate all applications to ensure serious commitment before onboarding.</p>
 
                         <div class="benefits-list mb-5">
@@ -243,14 +243,14 @@
                             </form>
 
                             <!-- Success State -->
-                            <div class="success-overlay" id="successOverlay">
+                            <div class="success-overlay" id="successOverlay" style="display: none;">
                                 <i class='bx bxs-check-circle bounce'></i>
                                 <h3 class="gradient-text-green mb-2">Application Received!</h3>
                                 <p class="text-sm mb-4">An automated email has been sent to your inbox. Your appointment
                                     request with the mentor is registered.</p>
                                 <p class="text-sm text-gray-400 mb-4">Our team will contact you shortly to review your
                                     requirements.</p>
-                                <a href="index.html" class="btn btn-outline">Return Home</a>
+                                <a href="/homepage" class="btn btn-outline">Return Home</a>
                             </div>
                         </div>
                     </div>
@@ -258,6 +258,56 @@
                 </div>
             </div>
         </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const joinForm = document.getElementById('joinForm');
+                const successOverlay = document.getElementById('successOverlay');
+                const submitBtn = joinForm.querySelector('button[type="submit"]');
+
+                if (joinForm) {
+                    joinForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        
+                        const originalBtnText = submitBtn.innerHTML;
+                        submitBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Submitting...";
+                        submitBtn.disabled = true;
+
+                        const formData = {
+                            name: document.getElementById('name').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value,
+                            experience: document.getElementById('experience').value,
+                            capital: document.getElementById('capital').value
+                        };
+
+                        try {
+                            const response = await fetch('/api/apply-mentorship', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(formData)
+                            });
+
+                            const data = await response.json();
+
+                            if (data.success) {
+                                joinForm.style.display = 'none';
+                                successOverlay.style.display = 'flex';
+                            } else {
+                                alert('Error: ' + data.message);
+                                submitBtn.innerHTML = originalBtnText;
+                                submitBtn.disabled = false;
+                            }
+                        } catch (error) {
+                            console.error('Submit Error:', error);
+                            alert('Something went wrong. Please try again.');
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        }
+                    });
+                }
+            });
+        </script>
     </main>
 
     <!-- Footer -->
@@ -265,7 +315,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo mb-3 d-inline-block">
+                    <a href="/homepage" class="logo mb-3 d-inline-block">
                         <i class='bx bx-line-chart'></i> Pro<span>Options</span>
                     </a>
                     <p class="text-sm text-gray-400">Professional option selling mentorship for serious traders looking
@@ -273,10 +323,10 @@
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <a href="index.html#challenge">The Challenge</a>
-                    <a href="index.html#about">Philosophy</a>
-                    <a href="index.html#plans">Pricing</a>
-                    <a href="index.html#faq">FAQ</a>
+                    <a href="/homepage#challenge">The Challenge</a>
+                    <a href="/homepage#about">Philosophy</a>
+                    <a href="/homepage#plans">Pricing</a>
+                    <a href="/homepage#faq">FAQ</a>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Us</h4>

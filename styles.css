@@ -817,10 +817,43 @@ img {
     box-shadow: 0 0 10px rgba(239, 68, 68, 0.1);
 }
 
-/* Static Candles - Uptrend Pattern */
+/* Candle Float Keyframes - each candle gets a unique oscillation */
+/* Candle Float Keyframes - each candle gets a unique oscillation */
+@keyframes candleFloat1 {
+    0%   { transform: translateY(-10px); }
+    50%  { transform: translateY(-22px); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes candleFloat2 {
+    0%   { transform: translateY(-15px); }
+    50%  { transform: translateY(-30px); }
+    100% { transform: translateY(-15px); }
+}
+@keyframes candleFloat3 {
+    0%   { transform: translateY(-30px); }
+    50%  { transform: translateY(-18px); }
+    100% { transform: translateY(-30px); }
+}
+@keyframes candleFloat4 {
+    0%   { transform: translateY(-40px); }
+    50%  { transform: translateY(-58px); }
+    100% { transform: translateY(-40px); }
+}
+@keyframes candleFloat5 {
+    0%   { transform: translateY(-80px); }
+    50%  { transform: translateY(-64px); }
+    100% { transform: translateY(-80px); }
+}
+@keyframes candleFloat6 {
+    0%   { transform: translateY(-70px); }
+    50%  { transform: translateY(-88px); }
+    100% { transform: translateY(-70px); }
+}
+
+/* Animated Candles - Uptrend Pattern */
 .c-1 {
     height: 70px;
-    transform: translateY(-10px);
+    animation: candleFloat1 3.2s ease-in-out infinite;
 }
 
 .c-1 .wick {
@@ -835,7 +868,7 @@ img {
 
 .c-2 {
     height: 90px;
-    transform: translateY(-15px);
+    animation: candleFloat2 3.8s ease-in-out infinite 0.4s;
 }
 
 .c-2 .wick {
@@ -850,7 +883,7 @@ img {
 
 .c-3 {
     height: 50px;
-    transform: translateY(-30px);
+    animation: candleFloat3 2.9s ease-in-out infinite 0.8s;
 }
 
 .c-3 .wick {
@@ -865,7 +898,7 @@ img {
 
 .c-4 {
     height: 110px;
-    transform: translateY(-40px);
+    animation: candleFloat4 4.1s ease-in-out infinite 1.2s;
 }
 
 .c-4 .wick {
@@ -880,7 +913,7 @@ img {
 
 .c-5 {
     height: 60px;
-    transform: translateY(-80px);
+    animation: candleFloat5 3.5s ease-in-out infinite 1.6s;
 }
 
 .c-5 .wick {
@@ -895,7 +928,7 @@ img {
 
 .c-6 {
     height: 130px;
-    transform: translateY(-70px);
+    animation: candleFloat6 4.4s ease-in-out infinite 2.0s;
 }
 
 .c-6 .wick {
@@ -971,10 +1004,10 @@ img {
     }
 
     60% {
-        height: 40%;
+        height: 25%;
         top: 40%;
-        background: var(--green);
-        box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+        background: var(--red);
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
     }
 
     80% {
@@ -991,7 +1024,6 @@ img {
         box-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
     }
 }
-
 .trade-stats {
     display: flex;
     justify-content: space-between;
