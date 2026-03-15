@@ -1,5 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // 0. Preloader Hider
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('loaded');
+            }, 800); // Allow some time for animations
+        });
+        
+        // Fallback for cases where 'load' event already fired or takes too long
+        setTimeout(() => {
+            if (!preloader.classList.contains('loaded')) {
+                preloader.classList.add('loaded');
+            }
+        }, 3000);
+    }
+
     // 1. Sticky Header Functionality
     const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
