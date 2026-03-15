@@ -24,6 +24,21 @@
 
 <body>
 
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-candles">
+                <div class="preloader-candle green" style="--h: 40px; --delay: 0s"></div>
+                <div class="preloader-candle red" style="--h: 55px; --delay: 0.15s"></div>
+                <div class="preloader-candle green" style="--h: 35px; --delay: 0.3s"></div>
+                <div class="preloader-candle green" style="--h: 60px; --delay: 0.45s"></div>
+                <div class="preloader-candle red" style="--h: 30px; --delay: 0.6s"></div>
+            </div>
+            <div class="preloader-logo">Pro <span>Options</span></div>
+            <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+        </div>
+    </div>
+
     <!-- Live Stock Ticker -->
     <div class="ticker-wrap">
         <div class="ticker">
@@ -939,6 +954,17 @@
                 btn.disabled = false;
             }
         }
+    </script>
+    <!-- Preloader Script -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const preloader = document.getElementById('preloader');
+                if(preloader) {
+                    preloader.classList.add('loaded');
+                }
+            }, 600); // 0.6s delay to show the animation
+        });
     </script>
 </body>
 
