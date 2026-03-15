@@ -1,10 +1,16 @@
 RewriteEngine On
+RewriteBase /
 
-# If the request is not for a real file
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Hide .html extension
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Route clean URLs to .html files
 RewriteCond %{REQUEST_FILENAME} !-f
-# And it's not for a real directory
 RewriteCond %{REQUEST_FILENAME} !-d
-# And a matching .html file exists
 RewriteCond %{REQUEST_FILENAME}.html -f
-# Rewrite the clean URL to the .html file under the hood
 RewriteRule ^(.*)$ $1.html [L]
