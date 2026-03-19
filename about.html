@@ -11,7 +11,27 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Preloader Critical CSS -->
+    <style>
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #05070a;
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+            font-family: 'Inter', sans-serif;
+        }
+        #preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
 
     <style>
         :root {
@@ -793,9 +813,45 @@
             <span class="pl-bar-pct" id="pctLabel">0%</span>
           </div>
         </div>
-
-      </div>
     </div>
+
+    <!-- Preloader Logic -->
+    <script>
+        (function() {
+            const preloader = document.getElementById('preloader');
+            const barFill = document.getElementById('barFill');
+            const pctLabel = document.getElementById('pctLabel');
+            if (preloader) {
+                let progress = 0;
+                const startTime = Date.now();
+                const duration = 2000;
+                const interval = setInterval(() => {
+                    const elapsed = Date.now() - startTime;
+                    progress = Math.min((elapsed / duration) * 100, 100);
+                    if (progress < 99) {
+                        progress += (Math.random() - 0.5) * 5;
+                        if (progress < 0) progress = 0;
+                    } else {
+                        progress = 100;
+                    }
+                    if (barFill) barFill.style.width = progress + '%';
+                    if (pctLabel) pctLabel.textContent = Math.round(progress) + '%';
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            preloader.classList.add('loaded');
+                        }, 400);
+                    }
+                }, 30);
+                // Fallback
+                setTimeout(() => {
+                    if (!preloader.classList.contains('loaded')) {
+                        preloader.classList.add('loaded');
+                    }
+                }, 5000);
+            }
+        })();
+    </script>
 
     <!-- Market Ticker -->
     <div class="ticker-wrap">
@@ -1054,18 +1110,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <!-- Preloader Script -->
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const preloader = document.getElementById('preloader');
-                if(preloader) {
-                    preloader.classList.add('loaded');
-                }
-            }, 600);
-        });
-    </script>
+    <script src="/script.js"></script>
 </body>
 
 </html>
