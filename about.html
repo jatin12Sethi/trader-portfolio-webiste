@@ -719,17 +719,114 @@
 
     <!-- Preloader -->
     <div id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-candles">
-                <div class="preloader-candle green" style="--h: 40px; --delay: 0s"></div>
-                <div class="preloader-candle red" style="--h: 55px; --delay: 0.15s"></div>
-                <div class="preloader-candle green" style="--h: 35px; --delay: 0.3s"></div>
-                <div class="preloader-candle green" style="--h: 60px; --delay: 0.45s"></div>
-                <div class="preloader-candle red" style="--h: 30px; --delay: 0.6s"></div>
+      <div class="pl-grid"></div>
+      <div class="pl-scanline"></div>
+
+      <div class="pl-content">
+
+        <div style="position:relative;">
+          <div class="pl-chart">
+            <div class="pl-candle-wrap green" style="--delay:0.1s;">
+              <div class="pl-wick" style="height:10px;"></div>
+              <div class="pl-body" style="height:30px;"></div>
+              <div class="pl-wick" style="height:6px;"></div>
             </div>
-            <div class="preloader-logo">Pro <span>Options</span></div>
-            <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+            <div class="pl-candle-wrap red" style="--delay:0.25s;">
+              <div class="pl-wick" style="height:8px;"></div>
+              <div class="pl-body" style="height:44px;"></div>
+              <div class="pl-wick" style="height:5px;"></div>
+            </div>
+            <div class="pl-candle-wrap green" style="--delay:0.4s;">
+              <div class="pl-wick" style="height:12px;"></div>
+              <div class="pl-body" style="height:28px;"></div>
+              <div class="pl-wick" style="height:4px;"></div>
+            </div>
+            <div class="pl-candle-wrap green" style="--delay:0.55s;">
+              <div class="pl-wick" style="height:7px;"></div>
+              <div class="pl-body" style="height:52px;"></div>
+              <div class="pl-wick" style="height:8px;"></div>
+            </div>
+            <div class="pl-candle-wrap red" style="--delay:0.7s;">
+              <div class="pl-wick" style="height:14px;"></div>
+              <div class="pl-body" style="height:22px;"></div>
+              <div class="pl-wick" style="height:6px;"></div>
+            </div>
+            <div class="pl-candle-wrap green" style="--delay:0.85s;">
+              <div class="pl-wick" style="height:9px;"></div>
+              <div class="pl-body" style="height:38px;"></div>
+              <div class="pl-wick" style="height:5px;"></div>
+            </div>
+            <div class="pl-candle-wrap red" style="--delay:1s;">
+              <div class="pl-wick" style="height:11px;"></div>
+              <div class="pl-body" style="height:32px;"></div>
+              <div class="pl-wick" style="height:7px;"></div>
+            </div>
+          </div>
+          <div class="pl-pulse"></div>
         </div>
+
+        <div class="pl-stats">
+          <div class="pl-stat">
+            <div class="pl-stat-val up">▲ 0.74%</div>
+            <div class="pl-stat-lbl">Nifty 50</div>
+          </div>
+          <div class="pl-stat">
+            <div class="pl-stat-val up">▲ 0.91%</div>
+            <div class="pl-stat-lbl">Bank Nifty</div>
+          </div>
+          <div class="pl-stat">
+            <div class="pl-stat-val down">▼ 2.38%</div>
+            <div class="pl-stat-lbl">TCS</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="pl-logo">Pro <span>Options</span></div>
+          <div class="pl-tagline">Market Intelligence Platform</div>
+        </div>
+
+        <div>
+          <div class="pl-bar-track">
+            <div class="pl-bar-fill" id="barFill"></div>
+          </div>
+          <div style="text-align:center;">
+            <span class="pl-bar-pct" id="pctLabel">0%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Market Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span class="ticker-value">25,235.90</span>
+          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 185.15 (0.74%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">BANK NIFTY</span> <span
+            class="ticker-value">51,462.30</span> <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i>
+            462.50 (0.91%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">RELIANCE</span> <span class="ticker-value">2,985.40</span>
+          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 12.30 (0.41%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span class="ticker-value">1,642.15</span>
+          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -8.45 (-0.51%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span class="ticker-value">1,215.30</span>
+          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span class="ticker-value">25,235.90</span>
+          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 185.15 (0.74%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">BANK NIFTY</span> <span
+            class="ticker-value">51,462.30</span> <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i>
+            462.50 (0.91%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span class="ticker-value">800.85</span>
+          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -42.20 (-5.01%)</span></div>
+        <div class="ticker-item"><span class="ticker-symbol">INFY</span> <span class="ticker-value">1,225.30</span>
+          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -41.80 (-3.30%)</span>
+        </div>
+        <div class="ticker-item"><span class="ticker-symbol">TCS</span> <span class="ticker-value">2,382.60</span>
+          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -58.20 (-2.38%)</span>
+        </div>
+        <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span class="ticker-value">1,253.20</span>
+          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span></div>
+      </div>
     </div>
 
     <!-- Sticky Header -->
@@ -743,10 +840,10 @@
                 <a href="index.html#about">Philosophy</a>
                 <a href="index.html#plans">Mentorship</a>
                 <a href="index.html#faq">FAQ</a>
-                <a href="/about" style="color:#f0b429; font-weight:700;">About</a>
+                <a href="about.html" style="color:#f0b429; font-weight:700;">About</a>
             </nav>
             <div class="header-cta">
-                <a href="/join" class="btn btn-primary btn-small">Join Now</a>
+                <a href="join.html" class="btn btn-primary btn-small">Join Now</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <i class='bx bx-menu'></i>
@@ -757,8 +854,8 @@
             <a href="index.html#about" class="mobile-link">Philosophy</a>
             <a href="index.html#plans" class="mobile-link">Mentorship</a>
             <a href="index.html#faq" class="mobile-link">FAQ</a>
-            <a href="/about" class="mobile-link" style="color:#f0b429;">About</a>
-            <a href="/join" class="btn btn-primary" style="margin: 1rem;">Join Now</a>
+            <a href="about.html" class="mobile-link" style="color:#f0b429;">About</a>
+            <a href="join.html" class="btn btn-primary" style="margin: 1rem;">Join Now</a>
         </div>
     </header>
 
@@ -904,7 +1001,7 @@
                         <div class="mission-cta">
                             <p style="color:#64748b; font-size:.9rem; margin-bottom:16px; max-width: 200px;">Ready to
                                 trade like a professional?</p>
-                            <a href="/join">
+                            <a href="join.html">
                                 <i class='bx bx-right-arrow-alt'></i> Join the Challenge
                             </a>
                         </div>
