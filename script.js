@@ -1,20 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 0. Preloader Hider
+    // 0. Preloader Hider & Progress Bar
     const preloader = document.getElementById('preloader');
+    const barFill = document.getElementById('barFill');
+    const pctLabel = document.getElementById('pctLabel');
+
     if (preloader) {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                preloader.classList.add('loaded');
-            }, 800); // Allow some time for animations
-        });
-        
-        // Fallback for cases where 'load' event already fired or takes too long
+        let progress = 0;
+        const startTime = Date.now();
+        const duration = 2000; // Simulated loading time
+
+        const interval = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            progress = Math.min((elapsed / duration) * 100, 100);
+            
+            // Add some jitter for "realistic" feeling
+            if (progress < 99) {
+                progress += (Math.random() - 0.5) * 5;
+                if (progress < 0) progress = 0;
+            } else {
+                progress = 100;
+            }
+
+            if (barFill) barFill.style.width = `${progress}%`;
+            if (pctLabel) pctLabel.textContent = `${Math.round(progress)}%`;
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.classList.add('loaded');
+                }, 400);
+            }
+        }, 30);
+
+        // Fallback
         setTimeout(() => {
             if (!preloader.classList.contains('loaded')) {
                 preloader.classList.add('loaded');
             }
-        }, 3000);
+        }, 5000);
     }
 
     // 1. Sticky Header Functionality

@@ -26,16 +26,81 @@
 
     <!-- Preloader -->
     <div id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-candles">
-                <div class="preloader-candle green" style="--h: 40px; --delay: 0s"></div>
-                <div class="preloader-candle red" style="--h: 55px; --delay: 0.15s"></div>
-                <div class="preloader-candle green" style="--h: 35px; --delay: 0.3s"></div>
-                <div class="preloader-candle green" style="--h: 60px; --delay: 0.45s"></div>
-                <div class="preloader-candle red" style="--h: 30px; --delay: 0.6s"></div>
+        <div class="pl-grid"></div>
+        <div class="pl-scanline"></div>
+
+        <div class="pl-content">
+
+            <div style="position:relative;">
+                <div class="pl-chart">
+                    <div class="pl-candle-wrap green" style="--delay:0.1s;">
+                        <div class="pl-wick" style="height:10px;"></div>
+                        <div class="pl-body" style="height:30px;"></div>
+                        <div class="pl-wick" style="height:6px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap red" style="--delay:0.25s;">
+                        <div class="pl-wick" style="height:8px;"></div>
+                        <div class="pl-body" style="height:44px;"></div>
+                        <div class="pl-wick" style="height:5px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap green" style="--delay:0.4s;">
+                        <div class="pl-wick" style="height:12px;"></div>
+                        <div class="pl-body" style="height:28px;"></div>
+                        <div class="pl-wick" style="height:4px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap green" style="--delay:0.55s;">
+                        <div class="pl-wick" style="height:7px;"></div>
+                        <div class="pl-body" style="height:52px;"></div>
+                        <div class="pl-wick" style="height:8px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap red" style="--delay:0.7s;">
+                        <div class="pl-wick" style="height:14px;"></div>
+                        <div class="pl-body" style="height:22px;"></div>
+                        <div class="pl-wick" style="height:6px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap green" style="--delay:0.85s;">
+                        <div class="pl-wick" style="height:9px;"></div>
+                        <div class="pl-body" style="height:38px;"></div>
+                        <div class="pl-wick" style="height:5px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap red" style="--delay:1s;">
+                        <div class="pl-wick" style="height:11px;"></div>
+                        <div class="pl-body" style="height:32px;"></div>
+                        <div class="pl-wick" style="height:7px;"></div>
+                    </div>
+                </div>
+                <div class="pl-pulse"></div>
             </div>
-            <div class="preloader-logo">Pro <span>Options</span></div>
-            <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+
+            <div class="pl-stats">
+                <div class="pl-stat">
+                    <div class="pl-stat-val up">▲ 0.74%</div>
+                    <div class="pl-stat-lbl">Nifty 50</div>
+                </div>
+                <div class="pl-stat">
+                    <div class="pl-stat-val up">▲ 0.91%</div>
+                    <div class="pl-stat-lbl">Bank Nifty</div>
+                </div>
+                <div class="pl-stat">
+                    <div class="pl-stat-val down">▼ 2.38%</div>
+                    <div class="pl-stat-lbl">TCS</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="pl-logo">Pro <span>Options</span></div>
+                <div class="pl-tagline">Smart Business Program</div>
+            </div>
+
+            <div>
+                <div class="pl-bar-track">
+                    <div class="pl-bar-fill" id="barFill"></div>
+                </div>
+                <div style="text-align:center;">
+                    <span class="pl-bar-pct" id="pctLabel">0%</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -43,48 +108,48 @@
     <div class="ticker-wrap">
         <div class="ticker">
             <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span
-                    class="ticker-value">22,419.95</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 147.45 (0.66%)</span></div>
+                    class="ticker-value">23,581.15</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i> 172.35 (0.74%)</span></div>
             <div class="ticker-item"><span class="ticker-symbol">BANKNIFTY</span> <span
-                    class="ticker-value">48,159.00</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 321.10 (0.67%)</span></div>
+                    class="ticker-value">53,634.05</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i> 481.25 (0.91%)</span></div>
             <div class="ticker-item"><span class="ticker-symbol">RELIANCE</span> <span
-                    class="ticker-value">2,932.10</span> <span class="ticker-change down"><i
-                        class='bx bx-down-arrow-alt'></i> -12.40 (-0.42%)</span></div>
+                    class="ticker-value">1,387.50</span> <span class="ticker-change down"><i
+                        class='bx bx-down-arrow-alt'></i> -20.60 (-1.45%)</span></div>
             <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span
-                    class="ticker-value">1,540.20</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 15.50 (1.02%)</span></div>
-            <div class="ticker-item"><span class="ticker-symbol">INFY</span> <span class="ticker-value">1,480.35</span>
-                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -5.20 (-0.35%)</span>
+                    class="ticker-value">800.85</span> <span class="ticker-change down"><i
+                        class='bx bx-down-arrow-alt'></i> -42.20 (-5.01%)</span></div>
+            <div class="ticker-item"><span class="ticker-symbol">INFY</span> <span class="ticker-value">1,225.30</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -41.80 (-3.30%)</span>
             </div>
-            <div class="ticker-item"><span class="ticker-symbol">TCS</span> <span class="ticker-value">3,980.00</span>
-                <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 45.00 (1.14%)</span>
+            <div class="ticker-item"><span class="ticker-symbol">TCS</span> <span class="ticker-value">2,382.60</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -58.20 (-2.38%)</span>
             </div>
             <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span
-                    class="ticker-value">1,120.45</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 8.90 (0.80%)</span></div>
+                    class="ticker-value">1,253.20</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span></div>
             <!-- Duplicate for seamless scrolling -->
             <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span
-                    class="ticker-value">22,419.95</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 147.45 (0.66%)</span></div>
+                    class="ticker-value">23,581.15</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i> 172.35 (0.74%)</span></div>
             <div class="ticker-item"><span class="ticker-symbol">BANKNIFTY</span> <span
-                    class="ticker-value">48,159.00</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 321.10 (0.67%)</span></div>
+                    class="ticker-value">53,634.05</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i> 481.25 (0.91%)</span></div>
             <div class="ticker-item"><span class="ticker-symbol">RELIANCE</span> <span
-                    class="ticker-value">2,932.10</span> <span class="ticker-change down"><i
-                        class='bx bx-down-arrow-alt'></i> -12.40 (-0.42%)</span></div>
+                    class="ticker-value">1,387.50</span> <span class="ticker-change down"><i
+                        class='bx bx-down-arrow-alt'></i> -20.60 (-1.45%)</span></div>
             <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span
-                    class="ticker-value">1,540.20</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 15.50 (1.02%)</span></div>
-            <div class="ticker-item"><span class="ticker-symbol">INFY</span> <span class="ticker-value">1,480.35</span>
-                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -5.20 (-0.35%)</span>
+                    class="ticker-value">800.85</span> <span class="ticker-change down"><i
+                        class='bx bx-down-arrow-alt'></i> -42.20 (-5.01%)</span></div>
+            <div class="ticker-item"><span class="ticker-symbol">INFY</span> <span class="ticker-value">1,225.30</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -41.80 (-3.30%)</span>
             </div>
-            <div class="ticker-item"><span class="ticker-symbol">TCS</span> <span class="ticker-value">3,980.00</span>
-                <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 45.00 (1.14%)</span>
+            <div class="ticker-item"><span class="ticker-symbol">TCS</span> <span class="ticker-value">2,382.60</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -58.20 (-2.38%)</span>
             </div>
             <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span
-                    class="ticker-value">1,120.45</span> <span class="ticker-change up"><i
-                        class='bx bx-up-arrow-alt'></i> 8.90 (0.80%)</span></div>
+                    class="ticker-value">1,253.20</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span></div>
         </div>
     </div>
 
@@ -128,46 +193,42 @@
                     <div class="badge">Trusted by Serious Traders <i class='bx bxs-star yellow'></i><i
                             class='bx bxs-star yellow'></i><i class='bx bxs-star yellow'></i><i
                             class='bx bxs-star yellow'></i><i class='bx bxs-star yellow'></i></div>
-                    <h1 class="hero-title" style="font-size: 3.5rem; line-height: 1.15;">
+                    <h1 class="hero-title">
                         Learn Professional<br>
-                        <span class="gradient-text-gold">Option Selling</span> Like<br>
-                        Institutional<br>
-                        Traders From <span class="gradient-text-gold">Pro-<br>Options Seller</span>
+                        <span class="gradient-text-gold">Option Selling</span><br>
+                        Like Institutional Traders
                     </h1>
-                     <span class="section-tag bg-gold-dim text-gold">The Business Program</span>
-                    <p class="hero-subtitle">Join the <strong>12-Day Option Selling Business Program</strong> and learn a
+                    <span class="section-tag bg-gold-dim text-gold">The Business Program</span>
+                    <p class="hero-subtitle">Join the <strong>12-Day Option Selling Business Program</strong> and learn
+                        a
                         structured, disciplined approach to generate consistent income from Option selling.</p>
 
                     <ul class="hero-highlights">
-                        <li><i class='bx bx-check-circle'></i> Live Market Option Selling</li>
-                        <li><i class='bx bx-check-circle'></i> 1 Trade Per Day</li>
-                        <li><i class='bx bx-check-circle'></i> Institutional-Style Selling</li>
-                        <li><i class='bx bx-check-circle'></i> Structured Risk Management</li>
-                        <li><i class='bx bx-check-circle'></i> Treat Trading Like a Business</li>
+                        <li><i class='bx bxs-zap'></i> Live Market Execution</li>
+                        <li><i class='bx bxs-bullseye'></i> 1 High-Prob Trade / Day</li>
+                        <li><i class='bx bxs-shield-quarter'></i> Risk Management</li>
+                        <li><i class='bx bxs-briefcase'></i> Institutional System</li>
+                        <li><i class='bx bxs-graduation'></i> 100% Practical</li>
                     </ul>
                     <div>
                         <div class="alert-box mt-4">
-                            <i class='bx bx-info-circle'></i>
+                            <i class='bx bxs-info-circle'></i>
                             <div>
                                 <strong>Important Note</strong>
-                                <br>
-                                My Option Selling business model focuses on:</em><br>
-                                ✔️ Quality Education <br>
-                                ✔️ 100% Doubt Resolution<br>
-                                ✔️ Practical Real-Market Training<br>
-                                ✔️ Developing a Professional Trader Mindset<br>
+                                <p>Our program focuses on Real-Market Training, 100% Doubt Resolution, and developing an Institutional Mindset.</p>
                             </div>
                         </div>
                     </div>
-<br>
+                    <br>
 
                     <div class="hero-ctas">
                         <a href="join.html" class="btn btn-primary btn-large">Join Now</a>
-                        <button onclick="openPdfModal()" class="btn btn-outline btn-large" style="display:inline-flex;align-items:center;gap:0.5rem;">
+                        <button onclick="openPdfModal()" class="btn btn-outline btn-large"
+                            style="display:inline-flex;align-items:center;gap:0.5rem;">
                             <i class='bx bx-download'></i> Download Course Roadmap
                         </button>
                     </div>
-                    
+
                 </div>
 
                 <div class="hero-visual reveal-on-load delay-1">
@@ -212,9 +273,48 @@
                                 </div>
                             </div>
                         </div>
+                                          <div class="glass-card learn-card">
+    <div class="learn-label">What you'll learn</div>
+    <div class="learn-list">
+        <div class="learn-item">
+            <span class="check-circle">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            Option selling strategies &amp; setups
+        </div>
+        <div class="learn-item">
+            <span class="check-circle">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            Live trade execution &amp; management
+        </div>
+        <div class="learn-item">
+            <span class="check-circle">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            Position sizing &amp; risk rules
+        </div>
+        <div class="learn-item">
+            <span class="check-circle">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            Institutional mindset &amp; discipline
+        </div>
+    </div>
+</div>
                     </div>
+  
 
                 </div>
+                
             </div>
             </div>
         </section>
@@ -272,14 +372,15 @@
                     </div>
                 </div>
 
-                <div class="solution-bridge mt-5 reveal-scroll delay-1">
-                    <i class='bx bx-down-arrow-alt arrow-down bounce'></i>
-                    <h3 class="solution-title">The Solution: <span class="gradient-text-gold">Professional Option
-                            Selling</span></h3>
+               <div class="solution-bridge mt-5 reveal-scroll delay-1">
+                <i class='bx bx-down-arrow-alt arrow-down bounce'></i>
+                    <h3 class="solution-title" style="font-size: 2.0rem; line-height: 1.3;">
+                 The Solution: <span class="gradient-text-gold">Professional Option Selling</span>
+                    </h3>
                 </div>
             </div>
         </section>
- <!-- 6. Mentorship Plans -->
+        <!-- 6. Mentorship Plans -->
         <section class="pricing-section section-padding" id="plans">
             <div class="container reveal-scroll">
                 <div class="text-center mb-5">
@@ -296,7 +397,8 @@
                             <h3>Pro Mentorship <span class="plan-type">(Standard)</span></h3>
                             <div class="price-block">
                                 <div class="original-price">Actual Fee: <s>₹25,000</s></div>
-                                <div class="discount-tag"><i class='bx bxs-offer'></i> Special Launch Offer — 20% OFF</div>
+                                <div class="discount-tag"><i class='bx bxs-offer'></i> Special Launch Offer — 20% OFF
+                                </div>
                                 <div class="price">
                                     <span class="currency">₹</span>20,000
                                 </div>
@@ -313,7 +415,8 @@
                                 <li><i class='bx bx-check text-green'></i> 5-Day Money Back Guarantee</li>
                             </ul>
                             <div class="plan-tagline">
-                                <i class='bx bxs-diamond'></i> Gain the skills to survive bad days while protecting your capital and mindset.
+                                <i class='bx bxs-diamond'></i> Gain the skills to survive bad days while protecting your
+                                capital and mindset.
                             </div>
                         </div>
                         <div class="pricing-footer">
@@ -329,7 +432,8 @@
                             <h3>VIP Mentorship <span class="plan-type">(Premium)</span></h3>
                             <div class="price-block">
                                 <div class="original-price">Actual Fee: <s>₹31,250</s></div>
-                                <div class="discount-tag"><i class='bx bxs-offer'></i> Special Launch Offer — 20% OFF</div>
+                                <div class="discount-tag"><i class='bx bxs-offer'></i> Special Launch Offer — 20% OFF
+                                </div>
                                 <div class="price text-gold">
                                     <span class="currency">₹</span>25,000
                                 </div>
@@ -347,26 +451,29 @@
                                 <li><i class='bx bx-check text-gold'></i> Lifetime Support for Members</li>
                             </ul>
                             <div class="plan-tagline vip-tagline">
-                                <i class='bx bxs-crown'></i> Once the first 20 seats are filled, fees will increase for the next batch. Join early to lock the lowest price.
+                                <i class='bx bxs-crown'></i> Once the first 20 seats are filled, fees will increase for
+                                the next batch. Join early to lock the lowest price.
                             </div>
                         </div>
                         <div class="pricing-footer">
                             <a href="join.html" class="btn btn-primary btn-block">Apply Now</a>
                             <div class="contact-strip">
-                                <a href="https://wa.me/919172556611" target="_blank"><i class='bx bxl-whatsapp'></i> WhatsApp: +91 9172556611</a>
-                                <a href="mailto:nkharwane@gmail.com"><i class='bx bx-envelope'></i> nkharwane@gmail.com</a>
+                                <a href="https://wa.me/919172556611" target="_blank"><i class='bx bxl-whatsapp'></i>
+                                    WhatsApp: +91 9172556611</a>
+                                <a href="mailto:nkharwane@gmail.com"><i class='bx bx-envelope'></i>
+                                    nkharwane@gmail.com</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="plans-bottom-note">
-                    <p>This program is designed to help you learn the real secrets of option selling — a skill that has the power to <strong>transform your financial journey</strong> and help you build your dream life.</p>
+                    <p>This program is designed to help you learn the real secrets of option selling — a skill that has
+                        the power to <strong>transform your financial journey</strong> and help you build your dream
+                        life.</p>
                 </div>
             </div>
-        </section>
-      
-
+       
         <!-- 4. Business Approach Section -->
         <section class="business-section section-padding text-center" id="about">
             <div class="container reveal-scroll">
@@ -402,8 +509,7 @@
                     </blockquote>
                 </div>
             </div>
-        </section>
-
+       
         <!-- 5. Who This Program Is For -->
         <section class="audience-section section-padding">
             <div class="container reveal-scroll">
@@ -431,14 +537,15 @@
             </div>
         </section>
 
-       
+
         <!-- Course Benefits Section -->
         <section class="course-benefits-section section-padding" id="course-benefits">
             <div class="container reveal-scroll">
                 <div class="text-center mb-5">
                     <span class="section-tag bg-gold-dim text-gold">Why Choose Us</span>
                     <h2 class="section-title">Course <span class="gradient-text-gold">Benefits</span></h2>
-                    <p class="section-desc max-w-700 mx-auto">We don't just teach theory — we mentor you through real market conditions with live classes and personal attention.</p>
+                    <p class="section-desc max-w-700 mx-auto">We don't just teach theory — we mentor you through real
+                        market conditions with live classes and personal attention.</p>
                 </div>
 
                 <div class="benefits-grid">
@@ -448,7 +555,9 @@
                             <i class='bx bx-broadcast'></i>
                         </div>
                         <h3>Live Market Classes</h3>
-                        <p>Our mentorship classes are <strong>100% live</strong> — conducted during actual market hours. We teach you strategies based on <strong>real-time market conditions</strong> and forecasts, not recorded theory. This is where we make the difference.</p>
+                        <p>Our mentorship classes are <strong>100% live</strong> — conducted during actual market hours.
+                            We teach you strategies based on <strong>real-time market conditions</strong> and forecasts,
+                            not recorded theory. This is where we make the difference.</p>
                         <div class="benefit-highlight">
                             <i class='bx bx-check-circle'></i> Real-time strategy execution
                         </div>
@@ -461,7 +570,9 @@
                             <i class='bx bx-user-voice'></i>
                         </div>
                         <h3>1:1 Personal Mentorship</h3>
-                        <p>Every student gets <strong>dedicated one-on-one sessions</strong> with the mentor. We respect your unique learning pace, trading capital, and mindset. No crowded webinars — just focused, personalized guidance tailored to you.</p>
+                        <p>Every student gets <strong>dedicated one-on-one sessions</strong> with the mentor. We respect
+                            your unique learning pace, trading capital, and mindset. No crowded webinars — just focused,
+                            personalized guidance tailored to you.</p>
                         <div class="benefit-highlight">
                             <i class='bx bx-check-circle'></i> Your pace, your journey
                         </div>
@@ -473,7 +584,9 @@
                             <i class='bx bx-shield-quarter'></i>
                         </div>
                         <h3>5-Day Money Back Guarantee</h3>
-                        <p>We're confident in our program. Attend the classes for <strong>5 full days</strong> — if you feel this isn't for you, we'll <strong>refund 100% of your fee</strong>. No questions asked. Zero risk on your end.</p>
+                        <p>We're confident in our program. Attend the classes for <strong>5 full days</strong> — if you
+                            feel this isn't for you, we'll <strong>refund 100% of your fee</strong>. No questions asked.
+                            Zero risk on your end.</p>
                         <div class="benefit-highlight guarantee-highlight">
                             <i class='bx bx-check-circle'></i> 100% refund within 5 days
                         </div>
@@ -482,7 +595,7 @@
             </div>
         </section>
 
-       
+
 
         <!-- 7. Transparency Section
         <section class="transparency-section section-padding relative overflow-hidden">
@@ -546,7 +659,8 @@
                             <i class='bx bx-chevron-down'></i>
                         </button>
                         <div class="faq-answer">
-                            <p>Anyone who understands basic market structure, risk management, and has sufficient capital can start option selling.</p>
+                            <p>Anyone who understands basic market structure, risk management, and has sufficient
+                                capital can start option selling.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -555,7 +669,8 @@
                             <i class='bx bx-chevron-down'></i>
                         </button>
                         <div class="faq-answer">
-                            <p>Market understanding, probability thinking, discipline, patience, and strong risk management.</p>
+                            <p>Market understanding, probability thinking, discipline, patience, and strong risk
+                                management.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -565,13 +680,16 @@
                         </button>
                         <div class="faq-answer">
                             <p>Everything in the stock market is risky if you don’t understand it.
-But when you understand the system, probabilities, and risk management, what looks like risk to others becomes an opportunity for you.</p>
+                                But when you understand the system, probabilities, and risk management, what looks like
+                                risk to others becomes an opportunity for you.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-              <!-- Telegram Advertisement Banner -->
+          </section>
+  </section>
+         </section>
+  <!-- Telegram Advertisement Banner -->
         <section class="telegram-banner-section"
             style="background: linear-gradient(90deg, #0f172a 0%, #0088cc 100%); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
             <div class="container text-center text-white relative z-10">
@@ -589,8 +707,9 @@ But when you understand the system, probabilities, and risk management, what loo
                     Join @ProOptionSeller24
                 </a>
             </div>
-        </section>
-
+       
+      
+         </section>
         <!-- 10. Contact Section -->
         <section class="contact-section section-padding bg-darker text-center relative overflow-hidden">
             <div class="bg-glow gold center"></div>
@@ -613,9 +732,10 @@ But when you understand the system, probabilities, and risk management, what loo
                     </a>
                 </div>
             </div>
-        </section>
+ 
+      
     </main>
-
+   
     <!-- 11. Footer & Disclaimer -->
     <footer class="footer">
         <div class="container">
@@ -653,7 +773,8 @@ But when you understand the system, probabilities, and risk management, what loo
 
             <div class="copyright">
                 <p>&copy; 2024 Pro Options Selling. All Rights Reserved.</p>
-            </div>
+            </div> 
+          </section>
         </div>
     </footer>
 
@@ -672,7 +793,8 @@ But when you understand the system, probabilities, and risk management, what loo
             <div class="pdf-modal-header">
                 <div class="pdf-modal-icon"><i class='bx bxs-file-pdf'></i></div>
                 <h2 class="pdf-modal-title">Download <span>Course Roadmap</span></h2>
-                <p class="pdf-modal-subtitle">Fill in your details and we'll send the <strong>12-Day Option Selling Business Program</strong> roadmap directly to your inbox.</p>
+                <p class="pdf-modal-subtitle">Fill in your details and we'll send the <strong>12-Day Option Selling
+                        Business Program</strong> roadmap directly to your inbox.</p>
             </div>
 
             <!-- Form -->
@@ -725,7 +847,8 @@ But when you understand the system, probabilities, and risk management, what loo
             <div id="pdfSuccess" class="pdf-success" style="display:none;">
                 <i class='bx bxs-check-circle'></i>
                 <h3>Roadmap Sent!</h3>
-                <p>Check your inbox at <strong id="pdfSuccessEmail"></strong>.<br>The PDF will arrive within a few minutes.</p>
+                <p>Check your inbox at <strong id="pdfSuccessEmail"></strong>.<br>The PDF will arrive within a few
+                    minutes.</p>
                 <button class="btn btn-outline" onclick="closePdfModal()">Close</button>
             </div>
         </div>
@@ -733,71 +856,208 @@ But when you understand the system, probabilities, and risk management, what loo
 
     <style>
         .pdf-modal-overlay {
-            position: fixed; inset: 0; z-index: 9999;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
             background: rgba(5, 7, 14, 0.85);
             backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
             transition: opacity 0.3s ease;
             padding: 1rem;
         }
-        .pdf-modal-overlay.open { opacity: 1; pointer-events: all; }
+
+        .pdf-modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
         .pdf-modal-box {
             background: linear-gradient(145deg, #0d1525, #0f1e35);
             border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 20px; padding: 2.5rem;
-            width: 100%; max-width: 640px; position: relative;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border-radius: 20px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 640px;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
             transform: translateY(24px);
             transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            max-height: 92vh; overflow-y: auto;
+            max-height: 92vh;
+            overflow-y: auto;
         }
-        .pdf-modal-overlay.open .pdf-modal-box { transform: translateY(0); }
+
+        .pdf-modal-overlay.open .pdf-modal-box {
+            transform: translateY(0);
+        }
+
         .pdf-modal-close {
-            position: absolute; top: 1rem; right: 1.25rem;
-            background: rgba(255,255,255,0.07); border: none; color: #fff;
-            font-size: 1.4rem; width: 36px; height: 36px; border-radius: 50%;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: rgba(255, 255, 255, 0.07);
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: background 0.2s;
         }
-        .pdf-modal-close:hover { background: rgba(255,255,255,0.15); }
-        .pdf-modal-header { text-align: center; margin-bottom: 2rem; }
+
+        .pdf-modal-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .pdf-modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
         .pdf-modal-icon {
-            width: 64px; height: 64px; margin: 0 auto 1rem;
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .pdf-modal-icon i { font-size: 2rem; color: var(--gold); }
-        .pdf-modal-title { font-size: 1.75rem; font-family: var(--font-heading); font-weight: 800; margin-bottom: 0.5rem; }
-        .pdf-modal-title span { color: var(--gold); }
-        .pdf-modal-subtitle { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-        .pdf-modal-form { display: flex; flex-direction: column; gap: 1rem; }
-        .pdf-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        @media (max-width: 560px) { .pdf-form-row { grid-template-columns: 1fr; } }
-        .pdf-form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-        .pdf-form-group label { font-size: 0.85rem; font-weight: 500; color: var(--text-main); }
-        .req { color: var(--red); }
-        .pdf-form-group input, .pdf-form-group select {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px; padding: 0.7rem 1rem;
-            color: var(--text-main); font-family: var(--font-body); font-size: 0.95rem;
-            outline: none; transition: border-color 0.2s; width: 100%;
+
+        .pdf-modal-icon i {
+            font-size: 2rem;
+            color: var(--gold);
         }
-        .pdf-form-group input:focus, .pdf-form-group select:focus { border-color: var(--gold); }
+
+        .pdf-modal-title {
+            font-size: 1.75rem;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .pdf-modal-title span {
+            color: var(--gold);
+        }
+
+        .pdf-modal-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .pdf-modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pdf-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 560px) {
+            .pdf-form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pdf-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .pdf-form-group label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .req {
+            color: var(--red);
+        }
+
+        .pdf-form-group input,
+        .pdf-form-group select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+            width: 100%;
+        }
+
+        .pdf-form-group input:focus,
+        .pdf-form-group select:focus {
+            border-color: var(--gold);
+        }
+
         .pdf-form-group select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath fill='%23888' d='M6 7L0 0h12z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat; background-position: right 1rem center; cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            cursor: pointer;
         }
-        .pdf-form-group select option { background: #0d1525; }
-        .pdf-submit-btn { margin-top: 0.5rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
-        .pdf-privacy { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.25rem; }
-        .pdf-success { text-align: center; padding: 2rem 1rem; }
-        .pdf-success i { font-size: 4rem; color: var(--green); display: block; margin-bottom: 1rem; }
-        .pdf-success h3 { font-size: 1.5rem; margin-bottom: 0.75rem; font-family: var(--font-heading); }
-        .pdf-success p { color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.7; }
+
+        .pdf-form-group select option {
+            background: #0d1525;
+        }
+
+        .pdf-submit-btn {
+            margin-top: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .pdf-privacy {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.25rem;
+        }
+
+        .pdf-success {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .pdf-success i {
+            font-size: 4rem;
+            color: var(--green);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .pdf-success h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-family: var(--font-heading);
+        }
+
+        .pdf-success p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
     </style>
 
     <script>
@@ -819,18 +1079,18 @@ But when you understand the system, probabilities, and risk management, what loo
         function closePdfModalOnBg(e) {
             if (e.target === document.getElementById('pdfModal')) closePdfModal();
         }
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') closePdfModal();
         });
         async function handlePdfSubmit(e) {
             e.preventDefault();
             var btnText = document.getElementById('pdfBtnText');
-            var btn     = document.getElementById('pdfSubmitBtn');
-            var email   = document.getElementById('pdfEmail').value;
-            var name    = document.getElementById('pdfName').value;
-            var phone   = document.getElementById('pdfPhone').value;
-            var prof    = document.getElementById('pdfProfession').value;
-            var interest= document.getElementById('pdfInterest').value;
+            var btn = document.getElementById('pdfSubmitBtn');
+            var email = document.getElementById('pdfEmail').value;
+            var name = document.getElementById('pdfName').value;
+            var phone = document.getElementById('pdfPhone').value;
+            var prof = document.getElementById('pdfProfession').value;
+            var interest = document.getElementById('pdfInterest').value;
 
             btnText.textContent = 'Sending…';
             btn.disabled = true;
@@ -872,10 +1132,10 @@ But when you understand the system, probabilities, and risk management, what loo
     </script>
     <!-- Preloader Script -->
     <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
+        window.addEventListener('load', function () {
+            setTimeout(function () {
                 const preloader = document.getElementById('preloader');
-                if(preloader) {
+                if (preloader) {
                     preloader.classList.add('loaded');
                 }
             }, 600); // 0.6s delay to show the animation
