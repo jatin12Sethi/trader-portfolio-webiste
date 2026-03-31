@@ -204,6 +204,28 @@
             font-weight: 600;
             color: var(--gold);
         }
+
+        @media (max-width: 480px) {
+            .pl-content {
+                padding: 1.5rem;
+            }
+            .pl-stats {
+                gap: 0.5rem;
+                padding: 0.75rem;
+            }
+            .pl-stat-val {
+                font-size: 0.8rem;
+            }
+            .pl-stat-lbl {
+                font-size: 0.6rem;
+            }
+            .pl-logo {
+                font-size: 1.8rem;
+            }
+            .pl-bar-track {
+                width: 240px;
+            }
+        }
     </style>
 
     <style>
@@ -880,6 +902,21 @@
         }
 
         @media (max-width: 600px) {
+            .about-hero {
+                padding: 100px 0 60px;
+            }
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+            .about-grid-section {
+                padding: 40px 0 60px;
+            }
+            .bento-card {
+                padding: 24px;
+            }
+            .card-photo img {
+                min-height: 250px;
+            }
             .bento-grid {
                 grid-template-columns: 1fr;
             }
@@ -986,6 +1023,7 @@
             <span class="pl-bar-pct" id="pctLabel">0%</span>
           </div>
         </div>
+    </div>
     </div>
 
     <!-- Preloader Logic -->

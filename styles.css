@@ -1160,90 +1160,35 @@ img {
 
 /* Enhanced Hero Mockup/Visual */
 .hero-visual {
-    perspective: 1500px;
+    position: relative;
+    z-index: 10;
 }
 
 .chart-card.mockup {
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateY(-12deg) rotateX(8deg);
-    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.4s ease;
     background: rgba(15, 23, 42, 0.4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
 }
 
 .hero-visual:hover .chart-card.mockup {
-    transform: perspective(1000px) rotateY(-2deg) rotateX(2deg) scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.1);
 }
 
-.candlestick-chart {
-    display: flex;
-    align-items: flex-end;
-    gap: 12px;
-    height: 180px;
-    padding: 20px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 12px;
-    margin-top: 10px;
-}
-
-.candle {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 100%;
-}
-
-.candle .body {
-    width: 10px;
-    border-radius: 2px;
-    position: relative;
-    z-index: 2;
-}
-
-.candle.up .body { background: #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
-.candle.down .body { background: #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
-
-.candle .wick {
-    width: 2px;
-    height: 100%;
-    background: rgba(255,255,255,0.15);
-    position: absolute;
-    z-index: 1;
-}
-
-/* Candle heights and positions */
-.c-1 .body { height: 40%; margin-bottom: 25%; }
-.c-2 .body { height: 60%; margin-bottom: 10%; }
-.c-3 .body { height: 35%; margin-bottom: 40%; }
-.c-4 .body { height: 75%; margin-bottom: 5%; }
-.c-5 .body { height: 25%; margin-bottom: 50%; }
-.c-6 .body { height: 50%; margin-bottom: 20%; }
-
-.live-candle .body {
-    background: #10b981;
-    box-shadow: 0 0 20px #10b981;
-    animation: livePulse 2s ease-in-out infinite;
-}
-
-@keyframes livePulse {
-    0%, 100% { height: 65%; margin-bottom: 15%; opacity: 0.8; }
-    50% { height: 80%; margin-bottom: 10%; opacity: 1; filter: brightness(1.2); }
-}
 
 /* Hero Mockup/Visual */
 .mockup {
     position: relative;
-    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
     box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
     transition: transform 0.5s ease;
 }
 
 .mockup:hover {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    transform: translateY(-5px);
 }
 
 .card-header {
@@ -1296,6 +1241,7 @@ img {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 2rem;
     position: relative;
+    overflow: hidden;
 }
 
 .chart-placeholder::before {
@@ -1386,9 +1332,9 @@ img {
     100% { transform: translateY(-80px); }
 }
 @keyframes candleFloat6 {
-    0%   { transform: translateY(-70px); }
-    50%  { transform: translateY(-88px); }
-    100% { transform: translateY(-70px); }
+    0%   { transform: translateY(-40px); }
+    50%  { transform: translateY(-55px); }
+    100% { transform: translateY(-40px); }
 }
 
 /* Animated Candles - Uptrend Pattern */
