@@ -19,28 +19,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileNav = document.querySelector('.mobile-nav');
-    const menuIcon = mobileMenuBtn.querySelector('i');
+    if (mobileMenuBtn && mobileNav) {
+        const menuIcon = mobileMenuBtn.querySelector('i');
 
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-        if (mobileNav.classList.contains('active')) {
-            menuIcon.classList.remove('bx-menu');
-            menuIcon.classList.add('bx-x');
-        } else {
-            menuIcon.classList.remove('bx-x');
-            menuIcon.classList.add('bx-menu');
-        }
-    });
-
-    // Close mobile menu when a link is clicked
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            menuIcon.classList.remove('bx-x');
-            menuIcon.classList.add('bx-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            if (mobileNav.classList.contains('active')) {
+                menuIcon.classList.remove('bx-menu');
+                menuIcon.classList.add('bx-x');
+            } else {
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            }
         });
-    });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            });
+        });
+    }
 
     // 3. FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');

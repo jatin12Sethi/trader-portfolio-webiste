@@ -2646,9 +2646,6 @@ img {
     .section-title {
         font-size: 2rem;
     }
-element.style {
-    padding-bottom: 0px;
-}
     .pricing-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -2682,4 +2679,102 @@ element.style {
     .footer-contact p {
         justify-content: center;
     }
+}
+
+/* ==========================================================================
+   Mobile Optimization (Phones < 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    /* Fluid Typography Restraints & Override Inline Styles */
+    body {
+        font-size: 14px !important;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.15 !important;
+    }
+    
+    .section-title {
+        font-size: 1.75rem !important;
+    }
+    
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.25rem !important; }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    /* Layout Scaling */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .section-padding {
+        padding: 2.5rem 0;
+    }
+
+    .join-section {
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    .form-card {
+        padding: 1.5rem;
+        margin: 0;
+    }
+
+    /* Fixed Element Controls */
+    .bg-glow {
+        width: 100vw;
+        height: 100vw;
+        max-width: 100vw;
+    }
+
+    .pdf-form-container {
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    /* Pricing Fix */
+    .price {
+        font-size: 2.5rem;
+    }
+
+    /* Preloader fixes */
+    .pl-content {
+        padding: 1rem;
+    }
+    .pl-stats {
+        gap: 0.5rem;
+        padding: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pl-bar-track {
+        width: 240px;
+        max-width: 100%;
+    }
+    .pl-logo {
+        font-size: 1.8rem;
+    }
+    
+    /* Chart Fixes for Hero Visual */
+    .glass-card.chart-card {
+        padding: 1rem;
+    }
+    
+    .candlestick-chart {
+        gap: 8px;
+    }
+    
+    .candle .body {
+        width: 15px;
+    }
+}
+
+html, body {
+    overflow-x: hidden;
 }
