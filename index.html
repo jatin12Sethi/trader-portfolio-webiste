@@ -60,7 +60,7 @@
         .pl-grid {
             position: absolute;
             inset: 0;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -69,7 +69,10 @@
 
         .pl-scanline {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             box-shadow: 0 0 15px var(--gold);
             opacity: 0.3;
@@ -78,8 +81,13 @@
         }
 
         @keyframes scanline {
-            0% { top: -2%; }
-            100% { top: 102%; }
+            0% {
+                top: -2%;
+            }
+
+            100% {
+                top: 102%;
+            }
         }
 
         .pl-content {
@@ -114,7 +122,10 @@
         }
 
         @keyframes candleFadeIn {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .pl-wick {
@@ -131,19 +142,33 @@
             animation: candlePulse 2s ease-in-out infinite alternate;
         }
 
-        .pl-candle-wrap.green { color: var(--green); }
-        .pl-candle-wrap.red { color: var(--red); }
+        .pl-candle-wrap.green {
+            color: var(--green);
+        }
+
+        .pl-candle-wrap.red {
+            color: var(--red);
+        }
 
         @keyframes candlePulse {
-            0% { opacity: 0.7; transform: scaleY(0.95); }
-            100% { opacity: 1; transform: scaleY(1.05); }
+            0% {
+                opacity: 0.7;
+                transform: scaleY(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scaleY(1.05);
+            }
         }
 
         .pl-pulse {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 150px; height: 150px;
+            width: 150px;
+            height: 150px;
             background: radial-gradient(circle, var(--gold-dim) 0%, transparent 70%);
             border-radius: 50%;
             animation: pulseGlow 3s infinite;
@@ -151,9 +176,20 @@
         }
 
         @keyframes pulseGlow {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
-            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; }
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.2;
+            }
         }
 
         .pl-stats {
@@ -168,11 +204,32 @@
             backdrop-filter: blur(5px);
         }
 
-        .pl-stat { display: flex; flex-direction: column; gap: 4px; }
-        .pl-stat-val { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; }
-        .pl-stat-val.up { color: var(--green); }
-        .pl-stat-val.down { color: var(--red); }
-        .pl-stat-lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .pl-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pl-stat-val {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .pl-stat-val.up {
+            color: var(--green);
+        }
+
+        .pl-stat-val.down {
+            color: var(--red);
+        }
+
+        .pl-stat-lbl {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         .pl-logo {
             font-family: var(--font-heading);
@@ -181,11 +238,15 @@
             color: #fff;
             margin-bottom: 0.5rem;
         }
-        .pl-logo span { color: var(--gold); }
-        .pl-tagline { 
-            font-size: 0.85rem; 
-            color: var(--text-muted); 
-            letter-spacing: 3px; 
+
+        .pl-logo span {
+            color: var(--gold);
+        }
+
+        .pl-tagline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
@@ -397,7 +458,7 @@
                         structured, disciplined approach to generate consistent income from Option selling.</p>
 
                     <ul class="hero-highlights">
-                        <li><i class='bx bxs-zap'></i> Live Market Execution</li>
+                        <li><i class='bx bxs-zap'></i> Post-Market Deep Dive</li>
                         <li><i class='bx bxs-bullseye'></i> 1 High-Prob Trade / Day</li>
                         <li><i class='bx bxs-shield-quarter'></i> Risk Management</li>
                         <li><i class='bx bxs-briefcase'></i> Institutional System</li>
@@ -408,7 +469,8 @@
                             <i class='bx bxs-info-circle'></i>
                             <div>
                                 <strong>Important Note</strong>
-                                <p>Our program focuses on Real-Market Training, 100% Doubt Resolution, and developing an Institutional Mindset.</p>
+                                <p>Our program focuses on Real-Market Training, 100% Doubt Resolution, and developing an
+                                    Institutional Mindset.</p>
                             </div>
                         </div>
                     </div>
@@ -466,48 +528,52 @@
                                 </div>
                             </div>
                         </div>
-                                          <div class="glass-card learn-card">
-    <div class="learn-label">What you'll learn</div>
-    <div class="learn-list">
-        <div class="learn-item">
-            <span class="check-circle">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            Option selling strategies &amp; setups
-        </div>
-        <div class="learn-item">
-            <span class="check-circle">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            Live trade execution &amp; management
-        </div>
-        <div class="learn-item">
-            <span class="check-circle">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            Position sizing &amp; risk rules
-        </div>
-        <div class="learn-item">
-            <span class="check-circle">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            Institutional mindset &amp; discipline
-        </div>
-    </div>
-</div>
+                        <div class="glass-card learn-card">
+                            <div class="learn-label">What you'll learn</div>
+                            <div class="learn-list">
+                                <div class="learn-item">
+                                    <span class="check-circle">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Option selling strategies &amp; setups
+                                </div>
+                                <div class="learn-item">
+                                    <span class="check-circle">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Live trade execution &amp; management
+                                </div>
+                                <div class="learn-item">
+                                    <span class="check-circle">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Position sizing &amp; risk rules
+                                </div>
+                                <div class="learn-item">
+                                    <span class="check-circle">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2 5l2 2 4-4" stroke="#00c97a" stroke-width="1.3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Institutional mindset &amp; discipline
+                                </div>
+                            </div>
+                        </div>
                     </div>
-  
+
 
                 </div>
-                
+
             </div>
             </div>
         </section>
@@ -565,10 +631,10 @@
                     </div>
                 </div>
 
-               <div class="solution-bridge mt-5 reveal-scroll delay-1">
-                <i class='bx bx-down-arrow-alt arrow-down bounce'></i>
+                <div class="solution-bridge mt-5 reveal-scroll delay-1">
+                    <i class='bx bx-down-arrow-alt arrow-down bounce'></i>
                     <h3 class="solution-title" style="font-size: 2.0rem; line-height: 1.3;">
-                 The Solution: <span class="gradient-text-gold">Professional Option Selling</span>
+                        The Solution: <span class="gradient-text-gold">Professional Option Selling</span>
                     </h3>
                 </div>
             </div>
@@ -666,131 +732,139 @@
                         life.</p>
                 </div>
             </div>
-       
-        <!-- 4. Business Approach Section -->
-        <section class="business-section section-padding text-center" id="about">
-            <div class="container reveal-scroll">
-                <span class="section-tag bg-blue-dim text-blue">Our Philosophy</span>
-                <h2 class="section-title">Option Selling as a <span class="text-white">Business</span></h2>
-                <p class="section-desc max-w-700 mx-auto mb-5">Professional traders don't gamble. They operate a
-                    high-probability business model where statistics are in their favor.</p>
 
-                <div class="business-pillars">
-                    <div class="pillar">
-                        <i class='bx bx-refresh text-blue'></i>
-                        <h4>Consistency</h4>
+            <!-- 4. Business Approach Section -->
+            <section class="business-section section-padding text-center" id="about">
+                <div class="container reveal-scroll">
+                    <span class="section-tag bg-blue-dim text-blue">Our Philosophy</span>
+                    <h2 class="section-title">Option Selling as a <span class="text-white">Business</span></h2>
+                    <p class="section-desc max-w-700 mx-auto mb-5">Professional traders don't gamble. They operate a
+                        high-probability business model where statistics are in their favor.</p>
+
+                    <div class="business-pillars">
+                        <div class="pillar">
+                            <i class='bx bx-refresh text-blue'></i>
+                            <h4>Consistency</h4>
+                        </div>
+                        <div class="pillar">
+                            <i class='bx bx-timer text-gold'></i>
+                            <h4>Discipline</h4>
+                        </div>
+                        <div class="pillar">
+                            <i class='bx bx-map-alt text-green'></i>
+                            <h4>Proper Planning</h4>
+                        </div>
+                        <div class="pillar">
+                            <i class='bx bxs-shield text-red'></i>
+                            <h4>Strong Risk Control</h4>
+                        </div>
                     </div>
-                    <div class="pillar">
-                        <i class='bx bx-timer text-gold'></i>
-                        <h4>Discipline</h4>
-                    </div>
-                    <div class="pillar">
-                        <i class='bx bx-map-alt text-green'></i>
-                        <h4>Proper Planning</h4>
-                    </div>
-                    <div class="pillar">
-                        <i class='bx bxs-shield text-red'></i>
-                        <h4>Strong Risk Control</h4>
+
+                    <div class="quote-box mt-5 mx-auto max-w-800">
+                        <i class='bx bxs-quote-left text-gold-muted'></i>
+                        <blockquote>
+                            "One income runs your family.<br>
+                            <span class="gradient-text-gold">A second income builds your wealth.</span>"
+                        </blockquote>
                     </div>
                 </div>
 
-                <div class="quote-box mt-5 mx-auto max-w-800">
-                    <i class='bx bxs-quote-left text-gold-muted'></i>
-                    <blockquote>
-                        "One income runs your family.<br>
-                        <span class="gradient-text-gold">A second income builds your wealth.</span>"
-                    </blockquote>
-                </div>
-            </div>
-       
-        <!-- 5. Who This Program Is For -->
-        <section class="audience-section section-padding">
-            <div class="container reveal-scroll">
-                <h2 class="section-title text-center mb-5">This Program Is <span class="gradient-text-gold">For You
-                        If</span></h2>
+                <!-- 5. Who This Program Is For -->
+                <section class="audience-section section-padding">
+                    <div class="container reveal-scroll">
+                        <h2 class="section-title text-center mb-5">This Program Is <span class="gradient-text-gold">For
+                                You
+                                If</span></h2>
 
-                <div class="audience-grid">
-                    <div class="audience-card">
-                        <i class='bx bx-check bg-green-dim text-green'></i>
-                        <p>You are serious about learning options trading <strong>professionally</strong>.</p>
-                    </div>
-                    <div class="audience-card">
-                        <i class='bx bx-check bg-green-dim text-green'></i>
-                        <p>You are looking for a reliable <strong>second source of income</strong>.</p>
-                    </div>
-                    <div class="audience-card">
-                        <i class='bx bx-check bg-green-dim text-green'></i>
-                        <p>You want to escape the trap of <strong>gambling-style trading</strong>.</p>
-                    </div>
-                    <div class="audience-card">
-                        <i class='bx bx-check bg-green-dim text-green'></i>
-                        <p>You need a <strong>structured system</strong> for consistent monthly returns.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Course Benefits Section -->
-        <section class="course-benefits-section section-padding" id="course-benefits">
-            <div class="container reveal-scroll">
-                <div class="text-center mb-5">
-                    <span class="section-tag bg-gold-dim text-gold">Why Choose Us</span>
-                    <h2 class="section-title">Course <span class="gradient-text-gold">Benefits</span></h2>
-                    <p class="section-desc max-w-700 mx-auto">We don't just teach theory — we mentor you through real
-                        market conditions with live classes and personal attention.</p>
-                </div>
-
-                <div class="benefits-grid">
-                    <!-- Benefit 1: Live Classes -->
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class='bx bx-broadcast'></i>
-                        </div>
-                        <h3>Live Market Classes</h3>
-                        <p>Our mentorship classes are <strong>100% live</strong> — conducted during actual market hours.
-                            We teach you strategies based on <strong>real-time market conditions</strong> and forecasts,
-                            not recorded theory. This is where we make the difference.</p>
-                        <div class="benefit-highlight">
-                            <i class='bx bx-check-circle'></i> Real-time strategy execution
+                        <div class="audience-grid">
+                            <div class="audience-card">
+                                <i class='bx bx-check bg-green-dim text-green'></i>
+                                <p>You are serious about learning options trading <strong>professionally</strong>.</p>
+                            </div>
+                            <div class="audience-card">
+                                <i class='bx bx-check bg-green-dim text-green'></i>
+                                <p>You are looking for a reliable <strong>second source of income</strong>.</p>
+                            </div>
+                            <div class="audience-card">
+                                <i class='bx bx-check bg-green-dim text-green'></i>
+                                <p>You want to escape the trap of <strong>gambling-style trading</strong>.</p>
+                            </div>
+                            <div class="audience-card">
+                                <i class='bx bx-check bg-green-dim text-green'></i>
+                                <p>You need a <strong>structured system</strong> for consistent monthly returns.</p>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <!-- Benefit 2: 1:1 Mentorship -->
-                    <div class="benefit-card featured">
-                        <div class="benefit-badge">Exclusive</div>
-                        <div class="benefit-icon">
-                            <i class='bx bx-user-voice'></i>
+
+                <!-- Course Benefits Section -->
+                <section class="course-benefits-section section-padding" id="course-benefits">
+                    <div class="container reveal-scroll">
+                        <div class="text-center mb-5">
+                            <span class="section-tag bg-gold-dim text-gold">Why Choose Us</span>
+                            <h2 class="section-title">Course <span class="gradient-text-gold">Benefits</span></h2>
+                            <p class="section-desc max-w-700 mx-auto">We don't just teach theory — we mentor you through
+                                real
+                                market conditions with live classes and personal attention.</p>
                         </div>
-                        <h3>1:1 Personal Mentorship</h3>
-                        <p>Every student gets <strong>dedicated one-on-one sessions</strong> with the mentor. We respect
-                            your unique learning pace, trading capital, and mindset. No crowded webinars — just focused,
-                            personalized guidance tailored to you.</p>
-                        <div class="benefit-highlight">
-                            <i class='bx bx-check-circle'></i> Your pace, your journey
+
+                        <div class="benefits-grid">
+                            <!-- Benefit 1: Live Classes -->
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class='bx bx-broadcast'></i>
+                                </div>
+                                <h3>Post-Market Deep Dive</h3>
+                                <p>Our mentorship classes are <strong>100% live</strong><strong> Learn how trades were
+                                        planned, executed, and managed with real-time logic and disciplined risk
+                                        management.</strong> and
+                                    forecasts,
+                                    not recorded theory. This is where we make the difference.</p>
+                                <div class="benefit-highlight">
+                                    <i class='bx bx-check-circle'></i> Real-time strategy execution
+                                </div>
+                            </div>
+
+                            <!-- Benefit 2: 1:1 Mentorship -->
+                            <div class="benefit-card featured">
+                                <div class="benefit-badge">Exclusive</div>
+                                <div class="benefit-icon">
+                                    <i class='bx bx-user-voice'></i>
+                                </div>
+                                <h3>1:1 Personal Mentorship</h3>
+                                <p>Every student gets <strong>dedicated one-on-one sessions</strong> with the mentor. We
+                                    respect
+                                    your unique learning pace, trading capital, and mindset. No crowded webinars — just
+                                    focused,
+                                    personalized guidance tailored to you.</p>
+                                <div class="benefit-highlight">
+                                    <i class='bx bx-check-circle'></i> Your pace, your journey
+                                </div>
+                            </div>
+
+                            <!-- Benefit 3: Money Back Guarantee -->
+                            <div class="benefit-card">
+                                <div class="benefit-icon guarantee-icon">
+                                    <i class='bx bx-shield-quarter'></i>
+                                </div>
+                                <h3>5-Day Money Back Guarantee</h3>
+                                <p>We're confident in our program. Attend the classes for <strong>5 full days</strong> —
+                                    if you
+                                    feel this isn't for you, we'll <strong>refund 100% of your fee</strong>. No
+                                    questions asked.
+                                    Zero risk on your end.</p>
+                                <div class="benefit-highlight guarantee-highlight">
+                                    <i class='bx bx-check-circle'></i> 100% refund within 5 days
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Benefit 3: Money Back Guarantee -->
-                    <div class="benefit-card">
-                        <div class="benefit-icon guarantee-icon">
-                            <i class='bx bx-shield-quarter'></i>
-                        </div>
-                        <h3>5-Day Money Back Guarantee</h3>
-                        <p>We're confident in our program. Attend the classes for <strong>5 full days</strong> — if you
-                            feel this isn't for you, we'll <strong>refund 100% of your fee</strong>. No questions asked.
-                            Zero risk on your end.</p>
-                        <div class="benefit-highlight guarantee-highlight">
-                            <i class='bx bx-check-circle'></i> 100% refund within 5 days
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
 
 
-        <!-- 7. Transparency Section
+                <!-- 7. Transparency Section
         <section class="transparency-section section-padding relative overflow-hidden">
             <div class="bg-glow blue right"></div>
             <div class="container text-center reveal-scroll">
@@ -815,8 +889,8 @@
             </div>
         </section> -->
 
-        <!-- 9. Serious Inquiry Filter (Moved before FAQ for flow) -->
-        <!-- <section class="serious-section section-padding bg-darker border-top border-bottom">
+                <!-- 9. Serious Inquiry Filter (Moved before FAQ for flow) -->
+                <!-- <section class="serious-section section-padding bg-darker border-top border-bottom">
             <div class="container text-center reveal-scroll">
                 <h2 class="section-title text-red">For Serious Learners <span class="text-white">Only</span></h2>
                 <p class="section-desc max-w-800 mx-auto">
@@ -827,62 +901,66 @@
             </div>
         </section> -->
 
-        <!-- 8. FAQ Section -->
-        <section class="faq-section section-padding" id="faq">
-            <div class="container reveal-scroll">
-                <div class="text-center mb-5">
-                    <h2 class="section-title">Frequently Asked <span class="gradient-text-gold">Questions</span></h2>
-                </div>
+                <!-- 8. FAQ Section -->
+                <section class="faq-section section-padding" id="faq">
+                    <div class="container reveal-scroll">
+                        <div class="text-center mb-5">
+                            <h2 class="section-title">Frequently Asked <span class="gradient-text-gold">Questions</span>
+                            </h2>
+                        </div>
 
-                <div class="faq-accordion max-w-800 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What is the minimum capital required?</span>
-                            <i class='bx bx-chevron-down'></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>The recommended capital to trade this system effectively and manage risk mechanically is
-                                <strong>₹70K–80K</strong>.
-                            </p>
+                        <div class="faq-accordion max-w-800 mx-auto">
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>What is the minimum capital required?</span>
+                                    <i class='bx bx-chevron-down'></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>The recommended capital to trade this system effectively and manage risk
+                                        mechanically is
+                                        <strong>₹70K–80K</strong>.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>Who Can Start Option Selling?</span>
+                                    <i class='bx bx-chevron-down'></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Anyone who understands basic market structure, risk management, and has
+                                        sufficient
+                                        capital can start option selling.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>What skills are required to become a successful option seller?</span>
+                                    <i class='bx bx-chevron-down'></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Market understanding, probability thinking, discipline, patience, and strong risk
+                                        management.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>Is option selling risky?</span>
+                                    <i class='bx bx-chevron-down'></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Everything in the stock market is risky if you don’t understand it.
+                                        But when you understand the system, probabilities, and risk management, what
+                                        looks like
+                                        risk to others becomes an opportunity for you.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Who Can Start Option Selling?</span>
-                            <i class='bx bx-chevron-down'></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Anyone who understands basic market structure, risk management, and has sufficient
-                                capital can start option selling.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What skills are required to become a successful option seller?</span>
-                            <i class='bx bx-chevron-down'></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Market understanding, probability thinking, discipline, patience, and strong risk
-                                management.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Is option selling risky?</span>
-                            <i class='bx bx-chevron-down'></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Everything in the stock market is risky if you don’t understand it.
-                                But when you understand the system, probabilities, and risk management, what looks like
-                                risk to others becomes an opportunity for you.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </section>
-  </section>
-         </section>
-  <!-- Telegram Advertisement Banner -->
+                </section>
+            </section>
+        </section>
+        <!-- Telegram Advertisement Banner -->
         <section class="telegram-banner-section"
             style="background: linear-gradient(90deg, #0f172a 0%, #0088cc 100%); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
             <div class="container text-center text-white relative z-10">
@@ -900,9 +978,9 @@
                     Join @ProOptionSeller24
                 </a>
             </div>
-       
-      
-         </section>
+
+
+        </section>
         <!-- 10. Contact Section -->
         <section class="contact-section section-padding bg-darker text-center relative overflow-hidden">
             <div class="bg-glow gold center"></div>
@@ -925,10 +1003,10 @@
                     </a>
                 </div>
             </div>
- 
-      
+
+
     </main>
-   
+
     <!-- 11. Footer & Disclaimer -->
     <footer class="footer">
         <div class="container">
@@ -966,8 +1044,8 @@
 
             <div class="copyright">
                 <p>&copy; 2024 Pro Options Selling. All Rights Reserved.</p>
-            </div> 
-          </section>
+            </div>
+            </section>
         </div>
     </footer>
 
@@ -1049,7 +1127,7 @@
 
     <!-- Preloader Logic -->
     <script>
-        (function() {
+        (function () {
             const preloader = document.getElementById('preloader');
             const barFill = document.getElementById('barFill');
             const pctLabel = document.getElementById('pctLabel');

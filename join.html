@@ -59,7 +59,7 @@
         .pl-grid {
             position: absolute;
             inset: 0;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -68,7 +68,10 @@
 
         .pl-scanline {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             box-shadow: 0 0 15px var(--gold);
             opacity: 0.3;
@@ -77,8 +80,13 @@
         }
 
         @keyframes scanline {
-            0% { top: -2%; }
-            100% { top: 102%; }
+            0% {
+                top: -2%;
+            }
+
+            100% {
+                top: 102%;
+            }
         }
 
         .pl-content {
@@ -113,7 +121,10 @@
         }
 
         @keyframes candleFadeIn {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .pl-wick {
@@ -130,19 +141,33 @@
             animation: candlePulse 2s ease-in-out infinite alternate;
         }
 
-        .pl-candle-wrap.green { color: var(--green); }
-        .pl-candle-wrap.red { color: var(--red); }
+        .pl-candle-wrap.green {
+            color: var(--green);
+        }
+
+        .pl-candle-wrap.red {
+            color: var(--red);
+        }
 
         @keyframes candlePulse {
-            0% { opacity: 0.7; transform: scaleY(0.95); }
-            100% { opacity: 1; transform: scaleY(1.05); }
+            0% {
+                opacity: 0.7;
+                transform: scaleY(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scaleY(1.05);
+            }
         }
 
         .pl-pulse {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 150px; height: 150px;
+            width: 150px;
+            height: 150px;
             background: radial-gradient(circle, var(--gold-dim) 0%, transparent 70%);
             border-radius: 50%;
             animation: pulseGlow 3s infinite;
@@ -150,9 +175,20 @@
         }
 
         @keyframes pulseGlow {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
-            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; }
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.2;
+            }
         }
 
         .pl-stats {
@@ -167,11 +203,32 @@
             backdrop-filter: blur(5px);
         }
 
-        .pl-stat { display: flex; flex-direction: column; gap: 4px; }
-        .pl-stat-val { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; }
-        .pl-stat-val.up { color: var(--green); }
-        .pl-stat-val.down { color: var(--red); }
-        .pl-stat-lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .pl-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pl-stat-val {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .pl-stat-val.up {
+            color: var(--green);
+        }
+
+        .pl-stat-val.down {
+            color: var(--red);
+        }
+
+        .pl-stat-lbl {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         .pl-logo {
             font-family: var(--font-heading);
@@ -180,11 +237,15 @@
             color: #fff;
             margin-bottom: 0.5rem;
         }
-        .pl-logo span { color: var(--gold); }
-        .pl-tagline { 
-            font-size: 0.85rem; 
-            color: var(--text-muted); 
-            letter-spacing: 3px; 
+
+        .pl-logo span {
+            color: var(--gold);
+        }
+
+        .pl-tagline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
@@ -328,27 +389,33 @@
             margin-right: -15px;
             margin-left: -15px;
         }
+
         @media (max-width: 768px) {
             .row {
                 margin-right: 0;
                 margin-left: 0;
             }
         }
+
         .align-items-center {
             align-items: center;
         }
+
         .col-md-6 {
             position: relative;
             width: 100%;
             padding-right: 15px;
             padding-left: 15px;
         }
+
         @media (min-width: 768px) {
             .col-md-6 {
                 flex: 0 0 50%;
                 max-width: 50%;
             }
-            .pr-md-5, .px-md-5 {
+
+            .pr-md-5,
+            .px-md-5 {
                 padding-right: 3rem !important;
             }
         }
@@ -359,86 +426,86 @@
 
     <!-- Preloader -->
     <div id="preloader">
-      <div class="pl-grid"></div>
-      <div class="pl-scanline"></div>
+        <div class="pl-grid"></div>
+        <div class="pl-scanline"></div>
 
-      <div class="pl-content">
+        <div class="pl-content">
 
-        <div style="position:relative;">
-          <div class="pl-chart">
-            <div class="pl-candle-wrap green" style="--delay:0.1s;">
-              <div class="pl-wick" style="height:10px;"></div>
-              <div class="pl-body" style="height:30px;"></div>
-              <div class="pl-wick" style="height:6px;"></div>
+            <div style="position:relative;">
+                <div class="pl-chart">
+                    <div class="pl-candle-wrap green" style="--delay:0.1s;">
+                        <div class="pl-wick" style="height:10px;"></div>
+                        <div class="pl-body" style="height:30px;"></div>
+                        <div class="pl-wick" style="height:6px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap red" style="--delay:0.25s;">
+                        <div class="pl-wick" style="height:8px;"></div>
+                        <div class="pl-body" style="height:44px;"></div>
+                        <div class="pl-wick" style="height:5px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap green" style="--delay:0.4s;">
+                        <div class="pl-wick" style="height:12px;"></div>
+                        <div class="pl-body" style="height:28px;"></div>
+                        <div class="pl-wick" style="height:4px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap green" style="--delay:0.55s;">
+                        <div class="pl-wick" style="height:7px;"></div>
+                        <div class="pl-body" style="height:52px;"></div>
+                        <div class="pl-wick" style="height:8px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap red" style="--delay:0.7s;">
+                        <div class="pl-wick" style="height:14px;"></div>
+                        <div class="pl-body" style="height:22px;"></div>
+                        <div class="pl-wick" style="height:6px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap green" style="--delay:0.85s;">
+                        <div class="pl-wick" style="height:9px;"></div>
+                        <div class="pl-body" style="height:38px;"></div>
+                        <div class="pl-wick" style="height:5px;"></div>
+                    </div>
+                    <div class="pl-candle-wrap red" style="--delay:1s;">
+                        <div class="pl-wick" style="height:11px;"></div>
+                        <div class="pl-body" style="height:32px;"></div>
+                        <div class="pl-wick" style="height:7px;"></div>
+                    </div>
+                </div>
+                <div class="pl-pulse"></div>
             </div>
-            <div class="pl-candle-wrap red" style="--delay:0.25s;">
-              <div class="pl-wick" style="height:8px;"></div>
-              <div class="pl-body" style="height:44px;"></div>
-              <div class="pl-wick" style="height:5px;"></div>
-            </div>
-            <div class="pl-candle-wrap green" style="--delay:0.4s;">
-              <div class="pl-wick" style="height:12px;"></div>
-              <div class="pl-body" style="height:28px;"></div>
-              <div class="pl-wick" style="height:4px;"></div>
-            </div>
-            <div class="pl-candle-wrap green" style="--delay:0.55s;">
-              <div class="pl-wick" style="height:7px;"></div>
-              <div class="pl-body" style="height:52px;"></div>
-              <div class="pl-wick" style="height:8px;"></div>
-            </div>
-            <div class="pl-candle-wrap red" style="--delay:0.7s;">
-              <div class="pl-wick" style="height:14px;"></div>
-              <div class="pl-body" style="height:22px;"></div>
-              <div class="pl-wick" style="height:6px;"></div>
-            </div>
-            <div class="pl-candle-wrap green" style="--delay:0.85s;">
-              <div class="pl-wick" style="height:9px;"></div>
-              <div class="pl-body" style="height:38px;"></div>
-              <div class="pl-wick" style="height:5px;"></div>
-            </div>
-            <div class="pl-candle-wrap red" style="--delay:1s;">
-              <div class="pl-wick" style="height:11px;"></div>
-              <div class="pl-body" style="height:32px;"></div>
-              <div class="pl-wick" style="height:7px;"></div>
-            </div>
-          </div>
-          <div class="pl-pulse"></div>
-        </div>
 
-        <div class="pl-stats">
-          <div class="pl-stat">
-            <div class="pl-stat-val up">▲ 0.74%</div>
-            <div class="pl-stat-lbl">Nifty 50</div>
-          </div>
-          <div class="pl-stat">
-            <div class="pl-stat-val up">▲ 0.91%</div>
-            <div class="pl-stat-lbl">Bank Nifty</div>
-          </div>
-          <div class="pl-stat">
-            <div class="pl-stat-val down">▼ 2.38%</div>
-            <div class="pl-stat-lbl">TCS</div>
-          </div>
-        </div>
+            <div class="pl-stats">
+                <div class="pl-stat">
+                    <div class="pl-stat-val up">▲ 0.74%</div>
+                    <div class="pl-stat-lbl">Nifty 50</div>
+                </div>
+                <div class="pl-stat">
+                    <div class="pl-stat-val up">▲ 0.91%</div>
+                    <div class="pl-stat-lbl">Bank Nifty</div>
+                </div>
+                <div class="pl-stat">
+                    <div class="pl-stat-val down">▼ 2.38%</div>
+                    <div class="pl-stat-lbl">TCS</div>
+                </div>
+            </div>
 
-        <div>
-          <div class="pl-logo">Pro <span>Options</span></div>
-          <div class="pl-tagline">Market Intelligence Platform</div>
-        </div>
+            <div>
+                <div class="pl-logo">Pro <span>Options</span></div>
+                <div class="pl-tagline">Market Intelligence Platform</div>
+            </div>
 
-        <div>
-          <div class="pl-bar-track">
-            <div class="pl-bar-fill" id="barFill"></div>
-          </div>
-          <div style="text-align:center;">
-            <span class="pl-bar-pct" id="pctLabel">0%</span>
-          </div>
-        </div>
+            <div>
+                <div class="pl-bar-track">
+                    <div class="pl-bar-fill" id="barFill"></div>
+                </div>
+                <div style="text-align:center;">
+                    <span class="pl-bar-pct" id="pctLabel">0%</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Preloader Logic -->
     <script>
-        (function() {
+        (function () {
             const preloader = document.getElementById('preloader');
             const barFill = document.getElementById('barFill');
             const pctLabel = document.getElementById('pctLabel');
@@ -476,34 +543,50 @@
 
     <!-- Market Ticker -->
     <div class="ticker-wrap">
-      <div class="ticker">
-        <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span class="ticker-value">25,235.90</span>
-          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 185.15 (0.74%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">BANK NIFTY</span> <span
-            class="ticker-value">51,462.30</span> <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i>
-            462.50 (0.91%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">RELIANCE</span> <span class="ticker-value">2,985.40</span>
-          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 12.30 (0.41%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span class="ticker-value">1,642.15</span>
-          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -8.45 (-0.51%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span class="ticker-value">1,215.30</span>
-          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span class="ticker-value">25,235.90</span>
-          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 185.15 (0.74%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">BANK NIFTY</span> <span
-            class="ticker-value">51,462.30</span> <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i>
-            462.50 (0.91%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span class="ticker-value">800.85</span>
-          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -42.20 (-5.01%)</span></div>
-        <div class="ticker-item"><span class="ticker-symbol">INFY</span> <span class="ticker-value">1,225.30</span>
-          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -41.80 (-3.30%)</span>
+        <div class="ticker">
+            <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span
+                    class="ticker-value">25,235.90</span>
+                <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 185.15 (0.74%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">BANK NIFTY</span> <span
+                    class="ticker-value">51,462.30</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i>
+                    462.50 (0.91%)</span></div>
+            <div class="ticker-item"><span class="ticker-symbol">RELIANCE</span> <span
+                    class="ticker-value">2,985.40</span>
+                <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 12.30 (0.41%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span
+                    class="ticker-value">1,642.15</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -8.45 (-0.51%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span
+                    class="ticker-value">1,215.30</span>
+                <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">NIFTY 50</span> <span
+                    class="ticker-value">25,235.90</span>
+                <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 185.15 (0.74%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">BANK NIFTY</span> <span
+                    class="ticker-value">51,462.30</span> <span class="ticker-change up"><i
+                        class='bx bx-up-arrow-alt'></i>
+                    462.50 (0.91%)</span></div>
+            <div class="ticker-item"><span class="ticker-symbol">HDFCBANK</span> <span
+                    class="ticker-value">800.85</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -42.20 (-5.01%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">INFY</span> <span class="ticker-value">1,225.30</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -41.80 (-3.30%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">TCS</span> <span class="ticker-value">2,382.60</span>
+                <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -58.20 (-2.38%)</span>
+            </div>
+            <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span
+                    class="ticker-value">1,253.20</span>
+                <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span>
+            </div>
         </div>
-        <div class="ticker-item"><span class="ticker-symbol">TCS</span> <span class="ticker-value">2,382.60</span>
-          <span class="ticker-change down"><i class='bx bx-down-arrow-alt'></i> -58.20 (-2.38%)</span>
-        </div>
-        <div class="ticker-item"><span class="ticker-symbol">ICICIBANK</span> <span class="ticker-value">1,253.20</span>
-          <span class="ticker-change up"><i class='bx bx-up-arrow-alt'></i> 18.75 (1.52%)</span></div>
-      </div>
     </div>
 
     <!-- Simple Header -->
@@ -554,9 +637,8 @@
                                     <i class='bx bx-line-chart text-green' style="font-size:1.5rem;"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white mb-1">Live Market Execution</h4>
-                                    <p class="text-sm text-gray-400">Trade alongside us. See real-time adjustments and
-                                        mechanical risk management.</p>
+                                    <h4 class="text-white mb-1">Post-Market Deep Dive</h4>
+                                    <p class="text-sm text-gray-400">Learn how trades were planned, executed, and managed with real-time logic and disciplined risk management.</p>
                                 </div>
                             </div>
                             <div class="benefit-item" style="display:flex; align-items:flex-start;">
