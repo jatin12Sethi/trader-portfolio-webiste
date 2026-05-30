@@ -937,6 +937,7 @@ img {
 }
 
 .header.scrolled {
+    top: 0;
     background: rgba(5, 7, 10, 0.95);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -2944,5 +2945,588 @@ html, body {
 @media (max-width: 768px) {
     .pnl-grid, .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Clients Interactive Gallery, Tabs, Lightbox & WhatsApp Chats
+   ========================================================================== */
+.feedback-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.tab-btn.active {
+    background: var(--gold-gradient);
+    color: #05070a;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Tab filter switching classes */
+.gallery-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item.hidden {
+    display: none !important;
+}
+
+/* Dhan P&L Screenshot Cards */
+.pnl-screenshot-card {
+    background: linear-gradient(145deg, rgba(20, 28, 48, 0.7), rgba(12, 16, 30, 0.8));
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.pnl-screenshot-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+}
+
+.pnl-screenshot-card .screenshot-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem;
+}
+
+.pnl-screenshot-card .screenshot-title h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin: 0;
+}
+
+.pnl-screenshot-card .screenshot-amount {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--green);
+    font-family: var(--font-heading);
+}
+
+.screenshot-thumbnail-container {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+}
+
+.screenshot-thumbnail-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.screenshot-thumbnail-container:hover img {
+    transform: scale(1.05);
+}
+
+.screenshot-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 7, 10, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.screenshot-thumbnail-container:hover .screenshot-overlay {
+    opacity: 1;
+}
+
+.screenshot-overlay i {
+    font-size: 2rem;
+    color: #fff;
+    background: rgba(16, 185, 129, 0.85);
+    padding: 0.8rem;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.screenshot-thumbnail-container:hover .screenshot-overlay i {
+    transform: scale(1);
+}
+
+/* Premium WhatsApp Mock Chats styling */
+.wa-chat-card {
+    background: #0f1624;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    transition: all 0.3s ease;
+    min-height: 480px;
+}
+
+.wa-chat-card:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+}
+
+.wa-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wa-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wa-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #05070a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.wa-details h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #fff;
+}
+
+.wa-status {
+    font-size: 0.75rem;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.wa-status::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--green);
+}
+
+.wa-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.wa-body {
+    flex-grow: 1;
+    background-image: radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 15px 15px;
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.wa-bubble {
+    max-width: 85%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.wa-bubble.received {
+    background: #1f2c34;
+    color: #e9edef;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+}
+
+.wa-bubble.sent {
+    background: #005c4b;
+    color: #e9edef;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+}
+
+.wa-time {
+    display: block;
+    text-align: right;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 4px;
+}
+
+.wa-bubble.sent .wa-time {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.wa-bubble.sent .wa-time i {
+    color: #53bdeb;
+    font-size: 0.95rem;
+}
+
+.wa-footer-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.wa-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    color: var(--gold);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.wa-view-btn:hover {
+    background: var(--gold-gradient);
+    color: #05070a;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+/* Lightbox overlay styling */
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 7, 10, 0.95);
+    z-index: 10000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.image-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content-wrapper {
+    position: relative;
+    max-width: 90%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-lightbox img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.image-lightbox.active img {
+    transform: scale(1);
+}
+
+.lightbox-caption {
+    color: #fff;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.7);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10000001;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.lightbox-close-btn:hover {
+    color: #fff;
+    background: rgba(239, 68, 68, 0.8);
+    border-color: transparent;
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .image-lightbox {
+        padding: 1rem;
+    }
+    .lightbox-close-btn {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================================================
+   Video Testimonial Section Styles
+   ========================================================================== */
+.video-testimonial-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(20, 28, 48, 0.25) 0%, rgba(10, 14, 23, 0.55) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.video-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.video-player-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.video-frame {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.08);
+    transition: all 0.3s ease;
+    background: #000;
+}
+
+.video-frame:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.18);
+    transform: translateY(-3px);
+}
+
+.video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .video-testimonial-card {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2rem;
+        text-align: center;
+    }
+    .video-text-content {
+        align-items: center;
+    }
+}
+
+/* ==========================================================================
+   Animated Trading Background
+   ========================================================================== */
+.video-section-container {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.trading-lines-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.trading-path {
+    transform-origin: center;
+    animation: oscillateTradingLines 18s ease-in-out infinite alternate;
+}
+
+.green-path {
+    animation-duration: 15s;
+}
+
+.red-path {
+    animation-duration: 22s;
+    animation-delay: -6s;
+}
+
+@keyframes oscillateTradingLines {
+    0% {
+        transform: translateX(-60px) translateY(-15px) scaleY(0.9);
+        opacity: 0.45;
+    }
+    50% {
+        transform: translateX(20px) translateY(10px) scaleY(1.1);
+        opacity: 0.85;
+    }
+    100% {
+        transform: translateX(80px) translateY(-10px) scaleY(0.95);
+        opacity: 0.5;
+    }
+}
+
+/* Candlesticks Floating Background */
+.trading-candlestick {
+    position: absolute;
+    width: 10px;
+    height: var(--height);
+    border-radius: 1px;
+    opacity: 0;
+    z-index: 0;
+    animation: driftTradingCandle 14s ease-in-out infinite;
+    animation-delay: var(--delay);
+    pointer-events: none;
+}
+
+.trading-candlestick::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: -8px;
+    width: 2px;
+    height: calc(100% + 16px);
+}
+
+.up-candle {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+}
+
+.up-candle::before {
+    background: rgba(16, 185, 129, 0.2);
+}
+
+.down-candle {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.18);
+}
+
+.down-candle::before {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+@keyframes driftTradingCandle {
+    0% {
+        transform: translateY(30px) scale(0.95);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.6;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-30px) scale(1.05);
+        opacity: 0;
     }
 }

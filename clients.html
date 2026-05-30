@@ -135,79 +135,301 @@
             </div>
         </section>
 
-        <!-- Live P&L Section -->
-        <section class="section-padding bg-darker">
+        <!-- Featured Video Testimonial Section -->
+        <section class="section-padding bg-dark video-section-container" style="border-bottom: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
+            <!-- Animated Trading Lines Background at the back of the card -->
+            <div class="trading-lines-bg" style="opacity: 0.95;">
+                <svg viewBox="0 0 1440 600" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    <!-- Horizontal grid lines -->
+                    <line x1="0" y1="100" x2="1440" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="0" y1="200" x2="1440" y2="200" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="0" y1="300" x2="1440" y2="300" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="0" y1="400" x2="1440" y2="400" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="0" y1="500" x2="1440" y2="500" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    
+                    <!-- Vertical grid lines -->
+                    <line x1="200" y1="0" x2="200" y2="600" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="400" y1="0" x2="400" y2="600" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="600" y1="0" x2="600" y2="600" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="800" y1="0" x2="800" y2="600" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="1000" y1="0" x2="1000" y2="600" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    <line x1="1200" y1="0" x2="1200" y2="600" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                    
+                    <!-- Animating Green Path -->
+                    <path d="M 0,220 Q 250,80 500,280 T 1000,160 T 1440,240" fill="none" stroke="#10b981" stroke-width="3.5" class="trading-path green-path" />
+                    
+                    <!-- Animating Red Path -->
+                    <path d="M 0,380 Q 350,480 700,320 T 1200,420 T 1440,280" fill="none" stroke="#ef4444" stroke-width="3.5" class="trading-path red-path" />
+                </svg>
+                
+                <!-- Floating Candlesticks -->
+                <div class="trading-candlestick up-candle" style="left: 10%; top: 15%; --height: 50px; --delay: 0s;"></div>
+                <div class="trading-candlestick down-candle" style="left: 25%; top: 60%; --height: 70px; --delay: 4s;"></div>
+                <div class="trading-candlestick up-candle" style="left: 50%; top: 25%; --height: 60px; --delay: 8s;"></div>
+                <div class="trading-candlestick down-candle" style="left: 70%; top: 55%; --height: 80px; --delay: 2s;"></div>
+                <div class="trading-candlestick up-candle" style="left: 85%; top: 20%; --height: 45px; --delay: 6s;"></div>
+                <div class="trading-candlestick down-candle" style="left: 92%; top: 65%; --height: 65px; --delay: 10s;"></div>
+            </div>
+            
+            <div class="container reveal-scroll" style="position: relative; z-index: 2;">
+                <div class="video-testimonial-card">
+                    <div class="video-text-content">
+                        <span class="section-tag bg-gold-dim text-gold">Student Interview</span>
+                        <h2 style="font-size: 2.2rem; font-family: var(--font-heading); font-weight: 700; color: #fff; margin: 15px 0 20px;">
+                            Detailed Mentorship <span class="gradient-text-gold">Review Video</span>
+                        </h2>
+                        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.8rem; max-width: 600px;">
+                            Watch this comprehensive video review where one of our options selling mentorship students shares their complete learning journey, from initial struggles to achieving consistent daily profitability.
+                        </p>
+                        <div style="display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem;">
+                            <div style="display: flex; align-items: center; gap: 10px; color: #e2e8f0; font-size: 1rem;">
+                                <i class='bx bx-check-double text-green' style="font-size: 1.3rem;"></i> <span>Transitioned from losses to steady trading</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px; color: #e2e8f0; font-size: 1rem;">
+                                <i class='bx bx-check-double text-green' style="font-size: 1.3rem;"></i> <span>Learned structured risk adjustment methods</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px; color: #e2e8f0; font-size: 1rem;">
+                                <i class='bx bx-check-double text-green' style="font-size: 1.3rem;"></i> <span>Gained the confidence to manage larger capital</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-player-container">
+                        <div class="video-frame">
+                            <video id="studentVideoReview" controls preload="metadata">
+                                <source src="images/student_feedback_video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Showcase Section -->
+        <section class="section-padding bg-darker" id="success-showcase">
             <div class="container reveal-scroll">
                 <div class="text-center mb-5">
-                    <h2 class="section-title">Verified <span class="text-white">Live P&L</span></h2>
-                    <p class="section-desc">Screenshots of live accounts managing steady option selling strategies.</p>
+                    <span class="section-tag bg-gold-dim text-gold">Student Results</span>
+                    <h2 class="section-title">Proofs of <span class="gradient-text-gold">Success</span></h2>
+                    <p class="section-desc max-w-700 mx-auto">Real screenshots of live accounts and WhatsApp feedback chats from our active students.</p>
                 </div>
 
-                <div class="pnl-grid">
-                    <!-- PNL Card 1 -->
-                    <div class="pnl-card">
-                        <div class="pnl-header">
-                            <div class="pnl-user">
-                                <div class="pnl-avatar">R</div>
-                                <div class="pnl-info">
-                                    <h4>Rahul M.</h4>
-                                    <span>IT Professional</span>
-                                </div>
-                            </div>
-                            <span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">Verified</span>
-                        </div>
-                        <div class="pnl-amount">+₹42,500</div>
-                        <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 1.5rem;">"Hit my monthly target in just 14 trading days. Zero directional risk."</p>
-                        <div class="pnl-footer">
-                            <span>Monthly ROI: 4.2%</span>
-                            <span>Win Rate: 88%</span>
-                        </div>
-                    </div>
-
-                    <!-- PNL Card 2 -->
-                    <div class="pnl-card">
-                        <div class="pnl-header">
-                            <div class="pnl-user">
-                                <div class="pnl-avatar">A</div>
-                                <div class="pnl-info">
-                                    <h4>Amit S.</h4>
-                                    <span>Business Owner</span>
-                                </div>
-                            </div>
-                            <span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">Verified</span>
-                        </div>
-                        <div class="pnl-amount">+₹1,15,000</div>
-                        <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 1.5rem;">"Deployed 30L capital using the institutional strangles strategy. Peaceful trading."</p>
-                        <div class="pnl-footer">
-                            <span>Monthly ROI: 3.8%</span>
-                            <span>Win Rate: 92%</span>
-                        </div>
-                    </div>
-
-                    <!-- PNL Card 3 -->
-                    <div class="pnl-card">
-                        <div class="pnl-header">
-                            <div class="pnl-user">
-                                <div class="pnl-avatar">N</div>
-                                <div class="pnl-info">
-                                    <h4>Neha P.</h4>
-                                    <span>Full-time Trader</span>
-                                </div>
-                            </div>
-                            <span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">Verified</span>
-                        </div>
-                        <div class="pnl-amount">+₹18,400</div>
-                        <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 1.5rem;">"Recovered my past losses. The risk management framework is life-changing."</p>
-                        <div class="pnl-footer">
-                            <span>Monthly ROI: 5.1%</span>
-                            <span>Win Rate: 85%</span>
-                        </div>
-                    </div>
+                <!-- Tab Filters -->
+                <div class="feedback-tabs">
+                    <button class="tab-btn active" data-filter="all">All Proofs</button>
+                    <button class="tab-btn" data-filter="pnl">Live Profit Dashboards</button>
+                    <button class="tab-btn" data-filter="chats">Student Conversations</button>
                 </div>
-                
+
+                <!-- Showcase Grid -->
+                <div class="pnl-grid" id="gallery-grid">
+                    
+                    <!-- Live Profit Card 1: +28,959 -->
+                    <div class="gallery-item pnl-screenshot-card" data-category="pnl">
+                        <div class="screenshot-title">
+                            <h4>VIP Student Strangle Setup</h4>
+                            <span class="wa-badge">Verified P&L</span>
+                        </div>
+                        <div class="screenshot-thumbnail-container" data-src="images/profit_28959.jpg" data-caption="VIP Student Daily Profit: +₹28,959.00 (Sensex Options, 5 trades closed in profit)">
+                            <img src="images/profit_28959.jpg" alt="Student Profit Dashboard +28959" loading="lazy">
+                            <div class="screenshot-overlay">
+                                <i class='bx bx-zoom-in'></i>
+                            </div>
+                        </div>
+                        <div class="screenshot-amount">+₹28,959.00</div>
+                        <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0;">Real-time Sensex Option Selling setup showing consistent execution under strict risk management rules.</p>
+                        <div class="pnl-footer">
+                            <span>Daily Gain</span>
+                            <span style="color: var(--green); font-weight:600;">5/5 In Profit</span>
+                        </div>
+                    </div>
+
+                    <!-- Live Profit Card 2: +15,434 -->
+                    <div class="gallery-item pnl-screenshot-card" data-category="pnl">
+                        <div class="screenshot-title">
+                            <h4>Mentorship Live Account</h4>
+                            <span class="wa-badge">Verified P&L</span>
+                        </div>
+                        <div class="screenshot-thumbnail-container" data-src="images/profit_15434.jpg" data-caption="Student Live Account P&L: +₹15,434.00 (Sensex Options, 5 trades closed in profit)">
+                            <img src="images/profit_15434.jpg" alt="Student Profit Dashboard +15434" loading="lazy">
+                            <div class="screenshot-overlay">
+                                <i class='bx bx-zoom-in'></i>
+                            </div>
+                        </div>
+                        <div class="screenshot-amount">+₹15,434.00</div>
+                        <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0;">Option Selling Strategy. Student successfully executed 5 trades with seamless theta decay benefits.</p>
+                        <div class="pnl-footer">
+                            <span>Daily Gain</span>
+                            <span style="color: var(--green); font-weight:600;">5/5 In Profit</span>
+                        </div>
+                    </div>
+
+                    <!-- Live Profit Card 3: +11,712 -->
+                    <div class="gallery-item pnl-screenshot-card" data-category="pnl">
+                        <div class="screenshot-title">
+                            <h4>Pro Member Account P&L</h4>
+                            <span class="wa-badge">Verified P&L</span>
+                        </div>
+                        <div class="screenshot-thumbnail-container" data-src="images/profit_11712.jpg" data-caption="Mentorship Account Daily Realized P&L: +₹11,712.00 (Sensex Options, 2 trades closed in profit)">
+                            <img src="images/profit_11712.jpg" alt="Student Profit Dashboard +11712" loading="lazy">
+                            <div class="screenshot-overlay">
+                                <i class='bx bx-zoom-in'></i>
+                            </div>
+                        </div>
+                        <div class="screenshot-amount">+₹11,712.00</div>
+                        <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0;">2 major trades closed in profit. Strict stop loss parameters and calm execution without panic trading.</p>
+                        <div class="pnl-footer">
+                            <span>Daily Gain</span>
+                            <span style="color: var(--green); font-weight:600;">2/2 In Profit</span>
+                        </div>
+                    </div>
+
+                    <!-- Chat Feedback Card 1: Ayush Agarwal VTP -->
+                    <div class="gallery-item wa-chat-card" data-category="chats">
+                        <div class="wa-header">
+                            <div class="wa-user-info">
+                                <div class="wa-avatar">AA</div>
+                                <div class="wa-details">
+                                    <h4>Ayush Agarwal VTP</h4>
+                                    <div class="wa-status">Online</div>
+                                </div>
+                            </div>
+                            <span class="wa-badge">Student Chat</span>
+                        </div>
+                        
+                        <div class="wa-body">
+                            <div class="wa-bubble received">
+                                I would like to express my heartfelt gratitude and positive feedback for my mentor Mr. Neelkanth, from whom I recently learned Option Selling. His teaching style is simple, practical, and very clear, especially when explaining the difference between Option Buying and Option Selling.
+                                <span class="wa-time">3:31 pm</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                Before joining his mentorship, I was only into Option Buying and unfortunately faced continuous losses. Due to those losses, I was losing motivation and confidence in trading. However, after learning from Mr. Neelkanth, my perspective towards the market completely changed.
+                                <span class="wa-time">3:34 pm</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                He gave me a clear vision of why Option Selling has strong potential when done with proper knowledge, discipline, and risk management.
+                                <span class="wa-time">3:36 pm</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                Thank you, Mr. Neelkanth, for your valuable guidance, motivation, and continuous support.
+                                <span class="wa-time">3:38 pm</span>
+                            </div>
+                        </div>
+
+                        <div class="wa-footer-cta">
+                            <button class="wa-view-btn" data-src="images/feedback_ayush.jpg" data-caption="WhatsApp Feedback from Ayush Agarwal VTP expressing gratitude for Mr. Neelkanth's option selling mentorship">
+                                <i class='bx bx-message-square-detail'></i> View Original Screenshot
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Feedback Card 2: Ishaan Narang -->
+                    <div class="gallery-item wa-chat-card" data-category="chats">
+                        <div class="wa-header">
+                            <div class="wa-user-info">
+                                <div class="wa-avatar">IN</div>
+                                <div class="wa-details">
+                                    <h4>Ishaan Narang</h4>
+                                    <div class="wa-status">Online</div>
+                                </div>
+                            </div>
+                            <span class="wa-badge">Student Chat</span>
+                        </div>
+                        
+                        <div class="wa-body">
+                            <div class="wa-bubble received">
+                                Sir aj decay call side me h?
+                                <span class="wa-time">9:41 am</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                Jbki market positive h. And view abi range me h
+                                <span class="wa-time">9:41 am</span>
+                            </div>
+                            <div class="wa-bubble sent">
+                                Hmm , today is expiry day
+                                <span class="wa-time">9:47 am <i class='bx bx-check-double'></i></span>
+                            </div>
+                            <div class="wa-bubble received">
+                                Yes.. sometimes behave so weird
+                                <span class="wa-time">10:06 am</span>
+                            </div>
+                            <div class="wa-bubble sent">
+                                That is intentional by big player
+                                <span class="wa-time">10:09 am <i class='bx bx-check-double'></i></span>
+                            </div>
+                            <div class="wa-bubble received">
+                                Hello Neelkanth sir, Hope all good at your end. Just wanted to share my gratitude towards your teaching 🙏
+                                <span class="wa-time">2:11 pm</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                It was a wonderful experience while learning from you.. Daily I am learning, implementing and creating profits.. Your true student 🤩
+                                <span class="wa-time">2:11 pm</span>
+                            </div>
+                            <div class="wa-bubble sent">
+                                Glad to hear that Ishan , wish you the best luck in your stock market journey 💰💰💰
+                                <span class="wa-time">2:19 pm <i class='bx bx-check-double'></i></span>
+                            </div>
+                        </div>
+
+                        <div class="wa-footer-cta">
+                            <button class="wa-view-btn" data-src="images/feedback_ishaan.jpg" data-caption="WhatsApp Feedback from Ishaan Narang sharing consistent daily option selling profits and course gratitude">
+                                <i class='bx bx-message-square-detail'></i> View Original Screenshot
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Feedback Card 3: Bhavik Seth -->
+                    <div class="gallery-item wa-chat-card" data-category="chats">
+                        <div class="wa-header">
+                            <div class="wa-user-info">
+                                <div class="wa-avatar">BS</div>
+                                <div class="wa-details">
+                                    <h4>Bhavik Seth</h4>
+                                    <div class="wa-status">Online</div>
+                                </div>
+                            </div>
+                            <span class="wa-badge">Student Chat</span>
+                        </div>
+                        
+                        <div class="wa-body">
+                            <div class="wa-bubble received">
+                                I have been in the market for 4 years. During this time, I have done 10-12 courses, but I have not met a mentor like Neelkanth Sir till date. Sir completely removed the fear I had about the market.
+                                <span class="wa-time">3:01 pm</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                Sir's teaching method made me understand how simple and straightforward the market is. Also, if you look at the market not just as trading, but as a business from the right perspective and work, you can definitely achieve success, this confidence was built after the course.
+                                <span class="wa-time">3:01 pm</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                I have done many courses till date, but I have not seen anyone else with the transparency, honesty and passion for the success of students like Sir. His guidance has completely changed my perspective on the market. Thank you Sir! 🙏
+                                <span class="wa-time">3:01 pm</span>
+                            </div>
+                            <div class="wa-bubble received">
+                                Brobr ahe ka sir?
+                                <span class="wa-time">3:02 pm</span>
+                            </div>
+                            <div class="wa-bubble sent">
+                                Ok
+                                <span class="wa-time">3:02 pm <i class='bx bx-check-double'></i></span>
+                            </div>
+                            <div class="wa-bubble sent">
+                                I'm glad to hear that. Wishing you the best of luck and continued success in your stock market journey 💰 💰 💐
+                                <span class="wa-time">3:03 pm <i class='bx bx-check-double'></i></span>
+                            </div>
+                        </div>
+
+                        <div class="wa-footer-cta">
+                            <button class="wa-view-btn" data-src="images/bhavik_feedback.jpg" data-caption="WhatsApp Feedback from Bhavik Seth sharing his option selling learning journey after taking 10-12 other trading courses">
+                                <i class='bx bx-message-square-detail'></i> View Original Screenshot
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="text-center mt-5">
                     <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 600px; margin: 0 auto;">
-                        * Disclaimer: Trading options involves risk. Past performance is not indicative of future results. These are actual student results but individual performance will vary based on capital and discipline.
+                        * Disclaimer: Options trading involves substantial risk of loss. These are actual student conversations and verified profit dashboards, but individual results depend completely on capital size, execution speed, and mental discipline.
                     </p>
                 </div>
             </div>
@@ -262,6 +484,17 @@
                             <div class="author-details">
                                 <h4>Arjun T.</h4>
                                 <span>Retail Trader</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <i class='bx bxs-quote-alt-right quote-icon'></i>
+                        <p class="testimonial-text">"I have done 10-12 courses in the last 4 years but never met a mentor like Neelkanth Sir. His teaching method is simple and honest. He completely removed my market fear."</p>
+                        <div class="testimonial-author">
+                            <div class="author-details">
+                                <h4>Bhavik Seth</h4>
+                                <span>Experienced Option Trader</span>
                             </div>
                         </div>
                     </div>
@@ -351,7 +584,95 @@
             document.querySelectorAll('.reveal-scroll').forEach(el => {
                 observer.observe(el);
             });
+
+            // Tab filtering logic
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (filterValue === 'all' || itemCategory === filterValue) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Lightbox logic
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            const openLightbox = (src, caption) => {
+                lightboxImg.src = src;
+                lightboxCaption.textContent = caption;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Stop page scrolling
+            };
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    lightboxImg.src = '';
+                    lightboxCaption.textContent = '';
+                }, 300);
+            };
+
+            // Bind click events on Dhan screenshot thumbnails
+            document.querySelectorAll('.screenshot-thumbnail-container').forEach(el => {
+                el.addEventListener('click', () => {
+                    const src = el.getAttribute('data-src');
+                    const caption = el.getAttribute('data-caption');
+                    openLightbox(src, caption);
+                });
+            });
+
+            // Bind click events on WhatsApp view buttons
+            document.querySelectorAll('.wa-view-btn').forEach(el => {
+                el.addEventListener('click', () => {
+                    const src = el.getAttribute('data-src');
+                    const caption = el.getAttribute('data-caption');
+                    openLightbox(src, caption);
+                });
+            });
+
+            // Bind close events
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', closeLightbox);
+            }
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
         });
     </script>
+
+    <!-- Lightbox Modal for High-Res Proof Screenshots -->
+    <div id="imageLightbox" class="image-lightbox">
+        <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+        <div class="lightbox-content-wrapper">
+            <img id="lightboxImg" src="" alt="Proof Screenshot Details">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+    </div>
 </body>
 </html>
