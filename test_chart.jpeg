@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <style>
+      body { text-align: center; }
+      h1 { font-size: 3em; }
+      p { font-size: 1.25em; }
+    </style>
+  </head>
+  <body>
+    <h1>404 Not Found</h1>
+    <hr/>
+    <p>
+      Please <a href="#" onclick="window.history.back()">go back</a> or return to the <a href="/">home page</a>.
+    </p>
+  </body>
+</html>

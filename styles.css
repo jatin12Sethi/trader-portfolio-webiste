@@ -2778,3 +2778,171 @@ img {
 html, body {
     overflow-x: hidden;
 }
+
+/* ==========================================================================
+   Clients Page Specific Styles
+   ========================================================================== */
+.clients-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.clients-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 80vw;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.pnl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.pnl-card {
+    background: linear-gradient(145deg, rgba(20, 28, 48, 0.7), rgba(12, 16, 30, 0.8));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.pnl-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+}
+
+.pnl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 0.8rem;
+}
+
+.pnl-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pnl-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--gold);
+    border: 1px solid rgba(201, 165, 68, 0.3);
+}
+
+.pnl-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.pnl-info span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.pnl-amount {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green);
+    margin: 1rem 0;
+}
+
+.pnl-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    background: rgba(16, 185, 129, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-top: auto;
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    border-color: rgba(201, 165, 68, 0.3);
+    transform: translateY(-5px);
+}
+
+.quote-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    color: rgba(201, 165, 68, 0.1);
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-details h4 {
+    color: #fff;
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+}
+
+.author-details span {
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .pnl-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
