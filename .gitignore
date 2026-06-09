@@ -2,4 +2,3 @@ node_modules/
 .env
 deploy.zip
 .DS_Store
-config.php
