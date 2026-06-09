@@ -26,4 +26,4 @@ jobs:
           **/node_modules/**
           .env
           deploy.zip
-          config.php
+
