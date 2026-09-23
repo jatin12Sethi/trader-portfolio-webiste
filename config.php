@@ -4,6 +4,6 @@
 
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_PORT', 465); // SSL
-define('SMTP_USER', 'Sethijatin928@gmail.com'); // Replace with your actual email
-define('SMTP_PASS', 'clcq jbyf yzsr kjki'); // Replace with App Password
+define('SMTP_USER', 'prooptionseller100@gmail.com'); // Replace with your actual email
+define('SMTP_PASS', 'tsbg ctbc whkx llbn'); // Replace with App Password
 ?>
