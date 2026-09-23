@@ -133,7 +133,7 @@ function handleSendRoadmap($data) {
         // 1. Email to User
         $mail = createMailer();
         $mail->addAddress($email, $name);
-        $mail->Subject = 'Your Pro Options Selling Course Roadmap is Here! 📈';
+        $mail->Subject = 'Your Pro Options Selling Course Roadmap is Here!';
         $mail->Body    = buildEmailTemplate('Your Requested Roadmap', $content);
         $pdfPath = __DIR__ . '/Pro Option Selling Course .pdf';
         if (file_exists($pdfPath)) {
@@ -185,14 +185,14 @@ function handleApplyMentorship($data) {
         // 1. Email to User
         $mail = createMailer();
         $mail->addAddress($email, $name);
-        $mail->Subject = 'Application Received: Pro Options Mentorship 🎯';
+        $mail->Subject = 'Application Received: Pro Options Mentorship';
         $mail->Body    = buildEmailTemplate('Application Received', $content);
         $mail->send();
 
         // 2. Email to Admin
         $admin = createMailer();
         $admin->addAddress(SMTP_USER);
-        $admin->Subject = '🚨 New Mentorship Application: ' . $name;
+        $admin->Subject = 'New Mentorship Application: ' . $name;
         $admin->isHTML(false);
         $admin->Body = "A new user has submitted a Mentorship Application!\n\nDetails:\n- Name: $name\n- Email: $email\n- Phone: $phone\n- Experience: $experience\n- Capital: $capital\n\nAction Required: Reach out to them on WhatsApp at $phone.";
         $admin->send();
