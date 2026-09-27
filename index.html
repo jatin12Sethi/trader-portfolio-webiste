@@ -24,7 +24,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=12">
-    <link rel="stylesheet" href="theme-light.css?v=5">
+    <link rel="stylesheet" href="premium.css?v=1">
+    <link rel="stylesheet" href="theme-light.css?v=6">
 
     <!-- Preloader Critical CSS -->
     <style>
@@ -454,6 +455,7 @@
         <!-- 1. Hero Section -->
         <section class="hero overlay-bg bg-grid" id="home">
             <div class="hero-bg-glow"></div>
+            <div class="hero-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
             <div class="container hero-container">
                 <div class="hero-content reveal-on-load">
                     <div class="badge">Trusted by Serious Traders <i class='bx bxs-star yellow'></i><i
@@ -590,6 +592,30 @@
             </div>
         </section>
 
+        <!-- Stats band -->
+        <section class="stats-band" aria-label="Highlights">
+            <div class="container">
+                <div class="stats-band-inner reveal-scroll">
+                    <div class="stat-item">
+                        <span class="stat-value"><span class="count-up" data-count="500">500</span>+</span>
+                        <span class="stat-label">Active Learners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value"><span class="count-up" data-count="3">3</span></span>
+                        <span class="stat-label">Expert-Led Courses</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">10&ndash;<span class="count-up" data-count="20">20</span></span>
+                        <span class="stat-label">Days of Live Classes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">&#8377;<span class="count-up" data-count="8">8</span>K</span>
+                        <span class="stat-label">Courses Starting From</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Telegram Advertisement Banner
         <section class="telegram-banner-section"
             style="background: linear-gradient(90deg, #0f172a 0%, #0088cc 100%); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
@@ -664,6 +690,17 @@
                             trading journey. Tap any course to open its complete syllabus.</p>
                     </div>
 
+                    <div class="course-journey" aria-label="Learning path">
+                        <div class="journey-step"><span class="journey-num">01</span><span class="journey-label">Learn the
+                                Basics</span></div>
+                        <span class="journey-line" aria-hidden="true"></span>
+                        <div class="journey-step"><span class="journey-num">02</span><span class="journey-label">Master
+                                Intraday Selling</span></div>
+                        <span class="journey-line" aria-hidden="true"></span>
+                        <div class="journey-step"><span class="journey-num">03</span><span class="journey-label">Build
+                                Positional Income</span></div>
+                    </div>
+
                     <div class="courses-grid">
                         <div class="course-card accent-blue">
                             <div class="course-top">
@@ -673,6 +710,7 @@
                             <h3>Stock Market Basics Course</h3>
                             <p class="course-tagline">Understand the Indian stock market from scratch and start trading
                                 or investing with confidence.</p>
+                            <p class="course-bestfor"><i class='bx bx-user-check'></i> <span>Best for:</span> Students, working professionals &amp; first-time investors</p>
                             <div class="course-meta">
                                 <span><i class='bx bx-calendar'></i> 10 Days</span>
                                 <span><i class='bx bx-time-five'></i> 1 hr / day</span>
@@ -711,6 +749,7 @@
                             <h3>Intraday Option Selling Course</h3>
                             <p class="course-tagline">Learn the real secrets of professional option selling and trade
                                 like a business owner, not a gambler.</p>
+                            <p class="course-bestfor"><i class='bx bx-user-check'></i> <span>Best for:</span> Salaried professionals, business owners &amp; investors</p>
                             <div class="course-meta">
                                 <span><i class='bx bx-calendar'></i> 12 Days</span>
                                 <span><i class='bx bx-video'></i> Live Post-Market</span>
@@ -743,7 +782,8 @@
                             </div>
                         </div>
 
-                        <div class="course-card accent-green">
+                        <div class="course-card accent-green has-ribbon">
+                            <span class="course-ribbon"><i class='bx bxs-star'></i> Most Comprehensive</span>
                             <div class="course-top">
                                 <div class="course-icon"><i class='bx bx-trending-up'></i></div>
                                 <span class="course-level">Positional</span>
@@ -751,6 +791,7 @@
                             <h3>Positional Option Selling Course</h3>
                             <p class="course-tagline">Build a consistent monthly income stream with positional
                                 strategies and a professional risk framework.</p>
+                            <p class="course-bestfor"><i class='bx bx-user-check'></i> <span>Best for:</span> Professionals, homemakers, investors &amp; retirees</p>
                             <div class="course-meta">
                                 <span><i class='bx bx-calendar'></i> 20 Days</span>
                                 <span><i class='bx bx-video'></i> Live Post-Market</span>
@@ -784,9 +825,119 @@
                         </div>
                     </div>
 
+                    <div class="course-includes">
+                        <div class="include-item"><i class='bx bx-video'></i><span>Live classes on Google Meet</span></div>
+                        <div class="include-item"><i class='bx bx-line-chart'></i><span>Practical live-market examples</span></div>
+                        <div class="include-item"><i class='bx bx-shield-quarter'></i><span>Risk management framework</span></div>
+                        <div class="include-item"><i class='bx bxs-crown'></i><span>Premium: lifetime support &amp; 1:1
+                                guidance</span></div>
+                    </div>
+
+                    <div class="course-compare">
+                        <h3 class="compare-title">Compare <span class="gradient-text-gold">Courses</span></h3>
+                        <p class="compare-hint"><i class='bx bx-move-horizontal'></i> Swipe to compare</p>
+                        <div class="compare-scroll">
+                            <table class="compare-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><span class="sr-only">Feature</span></th>
+                                        <th scope="col"><span class="compare-dot accent-blue"></span>Stock Market Basics</th>
+                                        <th scope="col"><span class="compare-dot accent-gold"></span>Intraday Option Selling</th>
+                                        <th scope="col"><span class="compare-dot accent-green"></span>Positional Option Selling</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Focus</th>
+                                        <td>Market foundations</td>
+                                        <td>Intraday option selling</td>
+                                        <td>Monthly positional income</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Duration</th>
+                                        <td>10 days &middot; 1 hr / day</td>
+                                        <td>12 days &middot; post-market</td>
+                                        <td>20 days &middot; post-market</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Key topics</th>
+                                        <td>Equity, F&amp;O basics, technical analysis</td>
+                                        <td>High-probability setups, strike selection, adjustments</td>
+                                        <td>Straddle, Strangle, Iron Condor, Iron Fly, covered calls</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Basic plan</th>
+                                        <td class="compare-price">&#8377;8,000</td>
+                                        <td class="compare-price">&#8377;15,000</td>
+                                        <td class="compare-price">&#8377;20,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Premium plan</th>
+                                        <td class="compare-price">&#8377;10,000</td>
+                                        <td class="compare-price">&#8377;25,000</td>
+                                        <td class="compare-price">&#8377;30,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Money-back guarantee<sup>*</sup></th>
+                                        <td><i class='bx bx-minus compare-no'></i><span class="sr-only">No</span></td>
+                                        <td><i class='bx bx-check compare-yes'></i><span class="sr-only">Yes</span></td>
+                                        <td><i class='bx bx-check compare-yes'></i><span class="sr-only">Yes</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Syllabus</th>
+                                        <td><a href="courses/stock-market-basics-course.pdf" target="_blank" rel="noopener"><i class='bx bxs-file-pdf'></i> PDF</a></td>
+                                        <td><a href="courses/intraday-option-selling-course.pdf" target="_blank" rel="noopener"><i class='bx bxs-file-pdf'></i> PDF</a></td>
+                                        <td><a href="courses/positional-option-selling-course.pdf" target="_blank" rel="noopener"><i class='bx bxs-file-pdf'></i> PDF</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="compare-footnote"><sup>*</sup> If the strategy fails to generate profit within one month,
+                            as stated in the course syllabus. Join early at the lowest price &mdash; fees increase for the
+                            next batch.</p>
+                    </div>
+
                     <p class="courses-note"><i class='bx bx-info-circle'></i> Each syllabus opens as a PDF in a new
                         tab. Questions? <a href="https://wa.me/919172556611" target="_blank" rel="noopener">WhatsApp
                             us</a></p>
+                </div>
+            </section>
+
+            <!-- Meet the mentor -->
+            <section class="mentor-section section-padding" id="mentor">
+                <div class="container mentor-grid reveal-scroll">
+                    <div class="mentor-photo">
+                        <div class="mentor-photo-frame">
+                            <img src="neelkanth.jpg" alt="Neelkanth – Professional Option Seller" loading="lazy">
+                        </div>
+                        <div class="mentor-photo-badge"><i class='bx bxs-badge-check'></i> Pro Option Seller &amp; Trading
+                            Mentor</div>
+                    </div>
+                    <div class="mentor-content">
+                        <span class="section-tag bg-gold-dim text-gold">Meet Your Mentor</span>
+                        <h2 class="section-title">Learn Directly From <span class="gradient-text-gold">Neelkanth</span></h2>
+                        <p>With years of dedicated screen time and real-money experience, Neelkanth has built a
+                            systematic, institutional-style approach to option selling that empowers retail traders to
+                            stop gambling and start building a real trading business.</p>
+                        <p>Every day through his Telegram channel <strong>@ProOptionSeller1689</strong>, he shares
+                            verified trade setups, real strategy breakdowns, and his clients' daily profit reports —
+                            completely transparently.</p>
+                        <div class="mentor-chips">
+                            <span><i class='bx bx-target-lock'></i> SENSEX Options</span>
+                            <span><i class='bx bx-shield-quarter'></i> Risk Management</span>
+                            <span><i class='bx bx-trending-up'></i> Theta Decay Strategy</span>
+                            <span><i class='bx bx-time-five'></i> 1 Trade / Day</span>
+                        </div>
+                        <div class="mentor-actions">
+                            <a href="about.html" class="btn btn-primary">Know More About Neelkanth <i
+                                    class='bx bx-right-arrow-alt'></i></a>
+                            <div class="social-icons">
+                                <a href="https://t.me/ProOptionSeller1689" target="_blank" rel="noopener" class="si-telegram" aria-label="Telegram" title="Telegram"><i class='bx bxl-telegram'></i></a>
+                                <a href="https://x.com/Neelkanth1689" target="_blank" rel="noopener" class="si-x" aria-label="X (Twitter)" title="X (Twitter)"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                                <a href="https://www.linkedin.com/in/nilkntheshwar-kharwane-480598351/" target="_blank" rel="noopener" class="si-linkedin" aria-label="LinkedIn" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -802,18 +953,22 @@
                         <div class="pillar">
                             <i class='bx bx-refresh text-blue'></i>
                             <h4>Consistency</h4>
+                            <p>Small, repeatable edges over random big bets.</p>
                         </div>
                         <div class="pillar">
                             <i class='bx bx-timer text-gold'></i>
                             <h4>Discipline</h4>
+                            <p>Rules decide the trade &mdash; not emotions.</p>
                         </div>
                         <div class="pillar">
                             <i class='bx bx-map-alt text-green'></i>
                             <h4>Proper Planning</h4>
+                            <p>Every entry, exit and adjustment planned in advance.</p>
                         </div>
                         <div class="pillar">
                             <i class='bx bxs-shield text-red'></i>
                             <h4>Strong Risk Control</h4>
+                            <p>Capital protection comes before profit.</p>
                         </div>
                     </div>
 
@@ -958,10 +1113,51 @@
             </div>
         </section> -->
 
+                <!-- Student testimonials -->
+                <section class="home-testimonials section-padding" id="testimonials">
+                    <div class="container reveal-scroll">
+                        <div class="text-center">
+                            <span class="section-tag bg-green-dim text-green">Student Stories</span>
+                            <h2 class="section-title">What Our <span class="gradient-text-gold">Students</span> Say</h2>
+                        </div>
+                        <div class="home-testimonials-grid">
+                            <figure class="home-testimonial">
+                                <i class='bx bxs-quote-alt-left home-quote'></i>
+                                <blockquote>"I used to lose sleep holding overnight positions. Neelkanth taught me how to
+                                    sell options far away from the current price. Now I make money from theta decay while
+                                    I work my 9-to-5 job. Highly recommended."</blockquote>
+                                <figcaption><span class="home-avatar">VD</span><span><strong>Vikram D.</strong>Software
+                                        Engineer</span></figcaption>
+                            </figure>
+                            <figure class="home-testimonial">
+                                <i class='bx bxs-quote-alt-left home-quote'></i>
+                                <blockquote>"The best part about this mentorship is the 1-on-1 handholding. I wasn't just
+                                    given recorded videos; I was taught how to manage my specific capital size and adjust
+                                    trades when the market goes against me."</blockquote>
+                                <figcaption><span class="home-avatar">PK</span><span><strong>Priya K.</strong>Doctor</span>
+                                </figcaption>
+                            </figure>
+                            <figure class="home-testimonial">
+                                <i class='bx bxs-quote-alt-left home-quote'></i>
+                                <blockquote>"I have done 10-12 courses in the last 4 years but never met a mentor like
+                                    Neelkanth Sir. His teaching method is simple and honest. He completely removed my
+                                    market fear."</blockquote>
+                                <figcaption><span class="home-avatar">BS</span><span><strong>Bhavik Seth</strong>Experienced
+                                        Option Trader</span></figcaption>
+                            </figure>
+                        </div>
+                        <div class="text-center">
+                            <a href="clients.html" class="btn btn-outline">See All Student Results <i
+                                    class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- 8. FAQ Section -->
                 <section class="faq-section section-padding" id="faq">
                     <div class="container reveal-scroll">
                         <div class="text-center mb-5">
+                            <span class="section-tag bg-gold-dim text-gold">Got Questions?</span>
                             <h2 class="section-title">Frequently Asked <span class="gradient-text-gold">Questions</span>
                             </h2>
                         </div>
@@ -1018,50 +1214,45 @@
             </section>
         </section>
         <!-- Telegram Advertisement Banner -->
-        <section class="telegram-banner-section"
-            style="background: linear-gradient(90deg, #0f172a 0%, #0088cc 100%); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <div class="container text-center text-white relative z-10">
-                <div style="display: inline-flex; justify-content: center; align-items: center; margin-bottom: 15px;">
-                    <i class='bx bxl-telegram' style="font-size: 3rem; color: #38bdf8;"></i>
+        <section class="telegram-banner-section tg-section">
+            <div class="container">
+                <div class="tg-card reveal-scroll">
+                    <div class="tg-icon"><i class='bx bxl-telegram'></i></div>
+                    <div class="tg-text">
+                        <h3>Join Neelkanth's Official Telegram Community</h3>
+                        <p>Get exclusive access to professional option selling strategies, market insights, and daily
+                            client profit reports for free.</p>
+                    </div>
+                    <a href="https://t.me/ProOptionSeller1689" target="_blank" rel="noopener" class="tg-btn"><i
+                            class='bx bxl-telegram'></i> Join @ProOptionSeller1689</a>
                 </div>
-                <h3 style="font-size: 2rem; margin-bottom: 15px; color: white;">Join Neelkanth's Official Telegram
-                    Community</h3>
-                <p
-                    style="font-size: 1.1rem; margin-bottom: 25px; color: #e2e8f0; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Get exclusive access to professional option selling strategies, market insights, and daily client
-                    profit reports for free.</p>
-                <a href="https://t.me/ProOptionSeller1689" target="_blank" class="btn btn-primary"
-                    style="background: #38bdf8; color: #0f172a; border: none; font-size: 1.1rem; padding: 12px 30px; border-radius: 30px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
-                    Join @ProOptionSeller1689
-                </a>
             </div>
-
-
         </section>
         <!-- 10. Contact Section -->
-        <section class="contact-section section-padding bg-darker text-center relative overflow-hidden">
+        <section class="contact-section section-padding text-center relative overflow-hidden">
             <div class="bg-glow gold center"></div>
             <div class="container reveal-scroll relative z-10">
-                <h2 class="section-title text-white mb-4">Start Your Option Selling Journey <span
-                        class="gradient-text-gold">Today</span></h2>
-                <!-- <p class="mb-5 text-gray-300">Ready to stop gambling and start building a high-probability trading
-                    business?</p> -->
+                <div class="cta-card">
+                    <h2 class="section-title text-white mb-4">Start Your Option Selling Journey <span
+                            class="gradient-text-gold">Today</span></h2>
+                    <p class="cta-subtitle">Ready to stop gambling and start building a high-probability trading
+                        business?</p>
 
-                <div class="contact-buttons justify-center flex-wrap gap-4 mb-5">
-                    <a href="https://wa.me/919172568611?text=Hi,%20I%20am%20interested%20in%20the%2012-Day%20Option%20Selling%20Business%20Program."
-                        target="_blank" class="btn btn-whatsapp btn-large">
-                        <i class='bx bxl-whatsapp'></i> WhatsApp Us
-                    </a>
-                    <a href="tel:+919172568611" class="btn btn-primary btn-large">
-                        <i class='bx bx-phone-call'></i> Call 9172568611
-                    </a>
-                    <a href="tel:+917219152027" class="btn btn-outline btn-large">
-                        <i class='bx bx-phone'></i> Call 7219152027
-                    </a>
+                    <div class="contact-buttons justify-center flex-wrap gap-4">
+                        <a href="https://wa.me/919172568611?text=Hi,%20I%20am%20interested%20in%20the%2012-Day%20Option%20Selling%20Business%20Program."
+                            target="_blank" class="btn btn-whatsapp btn-large">
+                            <i class='bx bxl-whatsapp'></i> WhatsApp Us
+                        </a>
+                        <a href="tel:+919172568611" class="btn btn-primary btn-large">
+                            <i class='bx bx-phone-call'></i> Call 9172568611
+                        </a>
+                        <a href="tel:+917219152027" class="btn btn-outline btn-large">
+                            <i class='bx bx-phone'></i> Call 7219152027
+                        </a>
+                    </div>
                 </div>
             </div>
-
-
+        </section>
     </main>
 
     <!-- 11. Footer & Disclaimer -->
@@ -1109,14 +1300,13 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2024 Pro Options Selling. All Rights Reserved.</p>
+                <p>&copy; <span class="current-year">2026</span> Pro Options Selling. All Rights Reserved.</p>
             </div>
-            </section>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 
     <!-- ══════════════════════════════════════════
          PDF ROADMAP MODAL

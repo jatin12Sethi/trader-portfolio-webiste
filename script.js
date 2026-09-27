@@ -179,4 +179,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(tick, 2000);
     }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.current-year').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+    // 7. Scroll progress bar
+    const progressBar = document.createElement('div');
+    progressBar.className = 'p-progress';
+    document.body.appendChild(progressBar);
+    const updateProgress = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // 8. Mouse-follow highlight on cards
+    const spotlightCards = document.querySelectorAll(
+        '.problem-card, .pillar, .audience-card, .benefit-card, .course-card, .home-testimonial, ' +
+        '.faq-item, .include-item, .testimonial-card, .bento-card'
+    );
+    spotlightCards.forEach(card => {
+        card.classList.add('spotlight');
+        const spot = document.createElement('span');
+        spot.className = 'p-spot';
+        card.prepend(spot);
+        card.addEventListener('pointermove', e => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+        });
+    });
+
+    // 9. Count-up numbers (stats band)
+    const counters = document.querySelectorAll('.count-up[data-count]');
+    if (counters.length && !prefersReducedMotion && 'IntersectionObserver' in window) {
+        const runCounter = el => {
+            const target = parseInt(el.dataset.count, 10);
+            const start = performance.now();
+            const duration = 1400;
+            const step = now => {
+                const t = Math.min((now - start) / duration, 1);
+                el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+                if (t < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        };
+        const counterObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                runCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.6 });
+        counters.forEach(el => counterObserver.observe(el));
+    }
+
+    // 10. Floating WhatsApp button
+    const whatsapp = document.createElement('a');
+    whatsapp.className = 'p-whatsapp';
+    whatsapp.href = 'https://wa.me/919172568611?text=' +
+        encodeURIComponent('Hi, I am interested in your option selling courses.');
+    whatsapp.target = '_blank';
+    whatsapp.rel = 'noopener';
+    whatsapp.setAttribute('aria-label', 'Chat with us on WhatsApp');
+    whatsapp.innerHTML = "<i class='bx bxl-whatsapp'></i><span class='p-whatsapp-label'>Chat with us</span>";
+    document.body.appendChild(whatsapp);
+
+    // 11. Highlight the nav link of the section in view (home page)
+    const navLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
+    const trackedSections = navLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean)
+        .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+    if (trackedSections.length && 'IntersectionObserver' in window) {
+        // Sections can be nested (FAQ sits inside Philosophy), so pick the last visible one in page order
+        const visible = new Set();
+        const sectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) visible.add(entry.target);
+                else visible.delete(entry.target);
+            });
+            const current = trackedSections.filter(section => visible.has(section)).pop();
+            const id = current ? `#${current.id}` : null;
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === id));
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        trackedSections.forEach(section => sectionObserver.observe(section));
+    }
 });
