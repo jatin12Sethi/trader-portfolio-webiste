@@ -23,8 +23,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=11">
-    <link rel="stylesheet" href="theme-light.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="theme-light.css?v=4">
 
     <!-- Preloader Critical CSS -->
     <style>
@@ -654,7 +654,7 @@
         <!-- 6. Courses and the sections after it (wrapper closes after the FAQ) -->
         <section>
 
-            <!-- Courses (each card opens its syllabus PDF) -->
+            <!-- Courses (clicking a card opens its syllabus PDF; Apply Now opens the form) -->
             <section class="courses-section section-padding" id="courses">
                 <div class="container reveal-scroll">
                     <div class="text-center">
@@ -665,8 +665,7 @@
                     </div>
 
                     <div class="courses-grid">
-                        <a href="courses/stock-market-basics-course.pdf" target="_blank" rel="noopener"
-                            class="course-card accent-blue">
+                        <div class="course-card accent-blue">
                             <div class="course-top">
                                 <div class="course-icon"><i class='bx bx-book-open'></i></div>
                                 <span class="course-level">Beginner</span>
@@ -698,12 +697,13 @@
                                     <span class="course-plan-desc">+ Lifetime support, 1:1 guidance &amp; monthly plan sessions</span>
                                 </div>
                             </div>
-                            <span class="course-cta"><i class='bx bxs-file-pdf'></i> View Full Syllabus <i
-                                    class='bx bx-right-arrow-alt'></i></span>
-                        </a>
+                            <div class="course-actions">
+                                <a href="courses/stock-market-basics-course.pdf" target="_blank" rel="noopener" class="course-cta"><i class='bx bxs-file-pdf'></i> View Syllabus</a>
+                                <a href="join.html" class="course-apply">Apply Now <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>
+                        </div>
 
-                        <a href="courses/intraday-option-selling-course.pdf" target="_blank" rel="noopener"
-                            class="course-card accent-gold">
+                        <div class="course-card accent-gold">
                             <div class="course-top">
                                 <div class="course-icon"><i class='bx bx-stopwatch'></i></div>
                                 <span class="course-level">Intraday</span>
@@ -737,12 +737,13 @@
                             </div>
                             <p class="course-guarantee"><i class='bx bx-shield-quarter'></i> Money-back guarantee if the
                                 strategy fails to generate profit within one month</p>
-                            <span class="course-cta"><i class='bx bxs-file-pdf'></i> View Full Syllabus <i
-                                    class='bx bx-right-arrow-alt'></i></span>
-                        </a>
+                            <div class="course-actions">
+                                <a href="courses/intraday-option-selling-course.pdf" target="_blank" rel="noopener" class="course-cta"><i class='bx bxs-file-pdf'></i> View Syllabus</a>
+                                <a href="join.html" class="course-apply">Apply Now <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>
+                        </div>
 
-                        <a href="courses/positional-option-selling-course.pdf" target="_blank" rel="noopener"
-                            class="course-card accent-green">
+                        <div class="course-card accent-green">
                             <div class="course-top">
                                 <div class="course-icon"><i class='bx bx-trending-up'></i></div>
                                 <span class="course-level">Positional</span>
@@ -776,9 +777,11 @@
                             </div>
                             <p class="course-guarantee"><i class='bx bx-shield-quarter'></i> Money-back guarantee if the
                                 strategy fails to generate profit within one month</p>
-                            <span class="course-cta"><i class='bx bxs-file-pdf'></i> View Full Syllabus <i
-                                    class='bx bx-right-arrow-alt'></i></span>
-                        </a>
+                            <div class="course-actions">
+                                <a href="courses/positional-option-selling-course.pdf" target="_blank" rel="noopener" class="course-cta"><i class='bx bxs-file-pdf'></i> View Syllabus</a>
+                                <a href="join.html" class="course-apply">Apply Now <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>
+                        </div>
                     </div>
 
                     <p class="courses-note"><i class='bx bx-info-circle'></i> Each syllabus opens as a PDF in a new
