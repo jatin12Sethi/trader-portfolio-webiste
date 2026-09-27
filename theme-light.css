@@ -518,7 +518,8 @@ html[data-theme="light"] .theme-toggle:hover {
 }
 
 /* select arrow is a white SVG in the markup; use a dark one on light fields */
-html[data-theme="light"] select#experience {
+html[data-theme="light"] select#experience,
+html[data-theme="light"] select#course {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath fill='%23475569' d='M6 7L0 0h12z'/%3E%3C/svg%3E") !important;
     background-size: 12px 7px !important;
 }

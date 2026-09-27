@@ -162,6 +162,16 @@ function handleApplyMentorship($data) {
     $experience = isset($data['experience']) ? $data['experience'] : 'N/A';
     $capital    = isset($data['capital']) ? $data['capital'] : 'N/A';
 
+    // Only accept the course names offered on the form (the value also goes into the email subject)
+    $courses = [
+        'Stock Market Basics Course',
+        'Intraday Option Selling Course',
+        'Positional Option Selling Course',
+        'Not sure yet, help me choose',
+    ];
+    $course = (isset($data['course']) && in_array($data['course'], $courses, true)) ? $data['course'] : 'Not specified';
+    $appliedFor = in_array($course, array_slice($courses, 0, 3), true) ? $course : 'Pro Options Selling Mentorship';
+
     if (empty($email) || empty($phone)) {
         echo json_encode(['success' => false, 'message' => 'Email and Phone are required.']);
         return;
@@ -169,9 +179,10 @@ function handleApplyMentorship($data) {
 
     $content = '
         <p>Hi ' . htmlspecialchars($name) . ',</p>
-        <p>Congratulations on taking the first step towards professional trading. Your application for the <strong>Pro Options Selling Mentorship</strong> has been received successfully.</p>
+        <p>Congratulations on taking the first step towards professional trading. Your application for the <strong>' . htmlspecialchars($appliedFor) . '</strong> has been received successfully.</p>
         <p>Here is a summary of the details you submitted:</p>
         <div class="details-box">
+            <p><strong>Course:</strong> ' . htmlspecialchars($course) . '</p>
             <p><strong>Participant:</strong> ' . htmlspecialchars($name) . '</p>
             <p><strong>WhatsApp:</strong> ' . htmlspecialchars($phone) . '</p>
             <p><strong>Experience:</strong> ' . htmlspecialchars($experience) . '</p>
@@ -185,16 +196,16 @@ function handleApplyMentorship($data) {
         // 1. Email to User
         $mail = createMailer();
         $mail->addAddress($email, $name);
-        $mail->Subject = 'Application Received: Pro Options Mentorship';
+        $mail->Subject = 'Application Received: ' . $appliedFor;
         $mail->Body    = buildEmailTemplate('Application Received', $content);
         $mail->send();
 
         // 2. Email to Admin
         $admin = createMailer();
         $admin->addAddress(SMTP_USER);
-        $admin->Subject = 'New Mentorship Application: ' . $name;
+        $admin->Subject = 'New Application (' . $course . '): ' . $name;
         $admin->isHTML(false);
-        $admin->Body = "A new user has submitted a Mentorship Application!\n\nDetails:\n- Name: $name\n- Email: $email\n- Phone: $phone\n- Experience: $experience\n- Capital: $capital\n\nAction Required: Reach out to them on WhatsApp at $phone.";
+        $admin->Body = "A new user has submitted an application!\n\nDetails:\n- Course: $course\n- Name: $name\n- Email: $email\n- Phone: $phone\n- Experience: $experience\n- Capital: $capital\n\nAction Required: Reach out to them on WhatsApp at $phone.";
         $admin->send();
 
         echo json_encode(['success' => true, 'message' => 'Application submitted successfully!']);
