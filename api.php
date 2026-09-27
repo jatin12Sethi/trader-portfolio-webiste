@@ -127,7 +127,7 @@ function handleSendRoadmap($data) {
             <p><strong>Intent:</strong> ' . htmlspecialchars($interest) . '</p>
         </div>
         <p>Our team has noted your profile. If you\'re serious about taking the next step towards consistent income, connect with us on Telegram or directly reply to this email.</p>
-        <a href="https://t.me/ProOptionSeller24" class="btn">Message Us on Telegram</a>';
+        <a href="https://t.me/ProOptionSeller1689" class="btn">Message Us on Telegram</a>';
 
     try {
         // 1. Email to User
@@ -179,7 +179,7 @@ function handleApplyMentorship($data) {
         </div>
         <p>Our team is reviewing your application against our strict onboarding criteria to ensure this mentorship is the right fit for your capital and mindset. One of our Senior Traders will reach out to you on WhatsApp within the next 24 hours.</p>
         <p>In the meantime, join our live Telegram community to see our daily trade logic and verified client reports.</p>
-        <a href="https://t.me/ProOptionSeller24" class="btn">Join Telegram Community</a>';
+        <a href="https://t.me/ProOptionSeller1689" class="btn">Join Telegram Community</a>';
 
     try {
         // 1. Email to User
