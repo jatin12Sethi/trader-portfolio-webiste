@@ -112,4 +112,50 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 5. Live P&L ticker (hero card) - value drifts up and down around the base
+    const pnlValue = document.querySelector('.live-pnl-value');
+    if (pnlValue) {
+        const pnlArrow = document.querySelector('.live-pnl-arrow');
+        const base = 12450, min = 9800, max = 15600;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const fmt = n => Math.round(n).toLocaleString('en-IN');
+        let current = base;
+
+        const animateTo = (from, to) => {
+            if (reduceMotion) {
+                pnlValue.textContent = fmt(to);
+                return;
+            }
+            const start = performance.now();
+            const duration = 600;
+            const step = now => {
+                const t = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - t, 3);
+                pnlValue.textContent = fmt(from + (to - from) * eased);
+                if (t < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        };
+
+        const tick = () => {
+            // Random step with a pull back towards the base so it never wanders off
+            const move = (Math.random() - 0.5) * 900 + (base - current) * 0.08;
+            const next = Math.min(max, Math.max(min, current + move));
+            const up = next >= current;
+
+            pnlValue.classList.remove('tick-up', 'tick-down');
+            void pnlValue.offsetWidth; // restart the flash animation
+            pnlValue.classList.add(up ? 'tick-up' : 'tick-down');
+            if (pnlArrow) {
+                pnlArrow.className = `bx ${up ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'} live-pnl-arrow ${up ? 'up' : 'down'}`;
+            }
+
+            animateTo(current, next);
+            current = next;
+            setTimeout(tick, 1500 + Math.random() * 1500);
+        };
+
+        setTimeout(tick, 2000);
+    }
 });

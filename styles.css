@@ -1199,6 +1199,46 @@ img {
     margin-bottom: 2rem;
 }
 
+/* Live P&L ticker (hero card) */
+.live-pnl-value {
+    display: inline-block;
+    padding: 0 2px;
+    margin: 0 -2px;
+    border-radius: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.live-pnl-value.tick-up {
+    animation: pnl-flash-up 0.9s ease-out;
+}
+
+.live-pnl-value.tick-down {
+    animation: pnl-flash-down 0.9s ease-out;
+}
+
+@keyframes pnl-flash-up {
+    0% { background: rgba(16, 185, 129, 0.35); color: #fff; }
+    100% { background: transparent; }
+}
+
+@keyframes pnl-flash-down {
+    0% { background: rgba(239, 68, 68, 0.35); color: #fff; }
+    100% { background: transparent; }
+}
+
+.live-pnl-arrow {
+    font-size: 1.1em;
+    vertical-align: -0.15em;
+}
+
+.live-pnl-arrow.up {
+    color: var(--green);
+}
+
+.live-pnl-arrow.down {
+    color: var(--red);
+}
+
 .badge-live {
     background: var(--green-dim);
     color: var(--green);
