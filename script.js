@@ -113,7 +113,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Live P&L ticker (hero card) - value drifts up and down around the base
+    // 5. Dark / light mode toggle (initial theme is applied by an inline script in <head>)
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        const root = document.documentElement;
+        const syncToggle = () => {
+            const light = root.getAttribute('data-theme') === 'light';
+            const label = light ? 'Switch to dark mode' : 'Switch to light mode';
+            themeToggle.innerHTML = `<i class='bx ${light ? 'bx-moon' : 'bx-sun'}'></i>`;
+            themeToggle.setAttribute('aria-label', label);
+            themeToggle.setAttribute('title', label);
+        };
+        syncToggle();
+        themeToggle.addEventListener('click', () => {
+            const light = root.getAttribute('data-theme') !== 'light';
+            if (light) root.setAttribute('data-theme', 'light');
+            else root.removeAttribute('data-theme');
+            try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+            syncToggle();
+        });
+    }
+
+    // 6. Live P&L ticker (hero card) - value drifts up and down around the base
     const pnlValue = document.querySelector('.live-pnl-value');
     if (pnlValue) {
         const pnlArrow = document.querySelector('.live-pnl-arrow');

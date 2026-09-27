@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="join">
 
 <head>
     <meta charset="UTF-8">
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Challenge | Professional Option Selling</title>
     <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -21,7 +22,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="theme-light.css?v=1">
 
     <!-- Preloader Critical CSS -->
     <style>
@@ -598,8 +600,13 @@
             <a href="/" class="logo">
                 <i class='bx bx-line-chart'></i> Pro<span>Options</span>
             </a>
-            <div class="header-cta">
-                <a href="/" class="btn btn-outline btn-small">Back Home</a>
+            <div class="header-actions">
+                <div class="header-cta">
+                    <a href="/" class="btn btn-outline btn-small">Back Home</a>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+                    <i class='bx bx-sun'></i>
+                </button>
             </div>
         </div>
     </header>
@@ -821,7 +828,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>

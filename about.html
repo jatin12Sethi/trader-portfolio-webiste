@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="about">
 
 <head>
     <meta charset="UTF-8">
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Neelkanth | Pro Options Selling</title>
     <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -14,7 +15,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="theme-light.css?v=1">
 
     <!-- Preloader Critical CSS -->
     <style>
@@ -1113,12 +1115,17 @@
                 <a href="index.html#faq">FAQ</a>
                 <a href="about.html" style="color:#f0b429; font-weight:700;">About</a>
             </nav>
-            <div class="header-cta">
-                <a href="join.html" class="btn btn-primary btn-small">Join Now</a>
+            <div class="header-actions">
+                <div class="header-cta">
+                    <a href="join.html" class="btn btn-primary btn-small">Join Now</a>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+                    <i class='bx bx-sun'></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class='bx bx-menu'></i>
+                </button>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class='bx bx-menu'></i>
-            </button>
         </div>
         <div class="mobile-nav">
             <a href="index.html#challenge" class="mobile-link">Challenge</a>
@@ -1337,7 +1344,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="clients">
 
 <head>
     <meta charset="UTF-8">
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Students & Success Stories | Pro Options Selling</title>
     <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -22,7 +23,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="theme-light.css?v=1">
     
     <!-- Inline styles for preloader to prevent flash -->
     <style>
@@ -105,12 +107,17 @@
                 <a href="index.html#faq">FAQ</a>
                 <a href="about.html">About</a>
             </nav>
-            <div class="header-cta">
-                <a href="join.html" class="btn btn-primary btn-small">Join Now</a>
+            <div class="header-actions">
+                <div class="header-cta">
+                    <a href="join.html" class="btn btn-primary btn-small">Join Now</a>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+                    <i class='bx bx-sun'></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class='bx bx-menu'></i>
+                </button>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class='bx bx-menu'></i>
-            </button>
         </div>
         <!-- Mobile Nav -->
         <div class="mobile-nav">
@@ -565,7 +572,7 @@
     </footer>
 
     <!-- Main Script -->
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
     <script>
         // Specific preloader removal for clients page
         window.addEventListener('load', () => {
