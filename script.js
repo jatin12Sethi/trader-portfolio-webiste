@@ -267,4 +267,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { rootMargin: '-45% 0px -50% 0px' });
         trackedSections.forEach(section => sectionObserver.observe(section));
     }
+
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // 12. Hero: glow follows the cursor, P&L card tilts towards it
+    const hero = document.querySelector('.hero');
+    const heroCard = document.querySelector('.hero .chart-card.mockup');
+    if (hero && finePointer && !prefersReducedMotion) {
+        hero.addEventListener('pointermove', e => {
+            const rect = hero.getBoundingClientRect();
+            hero.style.setProperty('--gx', `${e.clientX - rect.left}px`);
+            hero.style.setProperty('--gy', `${e.clientY - rect.top}px`);
+            if (heroCard) {
+                const c = heroCard.getBoundingClientRect();
+                const dx = (e.clientX - (c.left + c.width / 2)) / (rect.width / 2);
+                const dy = (e.clientY - (c.top + c.height / 2)) / (rect.height / 2);
+                heroCard.style.transform =
+                    `perspective(1000px) rotateY(${(dx * 6).toFixed(2)}deg) rotateX(${(-dy * 6).toFixed(2)}deg)`;
+            }
+        });
+        hero.addEventListener('pointerleave', () => {
+            if (heroCard) heroCard.style.transform = '';
+        });
+    }
+
+    // 13. Magnetic pull on the big call-to-action buttons
+    if (finePointer && !prefersReducedMotion) {
+        document.querySelectorAll('.btn-large, .tg-btn').forEach(btn => {
+            btn.addEventListener('pointermove', e => {
+                const r = btn.getBoundingClientRect();
+                const x = (e.clientX - r.left - r.width / 2) * 0.22;
+                const y = (e.clientY - r.top - r.height / 2) * 0.35;
+                btn.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+            });
+            btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+        });
+    }
+
+    // 14. Phone: sticky Apply / WhatsApp bar once the visitor scrolls past the first screen
+    if (document.documentElement.dataset.page !== 'join') {
+        const bar = document.createElement('div');
+        bar.className = 'p-mobile-bar';
+        bar.innerHTML =
+            "<a href='join.html' class='pmb-apply'>Apply Now <i class='bx bx-right-arrow-alt'></i></a>" +
+            `<a href='${whatsapp.href}' class='pmb-wa' target='_blank' rel='noopener' aria-label='Chat on WhatsApp'>` +
+            "<i class='bx bxl-whatsapp'></i></a>";
+        document.body.appendChild(bar);
+        document.body.classList.add('has-mobile-bar');
+        const toggleBar = () => bar.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
+        window.addEventListener('scroll', toggleBar, { passive: true });
+        toggleBar();
+    }
 });
