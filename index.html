@@ -9,6 +9,19 @@
     <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#05070b">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pro Options">
+    <meta property="og:title" content="Professional Option Selling Mentorship | Pro Options">
+    <meta property="og:description" content="Learn professional option selling with Neelkanth: live courses on stock market basics, intraday and positional option selling, with a risk-first approach.">
+    <meta property="og:url" content="https://prooptionseller.com/">
+    <meta property="og:image" content="https://prooptionseller.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Professional Option Selling Mentorship | Pro Options">
+    <meta name="twitter:description" content="Learn professional option selling with Neelkanth: live courses on stock market basics, intraday and positional option selling, with a risk-first approach.">
+    <meta name="twitter:image" content="https://prooptionseller.com/og-image.jpg">
     <meta name="description"
         content="We are Professional Stock Market Advisors and Consultants, ready to support you on your stock market journey. We provide professional stock market mentorship, structured option selling strategies, and dedicated support at every step for individuals who want to grow their money consistently with:">
 
@@ -24,8 +37,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=12">
-    <link rel="stylesheet" href="premium.css?v=2">
-    <link rel="stylesheet" href="theme-light.css?v=7">
+    <link rel="stylesheet" href="premium.css?v=3">
+    <link rel="stylesheet" href="theme-light.css?v=8">
 
     <!-- Preloader Critical CSS -->
     <style>
@@ -280,6 +293,7 @@
             color: var(--gold);
         }
     </style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://prooptionseller.com/#org", "name": "Pro Options", "url": "https://prooptionseller.com/", "logo": "https://prooptionseller.com/apple-touch-icon.png", "image": "https://prooptionseller.com/og-image.jpg", "email": "nkharwane@gmail.com", "telephone": "+91-9172568611", "sameAs": ["https://t.me/ProOptionSeller1689", "https://x.com/Neelkanth1689", "https://www.linkedin.com/in/nilkntheshwar-kharwane-480598351/"], "founder": {"@type": "Person", "name": "Neelkanth Kharwane", "jobTitle": "Professional Option Seller & Trading Mentor"}}, {"@type": "Course", "name": "Stock Market Basics Course", "description": "A 10-day beginner program covering the Indian stock market, equity trading, F&O basics, technical analysis and risk management.", "provider": {"@id": "https://prooptionseller.com/#org"}, "offers": {"@type": "Offer", "price": "8000", "priceCurrency": "INR", "category": "Paid"}, "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "P10D"}}, {"@type": "Course", "name": "Intraday Option Selling Course", "description": "A 12-day live post-market program on professional intraday option selling, execution, adjustments and risk management.", "provider": {"@id": "https://prooptionseller.com/#org"}, "offers": {"@type": "Offer", "price": "15000", "priceCurrency": "INR", "category": "Paid"}, "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "P12D"}}, {"@type": "Course", "name": "Positional Option Selling Course", "description": "A 20-day live post-market program on positional option selling: straddles, strangles, iron condors, iron flies and risk management.", "provider": {"@id": "https://prooptionseller.com/#org"}, "offers": {"@type": "Offer", "price": "20000", "priceCurrency": "INR", "category": "Paid"}, "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "P20D"}}]}</script>
 </head>
 
 <body>
@@ -691,6 +705,70 @@
                 </div>
             </div>
         </section>
+
+        <!-- Theta decay demo -->
+        <section class="theta-section section-padding" id="theta">
+            <div class="container theta-grid reveal-scroll">
+                <div class="theta-copy">
+                    <span class="section-tag bg-gold-dim text-gold">The Seller's Edge</span>
+                    <h2 class="section-title">Let <span class="gradient-text-gold">Time Decay</span> Work For You</h2>
+                    <p class="section-desc">Every day that passes, an option loses a little of its time value. Option
+                        buyers need the market to move fast &mdash; option sellers simply need time to pass. Drag the
+                        slider and watch the premium melt toward expiry.</p>
+                    <ul class="theta-points">
+                        <li><i class='bx bx-check'></i> Time is on the seller's side</li>
+                        <li><i class='bx bx-check'></i> Decay speeds up as expiry gets closer</li>
+                        <li><i class='bx bx-check'></i> Profits come from probability, not prediction</li>
+                    </ul>
+                </div>
+                <div class="theta-widget">
+                    <div class="theta-head">
+                        <div>
+                            <span class="theta-label">Option premium</span>
+                            <span class="theta-premium">&#8377;<span id="thetaPremium">200</span></span>
+                        </div>
+                        <div class="theta-gain">
+                            <span class="theta-label">Seller's gain</span>
+                            <span class="theta-gain-val">+<span id="thetaGain">0</span>%</span>
+                        </div>
+                    </div>
+                    <svg class="theta-chart" viewBox="0 0 600 280" role="img"
+                        aria-label="Chart of an option premium falling faster as expiry approaches">
+                        <defs>
+                            <linearGradient id="thetaArea" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#d4af37" stop-opacity="0.35" />
+                                <stop offset="100%" stop-color="#d4af37" stop-opacity="0" />
+                            </linearGradient>
+                            <linearGradient id="thetaLine" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#f7e0a0" />
+                                <stop offset="100%" stop-color="#d4af37" />
+                            </linearGradient>
+                        </defs>
+                        <g class="theta-grid-lines">
+                            <line x1="40" y1="30" x2="580" y2="30" />
+                            <line x1="40" y1="100" x2="580" y2="100" />
+                            <line x1="40" y1="170" x2="580" y2="170" />
+                            <line x1="40" y1="240" x2="580" y2="240" />
+                        </g>
+                        <path class="theta-full" d="" />
+                        <path class="theta-area" d="" fill="url(#thetaArea)" />
+                        <path class="theta-line" d="" stroke="url(#thetaLine)" />
+                        <line class="theta-cursor" x1="40" y1="30" x2="40" y2="240" />
+                        <circle class="theta-dot-halo" cx="40" cy="30" r="14" />
+                        <circle class="theta-dot" cx="40" cy="30" r="6" />
+                        <text class="theta-axis" x="40" y="266">30 days</text>
+                        <text class="theta-axis" x="310" y="266" text-anchor="middle">15 days</text>
+                        <text class="theta-axis" x="580" y="266" text-anchor="end">Expiry</text>
+                    </svg>
+                    <div class="theta-slider">
+                        <label for="thetaDays">Days to expiry: <strong id="thetaDaysLabel">30</strong></label>
+                        <input type="range" id="thetaDays" min="0" max="30" value="30" step="1">
+                    </div>
+                    <p class="theta-note">Illustrative example of time decay only &mdash; not a trade recommendation.
+                        Real premiums also move with price and volatility.</p>
+                </div>
+            </div>
+        </section>
         <!-- 6. Courses and the sections after it (wrapper closes after the FAQ) -->
         <section>
 
@@ -909,6 +987,37 @@
                         <p class="compare-footnote"><sup>*</sup> If the strategy fails to generate profit within one month,
                             as stated in the course syllabus. Join early at the lowest price &mdash; fees increase for the
                             next batch.</p>
+                    </div>
+
+                    <div class="course-finder" id="course-finder">
+                        <div class="finder-head">
+                            <span class="finder-icon"><i class='bx bx-compass'></i></span>
+                            <div>
+                                <h3>Not sure which course fits you?</h3>
+                                <p>Answer 3 quick questions and we'll point you to the right one.</p>
+                            </div>
+                        </div>
+                        <div class="finder-questions">
+                            <fieldset class="finder-q">
+                                <legend><span>1</span> Your market experience</legend>
+                                <label><input type="radio" name="fexp" value="basics"><span>New to the stock market</span></label>
+                                <label><input type="radio" name="fexp" value="intraday"><span>I know the basics</span></label>
+                                <label><input type="radio" name="fexp" value="positional"><span>I already trade options</span></label>
+                            </fieldset>
+                            <fieldset class="finder-q">
+                                <legend><span>2</span> Your main goal</legend>
+                                <label><input type="radio" name="fgoal" value="basics"><span>Understand the market properly</span></label>
+                                <label><input type="radio" name="fgoal" value="intraday"><span>Income from daily option selling</span></label>
+                                <label><input type="radio" name="fgoal" value="positional"><span>A steady monthly income</span></label>
+                            </fieldset>
+                            <fieldset class="finder-q">
+                                <legend><span>3</span> Time you can give</legend>
+                                <label><input type="radio" name="ftime" value="basics"><span>About an hour a day to learn</span></label>
+                                <label><input type="radio" name="ftime" value="intraday"><span>Some time every market day</span></label>
+                                <label><input type="radio" name="ftime" value="positional"><span>A few check-ins a week</span></label>
+                            </fieldset>
+                        </div>
+                        <div class="finder-result" id="finderResult" aria-live="polite" hidden></div>
                     </div>
 
                     <p class="courses-note"><i class='bx bx-info-circle'></i> Each syllabus opens as a PDF in a new
@@ -1373,7 +1482,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
 
     <!-- ══════════════════════════════════════════
          PDF ROADMAP MODAL

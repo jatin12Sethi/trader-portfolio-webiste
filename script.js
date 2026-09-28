@@ -72,9 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Scroll Reveal Animations (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal-scroll');
     
+    // Trigger as soon as the block enters the viewport: a ratio threshold never fires for blocks taller than
+    // the screen (the courses block is several screens tall on phones and stayed invisible)
     const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0,
+        rootMargin: "0px 0px -60px 0px"
     };
 
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -317,5 +319,179 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleBar = () => bar.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
         window.addEventListener('scroll', toggleBar, { passive: true });
         toggleBar();
+    }
+
+    // Course details shared by the course finder (home) and the application form summary (join)
+    const COURSES = {
+        basics: {
+            name: 'Stock Market Basics Course', accent: 'blue', duration: '10 days · 1 hr a day · live online',
+            basic: '₹8,000', premium: '₹10,000', pdf: 'courses/stock-market-basics-course.pdf',
+            why: 'Build a solid foundation first: how the market works, order types, F&O basics and technical analysis.'
+        },
+        intraday: {
+            name: 'Intraday Option Selling Course', accent: 'gold', duration: '12 days · live post-market classes',
+            basic: '₹15,000', premium: '₹25,000', pdf: 'courses/intraday-option-selling-course.pdf',
+            why: 'Learn high-probability intraday setups, strike selection, adjustments and strict risk rules.'
+        },
+        positional: {
+            name: 'Positional Option Selling Course', accent: 'green', duration: '20 days · live post-market classes',
+            basic: '₹20,000', premium: '₹30,000', pdf: 'courses/positional-option-selling-course.pdf',
+            why: 'Master straddles, strangles, iron condors and iron flies to build a steady monthly income system.'
+        }
+    };
+
+    // 15. Theta decay demo: premium falls with the square root of the time left
+    const thetaSlider = document.getElementById('thetaDays');
+    if (thetaSlider) {
+        const chart = document.querySelector('.theta-chart');
+        const T = 30, P0 = 200, X0 = 40, X1 = 580, Y0 = 30, Y1 = 240;
+        const xAt = d => X0 + (1 - d / T) * (X1 - X0);
+        const premiumAt = d => P0 * Math.sqrt(Math.max(d, 0) / T);
+        const yAt = p => Y0 + (1 - p / P0) * (Y1 - Y0);
+        const pathUntil = dEnd => {
+            let d = '';
+            for (let i = 0; i <= 60; i++) {
+                const day = T - (T - dEnd) * i / 60;
+                d += `${i ? 'L' : 'M'}${xAt(day).toFixed(1)} ${yAt(premiumAt(day)).toFixed(1)}`;
+            }
+            return d;
+        };
+        const line = chart.querySelector('.theta-line');
+        const area = chart.querySelector('.theta-area');
+        const cursorLine = chart.querySelector('.theta-cursor');
+        const dot = chart.querySelector('.theta-dot');
+        const halo = chart.querySelector('.theta-dot-halo');
+        const premiumEl = document.getElementById('thetaPremium');
+        const gainEl = document.getElementById('thetaGain');
+        const daysEl = document.getElementById('thetaDaysLabel');
+        chart.querySelector('.theta-full').setAttribute('d', pathUntil(0));
+
+        const render = days => {
+            const p = premiumAt(days);
+            const path = pathUntil(days);
+            const x = xAt(days).toFixed(1);
+            const y = yAt(p).toFixed(1);
+            line.setAttribute('d', path);
+            area.setAttribute('d', `${path}L${x} ${Y1}L${X0} ${Y1}Z`);
+            cursorLine.setAttribute('x1', x);
+            cursorLine.setAttribute('x2', x);
+            [dot, halo].forEach(c => { c.setAttribute('cx', x); c.setAttribute('cy', y); });
+            premiumEl.textContent = Math.round(p);
+            gainEl.textContent = Math.round((1 - p / P0) * 100);
+            const whole = Math.round(days);
+            daysEl.textContent = whole === 0 ? 'Expiry' : whole;
+            thetaSlider.style.setProperty('--fill', `${(1 - days / T) * 100}%`);
+        };
+        thetaSlider.addEventListener('input', () => render(Number(thetaSlider.value)));
+        render(T);
+
+        // Play the decay once when the chart first scrolls into view (stops if the visitor grabs the slider)
+        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+            let touched = false;
+            thetaSlider.addEventListener('pointerdown', () => { touched = true; });
+            thetaSlider.addEventListener('keydown', () => { touched = true; });
+            const thetaObserver = new IntersectionObserver(entries => {
+                if (!entries[0].isIntersecting) return;
+                thetaObserver.disconnect();
+                const start = performance.now();
+                const step = now => {
+                    if (touched) return;
+                    const t = Math.min((now - start) / 2600, 1);
+                    const days = T - (T - 3) * (1 - Math.pow(1 - t, 3));
+                    thetaSlider.value = Math.round(days);
+                    render(days);
+                    if (t < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            }, { threshold: 0.5 });
+            thetaObserver.observe(chart);
+        }
+    }
+
+    // 16. Course finder: three answers vote for a course (ties go to the experience answer)
+    const finder = document.getElementById('course-finder');
+    if (finder) {
+        const result = document.getElementById('finderResult');
+        const questions = [...finder.querySelectorAll('.finder-q')];
+        finder.addEventListener('change', () => {
+            const picks = questions.map(q => (q.querySelector('input:checked') || {}).value);
+            questions.forEach((q, i) => q.classList.toggle('answered', Boolean(picks[i])));
+            if (picks.some(v => !v)) return;
+            const votes = {};
+            picks.forEach(v => { votes[v] = (votes[v] || 0) + 1; });
+            const key = Object.keys(votes).reduce((best, k) => (votes[k] > votes[best] ? k : best), picks[0]);
+            const c = COURSES[key];
+            result.className = `finder-result accent-${c.accent}`;
+            result.innerHTML = `
+                <div>
+                    <span class="finder-result-tag">Recommended for you</span>
+                    <h4>${c.name}</h4>
+                    <p>${c.why}</p>
+                    <div class="finder-result-meta">
+                        <span><i class='bx bx-calendar'></i> ${c.duration}</span>
+                        <span><i class='bx bx-rupee'></i> From ${c.basic}</span>
+                    </div>
+                </div>
+                <div class="finder-result-actions">
+                    <a class="btn btn-primary" href="join.html?course=${key}">Apply for this course <i class='bx bx-right-arrow-alt'></i></a>
+                    <a class="btn btn-outline" href="${c.pdf}" target="_blank" rel="noopener"><i class='bx bxs-file-pdf'></i> View syllabus</a>
+                </div>`;
+            result.hidden = false;
+            void result.offsetWidth; // restart the pop animation
+            result.classList.add('pop');
+        });
+    }
+
+    // 17. Application form: show the chosen course's duration, fees and syllabus
+    const courseSelectEl = document.getElementById('course');
+    const courseSummary = document.getElementById('courseSummary');
+    if (courseSelectEl && courseSummary) {
+        const updateSummary = () => {
+            const c = COURSES[courseSelectEl.value];
+            if (!c) {
+                courseSummary.hidden = true;
+                return;
+            }
+            courseSummary.innerHTML = `
+                <div class="cs-row"><strong>${c.name}</strong>
+                    <a href="${c.pdf}" target="_blank" rel="noopener"><i class='bx bxs-file-pdf'></i> Syllabus</a></div>
+                <div class="cs-meta"><i class='bx bx-calendar'></i> ${c.duration}</div>
+                <div class="cs-plans"><span>Basic <b>${c.basic}</b></span><span>Premium <b>${c.premium}</b></span></div>`;
+            courseSummary.hidden = false;
+        };
+        courseSelectEl.addEventListener('change', updateSummary);
+        updateSummary();
+    }
+
+    // 18. Cursor ring (desktop): trails the pointer and grows over clickable things
+    if (finePointer && !prefersReducedMotion) {
+        const ring = document.createElement('div');
+        ring.className = 'p-cursor';
+        const pointerDot = document.createElement('div');
+        pointerDot.className = 'p-cursor-dot';
+        document.body.append(ring, pointerDot);
+        let mx = -100, my = -100, rx = -100, ry = -100;
+        window.addEventListener('pointermove', e => {
+            mx = e.clientX;
+            my = e.clientY;
+            pointerDot.style.transform = `translate(${mx}px, ${my}px)`;
+            ring.classList.add('on');
+            pointerDot.classList.add('on');
+        }, { passive: true });
+        document.documentElement.addEventListener('pointerleave', () => {
+            ring.classList.remove('on');
+            pointerDot.classList.remove('on');
+        });
+        document.addEventListener('pointerover', e => {
+            ring.classList.toggle('hover', Boolean(e.target.closest(
+                'a, button, input, select, textarea, label, .course-card, .result-card')));
+        });
+        const followPointer = () => {
+            rx += (mx - rx) * 0.18;
+            ry += (my - ry) * 0.18;
+            ring.style.transform = `translate(${rx.toFixed(1)}px, ${ry.toFixed(1)}px)`;
+            requestAnimationFrame(followPointer);
+        };
+        requestAnimationFrame(followPointer);
     }
 });
