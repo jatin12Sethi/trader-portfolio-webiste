@@ -462,36 +462,4 @@ document.addEventListener('DOMContentLoaded', () => {
         courseSelectEl.addEventListener('change', updateSummary);
         updateSummary();
     }
-
-    // 18. Cursor ring (desktop): trails the pointer and grows over clickable things
-    if (finePointer && !prefersReducedMotion) {
-        const ring = document.createElement('div');
-        ring.className = 'p-cursor';
-        const pointerDot = document.createElement('div');
-        pointerDot.className = 'p-cursor-dot';
-        document.body.append(ring, pointerDot);
-        let mx = -100, my = -100, rx = -100, ry = -100;
-        window.addEventListener('pointermove', e => {
-            mx = e.clientX;
-            my = e.clientY;
-            pointerDot.style.transform = `translate(${mx}px, ${my}px)`;
-            ring.classList.add('on');
-            pointerDot.classList.add('on');
-        }, { passive: true });
-        document.documentElement.addEventListener('pointerleave', () => {
-            ring.classList.remove('on');
-            pointerDot.classList.remove('on');
-        });
-        document.addEventListener('pointerover', e => {
-            ring.classList.toggle('hover', Boolean(e.target.closest(
-                'a, button, input, select, textarea, label, .course-card, .result-card')));
-        });
-        const followPointer = () => {
-            rx += (mx - rx) * 0.18;
-            ry += (my - ry) * 0.18;
-            ring.style.transform = `translate(${rx.toFixed(1)}px, ${ry.toFixed(1)}px)`;
-            requestAnimationFrame(followPointer);
-        };
-        requestAnimationFrame(followPointer);
-    }
 });

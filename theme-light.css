@@ -544,10 +544,6 @@ html[data-theme="light"] .next-steps li > span { border-radius: 50%; color: #0b0
 html[data-theme="light"] .next-steps li:not(:last-child)::before { background: linear-gradient(rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.08)); }
 html[data-theme="light"] .next-steps strong { color: var(--text-main); }
 html[data-theme="light"] .next-steps p { color: var(--text-muted); }
-html[data-theme="light"] .p-cursor, html[data-theme="light"] .p-cursor-dot { border-radius: 50%; }
-html[data-theme="light"] .p-cursor { border: 1px solid rgba(212, 175, 55, 0.55); }
-html[data-theme="light"] .p-cursor-dot { background: #d4af37; }
-html[data-theme="light"] .p-cursor.hover { background-color: rgba(212, 175, 55, 0.08); border-color: rgba(212, 175, 55, 0.9); }
 html[data-theme="light"] [data-page="about"] .bento-card { border-color: var(--p-border); box-shadow: var(--p-shadow); }
 html[data-theme="light"] [data-page="about"] .bento-card:hover { border-color: var(--p-border-hover); box-shadow: var(--p-shadow-hover); }
 html[data-theme="light"] [data-page="join"] .form-card { background: var(--p-surface), var(--bg-card); border: 1px solid rgba(212, 175, 55, 0.25); box-shadow: 0 40px 90px -40px rgba(212, 175, 55, 0.21), var(--p-shadow); }

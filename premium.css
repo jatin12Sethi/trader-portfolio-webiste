@@ -2229,55 +2229,6 @@ html {
     color: var(--text-muted);
 }
 
-/* ---------------------------------------------------------------- cursor ring (desktop, added by script.js) */
-.p-cursor,
-.p-cursor-dot {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99990;
-    pointer-events: none;
-    border-radius: 50%;
-    opacity: 0;
-}
-
-.p-cursor {
-    width: 36px;
-    height: 36px;
-    margin: -18px 0 0 -18px;
-    border: 1px solid rgba(212, 175, 55, 0.55);
-    transition: opacity 0.3s ease, width 0.25s ease, height 0.25s ease, margin 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-}
-
-.p-cursor-dot {
-    width: 6px;
-    height: 6px;
-    margin: -3px 0 0 -3px;
-    background: #d4af37;
-    transition: opacity 0.3s ease;
-}
-
-.p-cursor.on,
-.p-cursor-dot.on {
-    opacity: 1;
-}
-
-.p-cursor.hover {
-    width: 58px;
-    height: 58px;
-    margin: -29px 0 0 -29px;
-    background-color: rgba(212, 175, 55, 0.08);
-    border-color: rgba(212, 175, 55, 0.9);
-}
-
-@media (hover: none), (pointer: coarse) {
-
-    .p-cursor,
-    .p-cursor-dot {
-        display: none;
-    }
-}
-
 /* ---------------------------------------------------------------- about page */
 [data-page="about"] .bento-card {
     border-color: var(--p-border);
