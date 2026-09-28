@@ -37,8 +37,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=12">
-    <link rel="stylesheet" href="premium.css?v=4">
-    <link rel="stylesheet" href="theme-light.css?v=9">
+    <link rel="stylesheet" href="premium.css?v=6">
+    <link rel="stylesheet" href="theme-light.css?v=11">
 
     <!-- Preloader Critical CSS -->
     <style>
@@ -467,7 +467,7 @@
 
     <main>
         <!-- 1. Hero Section -->
-        <section class="hero overlay-bg bg-grid" id="home">
+        <section class="hero overlay-bg bg-grid" id="home" data-trading-bg="hero">
             <div class="hero-bg-glow"></div>
             <div class="hero-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
             <div class="hero-cursor-glow" aria-hidden="true"></div>
@@ -707,14 +707,14 @@
         </section>
 
         <!-- Theta decay demo -->
-        <section class="theta-section section-padding" id="theta">
+        <section class="theta-section section-padding" id="theta" data-trading-bg="section">
             <div class="container theta-grid reveal-scroll">
                 <div class="theta-copy">
                     <span class="section-tag bg-gold-dim text-gold">The Seller's Edge</span>
                     <h2 class="section-title">Let <span class="gradient-text-gold">Time Decay</span> Work For You</h2>
                     <p class="section-desc">Every day that passes, an option loses a little of its time value. Option
-                        buyers need the market to move fast &mdash; option sellers simply need time to pass. Drag the
-                        slider and watch the premium melt toward expiry.</p>
+                        buyers need the market to move fast &mdash; option sellers simply need time to pass. Press play
+                        or drag the slider and watch the premium melt toward expiry.</p>
                     <ul class="theta-points">
                         <li><i class='bx bx-check'></i> Time is on the seller's side</li>
                         <li><i class='bx bx-check'></i> Decay speeds up as expiry gets closer</li>
@@ -726,6 +726,7 @@
                         <div>
                             <span class="theta-label">Option premium</span>
                             <span class="theta-premium">&#8377;<span id="thetaPremium">200</span></span>
+                            <span class="theta-rate"><i class='bx bx-trending-down'></i> <span id="thetaRate"><b>&minus;&#8377;3.4</b> decay today</span></span>
                         </div>
                         <div class="theta-gain">
                             <span class="theta-label">Seller's gain</span>
@@ -753,6 +754,8 @@
                         <path class="theta-full" d="" />
                         <path class="theta-area" d="" fill="url(#thetaArea)" />
                         <path class="theta-line" d="" stroke="url(#thetaLine)" />
+                        <g class="theta-particles"></g>
+                        <circle class="theta-expiry-ring" cx="580" cy="240" r="7" />
                         <line class="theta-cursor" x1="40" y1="30" x2="40" y2="240" />
                         <circle class="theta-dot-halo" cx="40" cy="30" r="14" />
                         <circle class="theta-dot" cx="40" cy="30" r="6" />
@@ -760,9 +763,28 @@
                         <text class="theta-axis" x="310" y="266" text-anchor="middle">15 days</text>
                         <text class="theta-axis" x="580" y="266" text-anchor="end">Expiry</text>
                     </svg>
+                    <div class="theta-expiry-badge" id="thetaExpiryBadge" hidden><i class='bx bxs-check-shield'></i>
+                        Expiry: the seller keeps the full premium</div>
                     <div class="theta-slider">
-                        <label for="thetaDays">Days to expiry: <strong id="thetaDaysLabel">30</strong></label>
+                        <div class="theta-slider-row">
+                            <label for="thetaDays">Days to expiry: <strong id="thetaDaysLabel">30</strong></label>
+                            <button type="button" class="theta-play" id="thetaPlay"><i class='bx bx-play'></i>
+                                <span>Play decay</span></button>
+                        </div>
                         <input type="range" id="thetaDays" min="0" max="30" value="30" step="1">
+                    </div>
+                    <div class="theta-vs">
+                        <div class="vs-row">
+                            <span class="vs-label">Option buyer</span>
+                            <span class="vs-bar"><i class="vs-fill vs-red" id="thetaBuyerBar"></i></span>
+                            <span class="vs-val vs-red-text" id="thetaBuyer">0%</span>
+                        </div>
+                        <div class="vs-row">
+                            <span class="vs-label">Option seller</span>
+                            <span class="vs-bar"><i class="vs-fill vs-green" id="thetaSellerBar"></i></span>
+                            <span class="vs-val vs-green-text" id="thetaSeller">+0%</span>
+                        </div>
+                        <p class="vs-caption">If the underlying price stays flat until expiry</p>
                     </div>
                     <p class="theta-note">Illustrative example of time decay only &mdash; not a trade recommendation.
                         Real premiums also move with price and volatility.</p>
@@ -1405,7 +1427,7 @@
             </div>
         </section>
         <!-- 10. Contact Section -->
-        <section class="contact-section section-padding text-center relative overflow-hidden">
+        <section class="contact-section section-padding text-center relative overflow-hidden" data-trading-bg="section">
             <div class="bg-glow gold center"></div>
             <div class="container reveal-scroll relative z-10">
                 <div class="cta-card">
@@ -1482,7 +1504,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=10"></script>
 
     <!-- ══════════════════════════════════════════
          PDF ROADMAP MODAL

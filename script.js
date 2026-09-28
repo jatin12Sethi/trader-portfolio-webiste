@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else root.removeAttribute('data-theme');
             try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
             syncToggle();
+            document.dispatchEvent(new CustomEvent('themechange'));
         });
     }
 
@@ -343,6 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 15. Theta decay demo: premium falls with the square root of the time left
     const thetaSlider = document.getElementById('thetaDays');
     if (thetaSlider) {
+        const widget = document.querySelector('.theta-widget');
         const chart = document.querySelector('.theta-chart');
         const T = 30, P0 = 200, X0 = 40, X1 = 580, Y0 = 30, Y1 = 240;
         const xAt = d => X0 + (1 - d / T) * (X1 - X0);
@@ -361,48 +363,144 @@ document.addEventListener('DOMContentLoaded', () => {
         const cursorLine = chart.querySelector('.theta-cursor');
         const dot = chart.querySelector('.theta-dot');
         const halo = chart.querySelector('.theta-dot-halo');
+        const particleLayer = chart.querySelector('.theta-particles');
         const premiumEl = document.getElementById('thetaPremium');
         const gainEl = document.getElementById('thetaGain');
+        const rateEl = document.getElementById('thetaRate');
         const daysEl = document.getElementById('thetaDaysLabel');
+        const buyerEl = document.getElementById('thetaBuyer');
+        const sellerEl = document.getElementById('thetaSeller');
+        const buyerBar = document.getElementById('thetaBuyerBar');
+        const sellerBar = document.getElementById('thetaSellerBar');
+        const expiryBadge = document.getElementById('thetaExpiryBadge');
+        const playBtn = document.getElementById('thetaPlay');
         chart.querySelector('.theta-full').setAttribute('d', pathUntil(0));
 
+        // Gold "coins" drip off the curve as premium melts away
+        const particles = [];
+        let particleRaf = 0;
+        let pendingDrop = 0;
+        const tickParticles = () => {
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const pt = particles[i];
+                pt.vy += 0.14;
+                pt.x += pt.vx;
+                pt.y += pt.vy;
+                pt.life -= 0.02;
+                if (pt.life <= 0 || pt.y > Y1 + 30) {
+                    pt.el.remove();
+                    particles.splice(i, 1);
+                    continue;
+                }
+                pt.el.setAttribute('cx', pt.x.toFixed(1));
+                pt.el.setAttribute('cy', pt.y.toFixed(1));
+                pt.el.setAttribute('opacity', pt.life.toFixed(2));
+            }
+            particleRaf = particles.length ? requestAnimationFrame(tickParticles) : 0;
+        };
+        const spawnParticle = (x, y) => {
+            if (prefersReducedMotion || particles.length > 70) return;
+            const el = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            el.setAttribute('r', (1.8 + Math.random() * 2.2).toFixed(1));
+            particleLayer.appendChild(el);
+            particles.push({ el, x, y, vx: (Math.random() - 0.5) * 1.8, vy: -0.6 - Math.random() * 1.4, life: 1 });
+            if (!particleRaf) particleRaf = requestAnimationFrame(tickParticles);
+        };
+
+        let lastPremium = P0;
         const render = days => {
             const p = premiumAt(days);
             const path = pathUntil(days);
-            const x = xAt(days).toFixed(1);
-            const y = yAt(p).toFixed(1);
+            const x = xAt(days);
+            const y = yAt(p);
             line.setAttribute('d', path);
-            area.setAttribute('d', `${path}L${x} ${Y1}L${X0} ${Y1}Z`);
-            cursorLine.setAttribute('x1', x);
-            cursorLine.setAttribute('x2', x);
-            [dot, halo].forEach(c => { c.setAttribute('cx', x); c.setAttribute('cy', y); });
+            area.setAttribute('d', `${path}L${x.toFixed(1)} ${Y1}L${X0} ${Y1}Z`);
+            cursorLine.setAttribute('x1', x.toFixed(1));
+            cursorLine.setAttribute('x2', x.toFixed(1));
+            [dot, halo].forEach(c => { c.setAttribute('cx', x.toFixed(1)); c.setAttribute('cy', y.toFixed(1)); });
+
+            if (p < lastPremium) {
+                pendingDrop += lastPremium - p;
+                while (pendingDrop > 1.6) {
+                    spawnParticle(x, y);
+                    pendingDrop -= 1.6;
+                }
+            } else {
+                pendingDrop = 0;
+            }
+            lastPremium = p;
+
+            const pct = Math.round((1 - p / P0) * 100);
+            const decayToday = days >= 1 ? p - premiumAt(days - 1) : p;
             premiumEl.textContent = Math.round(p);
-            gainEl.textContent = Math.round((1 - p / P0) * 100);
+            gainEl.textContent = pct;
+            rateEl.innerHTML = days < 0.05 ? 'Fully decayed' : `<b>−₹${decayToday.toFixed(1)}</b> decay today`;
+            buyerEl.textContent = pct ? `−${pct}%` : '0%';
+            sellerEl.textContent = `+${pct}%`;
+            buyerBar.style.width = `${pct}%`;
+            sellerBar.style.width = `${pct}%`;
             const whole = Math.round(days);
             daysEl.textContent = whole === 0 ? 'Expiry' : whole;
+            const atExpiry = days < 0.05;
+            expiryBadge.hidden = !atExpiry;
+            widget.classList.toggle('at-expiry', atExpiry);
             thetaSlider.style.setProperty('--fill', `${(1 - days / T) * 100}%`);
         };
-        thetaSlider.addEventListener('input', () => render(Number(thetaSlider.value)));
+
+        // Play / pause runs the clock down to expiry
+        let playRaf = 0;
+        const setPlayLabel = state => {
+            const icon = state === 'playing' ? 'bx-pause' : state === 'done' ? 'bx-revision' : 'bx-play';
+            const text = state === 'playing' ? 'Pause' : state === 'done' ? 'Replay' : 'Play decay';
+            playBtn.innerHTML = `<i class='bx ${icon}'></i> <span>${text}</span>`;
+            playBtn.classList.toggle('playing', state === 'playing');
+        };
+        const stopPlay = state => {
+            cancelAnimationFrame(playRaf);
+            playRaf = 0;
+            setPlayLabel(state || 'idle');
+        };
+        const play = () => {
+            let from = Number(thetaSlider.value);
+            if (from <= 0) {
+                from = T;
+                lastPremium = P0;
+            }
+            if (prefersReducedMotion) {
+                thetaSlider.value = 0;
+                render(0);
+                setPlayLabel('done');
+                return;
+            }
+            const duration = 5600 * from / T;
+            const start = performance.now();
+            const step = now => {
+                const t = Math.min((now - start) / duration, 1);
+                const days = from * (1 - t);
+                thetaSlider.value = Math.round(days);
+                render(days);
+                if (t < 1) playRaf = requestAnimationFrame(step);
+                else stopPlay('done');
+            };
+            setPlayLabel('playing');
+            playRaf = requestAnimationFrame(step);
+        };
+        playBtn.addEventListener('click', () => (playRaf ? stopPlay() : play()));
+        thetaSlider.addEventListener('input', () => {
+            if (playRaf) stopPlay();
+            render(Number(thetaSlider.value));
+        });
         render(T);
 
-        // Play the decay once when the chart first scrolls into view (stops if the visitor grabs the slider)
+        // Play once when the chart first scrolls into view (unless the visitor already took control)
         if (!prefersReducedMotion && 'IntersectionObserver' in window) {
             let touched = false;
-            thetaSlider.addEventListener('pointerdown', () => { touched = true; });
-            thetaSlider.addEventListener('keydown', () => { touched = true; });
+            ['pointerdown', 'keydown'].forEach(evt => thetaSlider.addEventListener(evt, () => { touched = true; }));
+            playBtn.addEventListener('click', () => { touched = true; });
             const thetaObserver = new IntersectionObserver(entries => {
                 if (!entries[0].isIntersecting) return;
                 thetaObserver.disconnect();
-                const start = performance.now();
-                const step = now => {
-                    if (touched) return;
-                    const t = Math.min((now - start) / 2600, 1);
-                    const days = T - (T - 3) * (1 - Math.pow(1 - t, 3));
-                    thetaSlider.value = Math.round(days);
-                    render(days);
-                    if (t < 1) requestAnimationFrame(step);
-                };
-                requestAnimationFrame(step);
+                if (!touched) setTimeout(() => { if (!touched && !playRaf) play(); }, 400);
             }, { threshold: 0.5 });
             thetaObserver.observe(chart);
         }
@@ -462,4 +560,236 @@ document.addEventListener('DOMContentLoaded', () => {
         courseSelectEl.addEventListener('change', updateSummary);
         updateSummary();
     }
+
+    // 19. Live candlestick chart painted behind selected sections ([data-trading-bg="hero" | "section"])
+    const PALETTES = {
+        dark: {
+            grid: 'rgba(255, 255, 255, 0.05)', up: '16, 185, 129', down: '239, 68, 68',
+            ema: 'rgba(212, 175, 55, 0.95)', emaGlow: 'rgba(212, 175, 55, 0.6)', tagText: '#04130d'
+        },
+        light: {
+            grid: 'rgba(15, 23, 42, 0.07)', up: '13, 147, 103', down: '220, 38, 38',
+            ema: 'rgba(161, 131, 35, 0.95)', emaGlow: 'rgba(161, 131, 35, 0.35)', tagText: '#ffffff'
+        }
+    };
+    document.querySelectorAll('[data-trading-bg]').forEach((host, hostIndex) => {
+        const isHero = host.dataset.tradingBg === 'hero';
+        const canvas = document.createElement('canvas');
+        canvas.className = `trading-bg trading-bg--${isHero ? 'hero' : 'section'}`;
+        canvas.setAttribute('aria-hidden', 'true');
+        host.classList.add('has-trading-bg');
+        host.prepend(canvas);
+        const ctx = canvas.getContext('2d');
+
+        const spacing = isHero ? 16 : 13;
+        const bodyWidth = Math.round(spacing * 0.52);
+        const candleMs = isHero ? 850 : 1100;
+        const base = [23580, 51460, 24150, 81200, 22900][hostIndex % 5];
+        let price = base;
+        let trend = 0;
+        let total = 0;
+        const candles = [];
+        const nextPrice = () => {
+            // random walk with slowly changing trend and a pull back toward the base
+            trend = (trend + (Math.random() - 0.5) * 0.35) * 0.96;
+            price += (trend + (Math.random() - 0.5) * 1.6) * base * 0.00045 + (base - price) * 0.004;
+            return price;
+        };
+        const addCandle = open => {
+            candles.push({ o: open, h: open, l: open, c: open, v: 0.25 + Math.random() * 0.5 });
+            total++;
+            if (candles.length > 420) candles.splice(0, candles.length - 320);
+        };
+        const tick = candle => {
+            const p = nextPrice();
+            candle.c = p;
+            candle.h = Math.max(candle.h, p);
+            candle.l = Math.min(candle.l, p);
+            candle.v = Math.min(1, candle.v + 0.02 + Math.random() * 0.03);
+        };
+        addCandle(price);
+        for (let i = 0; i < 200; i++) {
+            const candle = candles[candles.length - 1];
+            for (let k = 0; k < 7; k++) tick(candle);
+            addCandle(candle.c);
+        }
+
+        let width = 0, height = 0, lo = 0, hi = 0;
+        let candleStart = performance.now(), lastTick = 0;
+        const resize = () => {
+            const rect = host.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = rect.width;
+            height = rect.height;
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+
+        const draw = (now, animate) => {
+            const current = candles[candles.length - 1];
+            let progress = 0;
+            if (animate) {
+                if (now - lastTick > 80) {
+                    lastTick = now;
+                    tick(current);
+                }
+                progress = (now - candleStart) / candleMs;
+                if (progress >= 1) {
+                    addCandle(current.c);
+                    candleStart = now;
+                    progress = 0;
+                }
+            }
+            const pal = PALETTES[document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'];
+            const rightPad = isHero ? Math.min(110, width * 0.12) : spacing;
+            const count = Math.ceil((width - rightPad) / spacing) + 2;
+            const visible = candles.slice(-count);
+            const offset = progress * spacing;
+            const xAt = i => width - rightPad - (visible.length - 1 - i) * spacing - offset;
+
+            let tHi = -Infinity, tLo = Infinity;
+            visible.forEach(k => { tHi = Math.max(tHi, k.h); tLo = Math.min(tLo, k.l); });
+            const pad = (tHi - tLo) * 0.18 || 1;
+            tHi += pad;
+            tLo -= pad;
+            if (!hi || !animate) { hi = tHi; lo = tLo; } else { hi += (tHi - hi) * 0.05; lo += (tLo - lo) * 0.05; }
+            // keep the price area in proportion on tall, narrow screens (phones) so candles don't stretch
+            const plotH = Math.min(height * 0.68, Math.max(260, width * 0.75));
+            const top = (height - plotH) * 0.4, bottom = top + plotH;
+            const yAt = v => bottom - (v - lo) / (hi - lo) * (bottom - top);
+
+            ctx.clearRect(0, 0, width, height);
+
+            // grid: fixed horizontal lines, vertical lines that travel with the candles
+            ctx.strokeStyle = pal.grid;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            for (let g = 1; g < 6; g++) {
+                const gy = Math.round(height * g / 6) + 0.5;
+                ctx.moveTo(0, gy);
+                ctx.lineTo(width, gy);
+            }
+            visible.forEach((k, i) => {
+                if ((total - visible.length + i) % 10 === 0) {
+                    const gx = Math.round(xAt(i)) + 0.5;
+                    ctx.moveTo(gx, 0);
+                    ctx.lineTo(gx, height);
+                }
+            });
+            ctx.stroke();
+
+            // volume bars along the bottom
+            const volMax = plotH * 0.18, volTop = bottom + plotH * 0.05;
+            visible.forEach((k, i) => {
+                const up = k.c >= k.o;
+                ctx.fillStyle = `rgba(${up ? pal.up : pal.down}, 0.18)`;
+                const vh = k.v * volMax;
+                ctx.fillRect(xAt(i) - bodyWidth / 2, volTop + volMax - vh, bodyWidth, vh);
+            });
+
+            // candles
+            visible.forEach((k, i) => {
+                const up = k.c >= k.o;
+                const x = Math.round(xAt(i)) + 0.5;
+                const color = `rgba(${up ? pal.up : pal.down}, 0.9)`;
+                ctx.strokeStyle = color;
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.moveTo(x, yAt(k.h));
+                ctx.lineTo(x, yAt(k.l));
+                ctx.stroke();
+                const yo = yAt(k.o), yc = yAt(k.c);
+                ctx.fillRect(x - bodyWidth / 2, Math.min(yo, yc), bodyWidth, Math.max(Math.abs(yc - yo), 1.5));
+            });
+
+            // 9-period EMA with a soft glow
+            const warm = candles.slice(-(count + 40));
+            const alpha = 2 / (9 + 1);
+            let ema = warm[0].c;
+            const emaPts = [];
+            warm.forEach((k, i) => {
+                ema = k.c * alpha + ema * (1 - alpha);
+                const vi = i - (warm.length - visible.length);
+                if (vi >= 0) emaPts.push([xAt(vi), yAt(ema)]);
+            });
+            ctx.save();
+            ctx.strokeStyle = pal.ema;
+            ctx.lineWidth = 2;
+            ctx.shadowColor = pal.emaGlow;
+            ctx.shadowBlur = 10;
+            ctx.beginPath();
+            emaPts.forEach(([ex, ey], i) => (i ? ctx.lineTo(ex, ey) : ctx.moveTo(ex, ey)));
+            ctx.stroke();
+            ctx.restore();
+
+            // hero: live price line, pulsing dot and price tag
+            if (isHero) {
+                const up = current.c >= current.o;
+                const rgb = up ? pal.up : pal.down;
+                const py = yAt(current.c);
+                const px = xAt(visible.length - 1);
+                ctx.save();
+                ctx.setLineDash([4, 5]);
+                ctx.strokeStyle = `rgba(${rgb}, 0.6)`;
+                ctx.beginPath();
+                ctx.moveTo(0, Math.round(py) + 0.5);
+                ctx.lineTo(width, Math.round(py) + 0.5);
+                ctx.stroke();
+                ctx.restore();
+                const pulse = animate ? (now % 1600) / 1600 : 0;
+                ctx.fillStyle = `rgba(${rgb}, ${0.35 * (1 - pulse)})`;
+                ctx.beginPath();
+                ctx.arc(px, py, 4 + pulse * 10, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = `rgb(${rgb})`;
+                ctx.beginPath();
+                ctx.arc(px, py, 3.5, 0, Math.PI * 2);
+                ctx.fill();
+                const label = current.c.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                ctx.font = '600 12px Inter, sans-serif';
+                const tw = ctx.measureText(label).width + 16;
+                const tx = Math.min(width - tw - 8, px + 14);
+                ctx.fillStyle = `rgb(${rgb})`;
+                ctx.beginPath();
+                if (ctx.roundRect) ctx.roundRect(tx, py - 11, tw, 22, 6); else ctx.rect(tx, py - 11, tw, 22);
+                ctx.fill();
+                ctx.fillStyle = pal.tagText;
+                ctx.textBaseline = 'middle';
+                ctx.fillText(label, tx + 8, py + 0.5);
+            }
+        };
+
+        resize();
+        draw(performance.now(), false);
+        if (prefersReducedMotion) {
+            // one still frame, redrawn when the size or theme changes
+            new ResizeObserver(() => { resize(); draw(performance.now(), false); }).observe(host);
+            document.addEventListener('themechange', () => draw(performance.now(), false));
+            return;
+        }
+        new ResizeObserver(resize).observe(host);
+
+        // animate only while the section is on screen and the tab is visible
+        let onScreen = false, raf = 0;
+        const loop = now => {
+            if (!onScreen || document.hidden) {
+                raf = 0;
+                return;
+            }
+            draw(now, true);
+            raf = requestAnimationFrame(loop);
+        };
+        const kick = () => {
+            if (onScreen && !document.hidden && !raf) {
+                candleStart = performance.now();
+                raf = requestAnimationFrame(loop);
+            }
+        };
+        new IntersectionObserver(entries => {
+            onScreen = entries[0].isIntersecting;
+            kick();
+        }).observe(host);
+        document.addEventListener('visibilitychange', kick);
+    });
 });
